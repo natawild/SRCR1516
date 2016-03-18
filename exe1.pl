@@ -5,51 +5,57 @@
 % Base de Conhecimento do registo de eventos numa instituição de saúde
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado instituição: (codigo,nome)->{V,F} 
+% Extensao do predicado instituição(nome). 
 
-instituicao( 1, Hospital de Guimarães ). 
-instituicao( 2, Hospital S.Marcus Braga ).
-instituicao( 3, Hospital de Barcelos ).
-instituicao( 4, Hospital de São João Porto ).
-instituicao( 5, Universitário de Coimbra ).
-instituicao( 6, Hospital Lisboa Norte ).
-instituicao( 7, Hospital Beatriz Angelo ).
-instituicao( 8, Hospital da Trofa ).
-
-%--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado servico: ([instituicao],nome)->{V,F} 
-
-
-servico( [1,2,3,4,5,6], cardiologia ). 
-servico( [1,2,5,6], cirugia geral ).
-servico( [4,5,6,7], neurologia ).
-servico( [4,5,6], ortopedia ).
-servico( [1,2,3,4,5,6], psiquiatria ).
-servico( [1,3,4,5,6,7], oftamologia ).
-servico( [1,2,3,4,5,6], ginecologia/obstetricia ).
-servico( [2,3,5,6], oncologia ).
-servico( [1,2,3,4,5,6], endocrinologia ).
-servico( [3,4,5,6,7,8], urologia ).  
+instituicao( hospitalGuimaraes ). 
+instituicao( hospitalBraga ).
+instituicao( hospitalBarcelos ).
+instituicao( hospitalPorto ).
+instituicao( universitarioCoimbra ).
+instituicao( hospitalLisboaNorte ).
+instituicao( hospitalBeatrizAngelo ).
+instituicao( hospitalTrofa ).
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado utente: ([codigo instituicao],[servico],nome)->{V,F}
+% Extensao do predicado servico(nome).
 
+servico( cardiologia ). 
+servico( cirugiageral ).
+servico(  neurologia ).
+servico(  ortopedia ).
+servico(  psiquiatria ).
+servico(  oftamologia ).
+servico(  ginecologia/obstetricia ).
+servico(  oncologia ).
+servico(  endocrinologia ).
+servico(  urologia ).  
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado utente(nome).
        
-       
-utente( [1,2,3,4,5,8],[], jose ).  
-utente( [],[], carlos ).  
-
-
-
-
+utente( jose ).  
+utente( carlos ). 
+utente( maria ). 
+utente( carlos ).   
+utente( antonio ). 
+utente( manuel ).  
+utente( joana ).   
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado profissional: ([codigo instituicao],[servico],nome)->{V,F}
+% Extensao do predicado profissional(nome).
   
-profissional([2,3],[cardiologia], marcus ).
-profissional([2,3,5],[oncologia], maria ).
+profissional( marcus ).
+profissional( maria ).
+profissional( jorge ).
+profissional( celia ).
+profissional( carlos ).
+profissional( antonio ).
+profissional( vitoria ).
 
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado instserv(intituicao,servico).
 
+instserv( )
 
 
 
