@@ -4,6 +4,16 @@
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Base de Conhecimento do registo de eventos numa instituição de saúde
 
+:- op( 900,xfy,'::' ).
+/* permitir adicionar a base de conhecimento	*/
+:-dynamic utentes/1.
+:-dynamic instituicao/1.
+:-dynamic servico/1.
+:-dynamic profissional/1.
+:-dynamic instserv/2, utenserv/2, utentinst/2. 
+:-dynamic ok/3.
+
+
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado instituição(nome). 
 
