@@ -55,7 +55,56 @@ profissional( vitoria ).
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado instserv(intituicao,servico).
 
-instserv( )
+instserv( hospitalBraga, cardiologia ).
+instserv( hospitalBeatrizAngelo, endocrinologia ).
+instserv( hospitalBraga, oncologia ).
+instserv( hospitalPorto, cardiologia ).
+instserv( hospitalPorto, psiquiatria ).
+instserv( hospitalTrofa, urologia ).
+instserv( hospitalBarcelos, oftamologia ).
+instserv( hospitalBarcelos, endocrinologia ).
+instserv( hospitalGuimaraes, neurologia ).
+instserv( hospitalLisboaNorte,  neurologia).
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado utentinst(utente,instituicao).
+
+utentinst( jose, hospitalBarcelos ). 
+utentinst( maria, hospitalPorto ).
+utentinst( carlos, hospitalTrofa ). 
+utentinst( jose, hospitalBraga ).
+utentinst( joana, hospitalBeatrizAngelo ). 
+utentinst( manuel, hospitalLisboaNorte ). 
+
+-------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado utenserv(utente,servico).
+
+utenserv( jose, endocrinologia ). 
+utenserv( maria, cardiologia ).
+utenserv( carlos, urologia ).  
+utenserv( joana, endocrinologia ).  
+utenserv( manuel, neurologia ).  
+
+
+-------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado utenservinst:(utente,servico, instituicao)->{V,F}
+
+ok(X,Y,Z):-
+    utenserv(X, Y),
+    utentinst(X,Z),
+    instserv(Z,Y). 
+         
+         
+
+
+
+
+
+
+
+
+
+
 
 
 
