@@ -86,7 +86,7 @@ utentinst( carlos, hospitalTrofa ).
 utentinst( jose, hospitalBraga ).
 utentinst( joana, hospitalBeatrizAngelo ). 
 utentinst( manuel, hospitalLisboaNorte ). 
-
+utentinst( manuel, hospitalBraga ).
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado utenserv(utente,servico).
 
@@ -96,6 +96,44 @@ utenserv( maria,cardiologia ).
 utenserv( carlos, urologia ).  
 utenserv( joana, endocrinologia ).  
 utenserv( manuel, neurologia ).  
+utenserv( manuel, cardiologia ). 
+
+
+%-------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado instProfi(intituicao,profissional).
+
+instProfi( hospitalBraga,marcus ).
+instProfi( hospitalBarcelos,maria ).
+instProfi( hospitalLisboaNorte,jorge ).
+instProfi( hospitalBeatrizAngelo,celia ).
+instProfi( hospitalBraga,maria ).
+instProfi( hospitalBarcelos,celia ).
+instserv( hospitalPorto, jorge).
+instserv( hospitalTrofa,vitoria ).
+instserv( hospitalTrofa,jorge ).
+
+%-------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado servicoProfi(profissional,servico).
+
+servicoProfi( marcus,endocrinologia). 
+servicoProfi( jorge,cardiologia).
+servicoProfi( marcus,cardiologia ).
+servicoProfi( vitoria, urologia ).  
+servicoProfi(jorge,urologia).
+
+
+%-------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado profUtente(profissional,utente).
+
+profUtente(marcus,jose).
+profUtente(jorge,maria).
+profUtente(marcus,maria).
+profUtente(jorge,carlos).
+profUtente(vitoria,carlos).
+profUtente(jorge,carlos).
+
+
+
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 printLista([]):-write('').
@@ -120,24 +158,85 @@ nao(Questao).
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 difList([],_,[]).
+
+
 difList([H1|T1],L2,[H1|L3]):-
 	nao(member(H1,L2)), difList(T1,L2,L3).
+
+
 difList([_|T1],L2,L3):-
 	difList(T1,L2,L3).
 
 
-%-------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado utenservinst:(utente,servico, instituicao)->{V,F}
 
-utenservinst(X,Y,Z):-
-     utenserv(X,Y),
-     utentinst(X,Z),
-     instserv(Z,Y),
-     utente(X),
-     instituicao(Z),
-     servico(Y).
+
+
+
+%-------------------------- - - - - - - - - - -  -  -  -  -   -         
+% 1-Identificar os serviços existentes de uma instituicao
+% Extensao do predicado  servicoInst  : Instituicao,[servico]->{V,F}
+
+
+servicoInst(Inst,Serv):-findall(K,instserv(Inst,K),Serv).      
+
+servicoInst(Inst,[Serv|K]):- instserv(Inst,Serv),servicoInst(Inst,K).
+
+servicoInst(Inst,[Serv]):- instserv(Inst,Serv).
+
+servicoInst(Inst,[]).
+
+
+
+
+%-------------------------- - - - - - - - - - -  -  -  -  -   -         
+% 2-Identificar os utentes de uma instituicao
+% Extensao do predicado  utentesInst  : Instituicao,[utentes]->{V,F}
+
+
+utentesInst(Inst,Uten):-findall(K,utentinst(K,Inst),Uten).      
+
+utentesInst(Inst,[Uten|K]):- utentinst(Uten,Inst),utentesInst(Inst,K).
+
+utentesInst(Inst,[Uten]):-utentinst(Uten,Inst).
+
+utentesInst(Inst,[]).
+
+
+
+%-------------------------- - - - - - - - - - -  -  -  -  -   -         
+% 3-Identificar os utentes de um determinado servico
+% Extensao do predicado  utentesServ  : [utentes],servico>{V,F}
+
+servUtente(Serv,Ute):- findall(K,utenserv(K,Serv),Ute).
+
+servUtente(Serv,[Ute|K]):- utenserv(Ute,Serv), servUtente(Serv,K).
+
+servUtente(Serv,[Ute]):- utenserv(Serv,Ute).
+
+servUtente(Serv,[]).
+
+
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
-% Identificar as instituições onde seja prestado um dado serviço ou conjunto de serviços;
+% 4- Identificar os utentes de um determinado servico numa instituicao
+
+% Extensao do predicado utenservinst:(servico, instituicao,[utentes])->{V,F}
+
+utenServInst(Serv,Inst,Uten):- findall(K,(utenserv(K,Serv),utentinst(K,Inst),instserv(Inst,Serv)),Uten). 
+
+utenServInst(Serv,Inst,[Uten|K]):- utenserv(Uten,Serv),
+                                   utentinst(Uten,Inst),
+                                   instserv(Inst,Serv),
+                                   utenServInst(Serv,Inst,K).
+
+
+utenServInst(Serv,Inst,[Uten]):- utenserv(Uten,Serv),
+                                   utentinst(Uten,Inst),
+                                   instserv(Inst,Serv).
+
+utenServInst(Serv,Inst,[]).
+
+%-------------------------- - - - - - - - - - -  -  -  -  -   -
+% 5-Identificar as instituições onde seja prestado um dado serviço ou conjunto de serviços;
 
 % Extensao do predicado instServico: ([Serviço],[Instituição])->{V,F}    
  
@@ -150,44 +249,40 @@ instServicos([S|T],I):-
 	instServicos(T,I2),concat(I1,I2,I).
          
          
-%--------------------------- --- - - - -- - -- - - - -  - -- - - -
 
-% Indentificar os serviços existentes numa instituicao
 
-% Extensao do predicado existeServInst : [Serviço],Instituição->{V,F}
-existeServInst(Serv,I):- 
-                       findall(K,instserv(I,K),Serv). 
-         
-         
-         
+
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
-% Identificar os serviços que não se podem encontrar numa instituição;
+% 6-Identificar os serviços que não se podem encontrar numa instituição;
 
 % Extensao do predicado servicosForaInst : Instituicao,Serviço->{V,F}
 
  todosServicos(L):-
 	findall(S,servico(S),L).
 
+
 servicosForaInst(Ins,Serv):-todosServicos(P), 
-                            existeServInst(K,Ins),
-                            difList(P,K,Serv).
+                           servicoInst(Ins,K),
+                           difList(P,K,Serv).
                              
-                             
-                             
-                             
-                                   
-
- 
-         
 
 
+%-------------------------- - - - - - - - - - -  -  -  -  -   -         
+% 7-Determinar as instituições onde um profissional presta servico;
+
+% Extensao do predicado profiServico : profissional,[instituições]->{V,F}
 
 
+profiServico(Prof,Inst):- findall(K,instProfi(K,Prof),Inst).
 
+profiServico(Prof,[Inst|K]):-instProfi(Inst,Prof),
+                             profiServico(Prof,K).
 
+profiServico(Prof,[Inst]):-instProfi(Inst,Prof).
 
+profiServico(Prof,[]).
 
+%-------------------------- - - - - - - - - - -  -  -  -  -   -         
+% 8-Determinar todas as instituições(ou serviços, ou profissionais) a que um utente ja recorreu
 
-
-
-
+% Extensao do predicado instSerProf: profissional,[instituições]->{V,F}
