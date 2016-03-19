@@ -12,7 +12,9 @@
 :-dynamic profissional/1.
 :-dynamic instserv/2.
 :-dynamic utenserv/2, utentinst/2. 
-:-dynamic ok/3.
+:-dynamic instProfi/2.
+:-dynamic profUtente/2.
+:-dynamic servicoProfi/2.
 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
@@ -108,9 +110,9 @@ instProfi( hospitalLisboaNorte,jorge ).
 instProfi( hospitalBeatrizAngelo,celia ).
 instProfi( hospitalBraga,maria ).
 instProfi( hospitalBarcelos,celia ).
-instserv( hospitalPorto, jorge).
-instserv( hospitalTrofa,vitoria ).
-instserv( hospitalTrofa,jorge ).
+instProfi( hospitalPorto, jorge).
+instProfi( hospitalTrofa,vitoria ).
+instProfi( hospitalTrofa,jorge ).
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado servicoProfi(profissional,servico).
