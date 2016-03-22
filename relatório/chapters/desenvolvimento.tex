@@ -1,173 +1,139 @@
 \chapter{Introdução}
 \label{cap:p1}
-
-Nesta secção apresentam-se as classes usadas. Tanto o motor como o gerador recorrem extensivamente a estas classes para desempenhar as suas funções. Algumas destas classes são recorrentes e usadas mais que uma vez em diferentes contextos. Assim, antes de introduzir como funciona o motor e o gerador é importante primeiro perceber quais são as classes que ambos usam, bem como a função de cada uma.
-
-O objectivo de construção destas classes foi simplificar a construção do motor e gerador apenas. Nesta primeira etapa, foram deixadas para segundo plano questões como a modularidade e encapsulamento de dados, embora seja algo a considerar em etapas posteriores do trabalho.
-
-
-\section{CoordsPolares}
-\label{p1:coordsPolares}
-Esta classe pretende abstrair os cálculos relacionados com coordenadas polares. A ideia é poderem ser criadas instâncias desta classe indicando os parâmetros correspondentes a coordenadas polares e as correspondentes coordenadas cartesianas poderem ser obtidas facilmente a partir da instância.
+Este primeiro capítulo tem como objetivo apresentar uma breve introdução ao exercício a realizar. Sendo assim, é necessário perceber os motivos que levaram à resolução do exercício assim como os objetivos pretendidos.
+A Programação em Lógica é um tipo específico de programação cujo objetivo é a implementação de um programa cujo conteúdo se prende em factos (registos que se sabem verdadeiros), predicados (associados aos factos) e regras. A este programa podem ser estruturadas questões sobre o seu conteúdo e obter-se-ão respostas válidas e corroboradas pela lógica em si.
+A programação em lógica baseia-se em dois princípios básicos para a “descoberta” das respostas (soluções) a essas questões: lógica, usada para representar os conhecimentos e informação, e Inferência, regras aplicadas à Lógica para manipular o conhecimento.
 
 
 
 
-Designando o ponto central como C(cx,cy,cz) e um ponto P(px,py,pz) que se pretende localizar, temos que as coordenadas px e py podem ser obtidas da seguinte forma:\\
-
-	$px = cx + r \times sin(\alpha)$
-	
-	$py = cy$
-	
-	$pz = cz + r \times cos(\alpha)$\\
-
-A classe \textit{CoordsPolares} representa apenas uma forma fácil de trabalhar com este sistema de coordenadas. Esta classe possui variáveis de instância relacionadas com as suas coordenadas polares e cartesianas:
-
-\begin{Verbatim}
-	//Centro a partir do qual se 
-	//considera as coordenadas polares
-	Ponto3D centro;
-	//Coordenadas polares
-	float raio, azimuth;
-	//Coordenadas rectangulares correspondentes 
-	//às coordenadas polares
-	Ponto3D cCartesianas;
-\end{Verbatim}
-
-O ponto chave desta classe é que as variáveis das coordenadas polares e cartesianas referem-se sempre ao mesmo ponto. Sempre que um dos parâmetros é alterado (através de uma das funções disponibilizadas), todos os restantes são actualizados em conformidade.
-
-A classe tem um único construtor:
-
-\begin{Verbatim}
-CoordsPolares(Ponto3D c, float r, float az);
-\end{Verbatim}
-
-Neste construtor são pedidos os parâmetros referentes às coordenadas polares. O primeiro parâmetro \textit{c} corresponde ao ponto central, o segundo parâmetro r corresponde ao raio e o último parâmetro corresponde ao ângulo azimuth ($\alpha$). Ao receber estas coordenadas polares, o construtor seguidamente atualiza as variáveis de instância em conformidade, nomeadamente coloca na variável de instância \textit{cCartesianas} as coordenadas cartesianas correspondentes às coordenadas polares passadas como argumento. Essa actualização é feita pela função \textit{refreshCartesianas()}:
-
-\begin{Verbatim}
-void refreshCartesianas(){
-	cRectangulares.x = centro.x + raio * sin(azimuth);
-	cRectangulares.y = centro.y;
-	cRectangulares.z = centro.z + raio * cos(azimuth);
-}
-\end{Verbatim}
-
-Como se pode ver, esta função implementa apenas as fórmulas apresentadas anteriormente. Esta função é privada à classe, por isso não pode ser chamada em qualquer parte do código. É a própria classe que se responsabiliza por chamar esta função sempre que necessário.
-
-Assim, dada uma instância desta classe é sempre possível saber as coordenadas cartesianas correspondentes através da função \textit{toCartesianas()}:
-
-\begin{Verbatim}
-Ponto3D toCartesianas() {
-	return cCartesianas;
-}
-\end{Verbatim}
+\section{Motivação e Objetivos}
+\label{p1:MotivObj}
+O PROLOG é uma linguagem declarativa, pois fornece uma descrição do problema que se pretende computar utilizando uma coleção de factos e regras lógicas que indicam como deve ser resolvido o problema proposto. Sendo também uma linguagem que é especialmente associada com a inteligência artificial e linguística computacional foi um dos grandes motivos que nos levou a querer aprender este tipo de linguagem mais direcionado ao conhecimento do que aos algoritmos. 
 
 
-\section{CoordsEsfericas}
-\label{p1:cEsfericas}
-Esta classe pretende abstrair os cálculos relacionados com coordenadas esféricas. A ideia é poderem ser criadas instâncias desta classe indicando os parâmetros correspondentes a coordenadas esféricas e as correspondentes coordenadas cartesianas poderem ser obtidas facilmente a partir da instância. É também possível fazer o inverso, ou seja, indicar um ponto com coordenadas cartesianas e obter as respectivas coordenadas esféricas.
-
-As coordenadas esféricas são constituídas por um raio $r$, por um ângulo $\theta$ (também designado por ângulo azimuth) e um ângulo $\phi$ (também designado por ângulo polar), conforme apresentado na figura \ref{p1:fig:p1_sphericalCoords}:
+Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, este exercício surge com o objetivo de consolidar conhecimentos e obter experiência e prática face a problemas de programação em lógica. O objetivo final será a construção de um programa capaz de armazenar conhecimento sobre registo de eventos numa instituição de saúde e através deste solucionar questões deste tema.
 
 
 
-É possível saber as coordenadas cartesianas de um ponto P(px,py,pz) a partir das suas coordenadas esféricas através das seguintes fórmulas:\\
-
-		$px = r \times cos(\theta) \times sin(\phi)$
-		
-		$py = r \times sin(\theta) \times sin(\phi) $
-		
-		$pz = r \times cos(\phi)$\\
+\section{Estrutura do documento}
+\label{p1:Estrutura}
+O presente relatório encontra-se organizado em X capítulos. Sendo que neste primeiro introduzimos a linguagem e o tema a tratar menciona-se também a motivação e os objetivos que nos levaram à realização deste exercício. 
+No segundo capítulo será feito um estudo prévio da linguagem de modo a que o leitor possa entender o exercício. No terceiro capítulo explicaremos o que foi desenvolvido para a implementação do exercício. No quarto capítulo apresentaremos as conclusões e interpretação dos resultados obtidos. Por fim nos últimos dois capítulos será apresentada a bibliografia consultada, no quinto capítulo e os anexos no sexto. 
 
 
-Por outro lado, consegue-se saber também as coordenas esféricas de um ponto a partir das suas coordenadas cartesianas de acordo com as seguintes fórmulas:\\
 
-		$r = \sqrt{px^2 + py^2 + pz^2}$
-		
-		$\theta = \arctan(py \backslash px) $
-		
-		$\phi = \arccos (pz \backslash r)$\\
 
-De referir que ao contrário da classe \textit{CoordsPolares}, nesta classe optou-se por não se considerar um centro. Assume-se o centro como sendo (0.0,0.0,0.0) sempre. Considerou-se esta simplificação razoável na medida em que responde aos requisitos do motor e gerador nesta primeira fase.
+\chapter{Preliminares}
+\label{cap:p2}
+Neste capítulo vao ser apresentados alguns conceitos fundamentais para a elaboraçãoo deste
+exercício e algumas das ferramentas fundamentais para a elaboração do mesmo.
 
-A classe \textit{CoordsEsfericas} tem as seguintes variáveis de instância:
 
-\begin{Verbatim}
-// Coordenadas Esfericas
-float raio, azimuth_ang, polar_ang;
-// Coordenadas cartesianas
-Ponto3D cCartesianas;
-\end{Verbatim}
+\section{Estudos anteriores}
+\label{p2:estudp}
 
-O ponto chave desta classe é que as variáveis das coordenadas esféricas e cartesianas referem-se sempre ao mesmo ponto. Sempre que um dos parâmetros é alterado (através de uma das funções disponibilizadas), todos os restantes são atualizados em conformidade.
+Para a realização deste trabalho foram necessários alguns conhecimentos anteriores sobre programação em lógica e, posteriormente, o uso da linguagem de programação PROLOG.
+Este conhecimento foi adquirido ao longo das aulas teóricas ( programação em lógica) e aulas
+teórico-práticas (PROLOG) de Sistemas de Representação de Conhecimento e Raciocínio.
+Sobre estes conhecimentos, devemos destacar todos os conceitos que foram aprendidos tais
+como o que são predicados, o que são cláusulas, o que é a base de conhecimento, entre outros
+conceitos de programação em lógica que serão explicados ao longo deste documento.
+Após termos alguns conhecimentos de programação em lógica falta colocá-los em prática,
+e, é aqui, que entram os conhecimentos de PROLOG e da ferramenta \textit{SICSTus} usada para
+compilar e interpretar o código desenvolvido nesta linguagem.
+\\
 
-Uma instância da classe \textit{CoordsEsfericas} pode ser criada indicando os parâmetros das coordenadas esféricas (para se saber as suas coordenadas cartesianas), ou indicando um ponto em coordenadas cartesianas (do qual se pretende saber as coordenadas esféricas), através dos seguintes construtores:
 
-\begin{Verbatim}
-CoordsEsfericas(float r, float az, float polar);
-CoordsEsfericas(Ponto3D pto);
-\end{Verbatim}
+Para o desenvolvimento desses predicados foi necessário fazer uma análise dos conhecimentos de cada um dos membros sobre o tema e acompanhado de uma pequena pesquisa sobre as características destes.
 
-Caso a instância seja criada a partir de coordenadas polares, o construtor calcula as coordenadas cartesianas correspondentes através da função \textit{refreshCartesianas()}:
+O estudo inicial passou por caracterizar um utente, isto é, definir todos os parâmetros que definem o que é ser um utente. A conclusão a que se chegou foi que um utente é definido por nome, serviço a que está a ser inscrito ou consultado, profissional atribuído ou responsável por esse serviço e a instituição onde o profissional labora e onde o utente está a ser atendido, que coincidem obviamente. Na realidade, o utente é composto por muitos outros factores, tal como, número de utente, número de contribuinte, número de cartão de cidadão entre muitos outros mas que para a resolução dos critérios designados como mínimos apenas são requeridos aqueles mencionados anteriormente, pois as questões não pretendem incidir nesses campos.
+\\
 
-\begin{Verbatim}
-void refreshCartesianas() {
-	cCartesianas.z = raio * sin(polar_ang) * cos(azimuth_ang);
-	cCartesianas.x = raio * sin(polar_ang) * sin(azimuth_ang);
-	cCartesianas.y = raio * cos(polar_ang);
-}
-\end{Verbatim}
+Um serviço é caracterizado por designação, isto é, o nome do serviço, que terá de ser elucidativo, por exemplo, “cirurgia” e por instituição, que corresponde ao nome do local onde se presta esse serviço aos utentes, e como tal será algo como “hospital....” ou “centro de saúde...” ou algo semelhante que reflita que esse local é um local em que se prestam determinados serviços na área da saúde. Na realidade serviços é muito mais complexo e passa por ter chefes de equipas, e por vezes especificação detalhada, como por exemplo, “cirurgia cardíaca” que é diferente de “cirurgia cerebral”. Ou seja dentro do serviço existem categorias e para cada categoria existem chefes de equipas e as respectivas equipas. Generalizando o exemplo, teríamos um chefe do serviço geral “cirurgia” que teria uma equipa de chefes de categorias desse serviço e cada categoria teria uma equipa de profissionais. Mas nada disto é utilizado para cumprir os requisitos mínimos e tal como nos casos anteriores é sim algo que pode ser utilizado como uma extensão do projeto.  
+\\
+Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões, mas um profissional é algo mais que isto. Um profissional tem também um chefe associado, tem uma especialidade, tem um identificador dentro da instituição, visto que um profissional pode exercer funções em mais que uma instituição, e em mais que um serviço. Para além destes possui também informações semelhantes ás do utente que dizem respeito ao facto de serem cidadãos. E que são características possíveis de utilizar em futuras extensões. 
+\\
 
-Caso a instância seja criada a partir de coordenadas cartesianas, o construtor calcula as coordenadas polares correspondentes através da função \textit{refreshEsfericas()}:
+Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos mínimos não pretendem questionar nada de especial que implique que a instituição tenha de ter algo mais no seu predicado além do seu nome. Mas como é óbvio uma instituição  é muito mais que um nome, isto é, quando alguém pensa numa instituição não pensa unicamente no seu nome. Na realidade uma instituição é composta por vários departamentos, um dos quais é o departamento responsável pela aplicação dos diversos serviços e é nesse que se encontram os profissionais, possui colaboradores, outros serviços, como cafetarias, salas de espera, balcões de atendimento ou de reclamações, entre muitos outros. No entanto, restringe-se esse conceito ao simples facto de ser um local onde profissionais prestam serviços a utentes.
+
+
+\section{Programação em Lógica e PROLOG}
+\label{p2:proglogprolog}
+De modo a que a leitura deste documento seja perceptível em termos de conceitos e símbolos é necessário fazer referências breves a noções básicas de PROLOG, a linguagem em que é desenvolvido este trabalho.
+Tal como foi mencionado anteriormente uma linguagem de programação lógica utiliza a lógica para representar conhecimento e inferências para manipular informação. Um programa neste tipo de programação possui então os seguintes parâmetros:
+
+\begin{itemize}
+	\item Factos - constatações sobre algo que se conhece e se sabe verdadeiro, por exemplo cor( azul )
+	\item Predicados – implementam relações, por exemplo o predicado filho( filho, pai ) implementa a relação de descendência direta (ser filho de)
+	\item Regras – utilizadas para definir novos predicados. 
+\end{itemize}
+
+Estes são alguns exemplos dos conhecimentos base para perceber a programação em lógica.
+Após se ter estes conhecimentos, é necessário traduzir estes e aplicá-los na linguagem PROLOG.
+Deixamos, então, alguns exemplos importantes para a usar:
+
+\begin{itemize}
+	\item .  utilizado para terminar uma declaração;
+	\item :-  significa “se”;
+	\item ,  possui o significado “e”;
+	\item ;  significa “ou”;
+	\item //  representa a unificação;
+\end{itemize}
+
+É ainda necessário referir que as variáveis representam-se por maiúsculas e constantes, predicados e factos com minúsculas.
+Com estas noções como base passa-se agora ao desenvolvimento das tarefas do exercício.
+
+
+
+\chapter{Descrição do Trabalho e Análise de Resultados}
+\label{cap:p3}
+
+Nesta parte do documento serão explicitadas todas as etapas de resolução dos desafios fornecidos bem como todas as decisões efetuadas no processo.
+
+
+\section{Base de Conhecimento}
+\label{p3:baseConhe}
+
+A base de Conhecimento define bases de dados ou conhecimento acumulados sobre determinado assunto.
+Para a elaboração deste exercício tornou-se importante definir uma base de conhecimento
+que possa responder aos pedidos do enunciado.
+
+\subsection{Instituições Existentes }
+
+\begin{verbatim}
+instituição(nome). 
+instituicao( hospitalGuimaraes ). 
+instituicao( hospitalBraga ).
+instituicao( hospitalBarcelos ).
+\end{verbatim}
+
+\subsection{Serviços Existentes}
 
 \begin{Verbatim}
-void refreshEsfericas() {
-	raio = sqrt(pow(cCartesianas.x, 2) + 
-		pow(cCartesianas.y, 2) + 
-		pow(cCartesianas.z, 2));
-	polar_ang = acos(cCartesianas.y / raio);
-	azimuth_ang = atan2(cCartesianas.x, cCartesianas.z);
-}
+servico(nome).
+
+servico( cardiologia ). 
+servico( cirugiageral ).
+servico(  neurologia ).
 \end{Verbatim}
 
-Estas duas funções correspondem à implementação das fórmulas apresentadas anteriormente e garantem que as variáveis de instância correspondentes às coordenadas esféricas e cartesianas se referem sempre ao mesmo ponto. Ambas são funções privadas, pelo que é a própria classe que tem a responsabilidade de as chamar sempre que é necessário atualizar valores.
+\subsection{Profissionais}
+\begin{Verbatim}
+profissional(codigo, nome).
 
-A qualquer momento, é possível saber as coordenadas cartesianas de uma instância pela função \textit{toCartesianas()}
+profissional(1,marcus).
+profissional(2,maria).
+profissional(3,jorge).
+\end{Verbatim}
+
+\subsection{Utentes }
 
 \begin{Verbatim}
-Ponto3D toCartesianas() {
-	return cCartesianas;
-}
+utente(codigo,nome).
+
+utente(1,jose).  
+utente(2,carlos). 
+utente(3,maria). 
 \end{Verbatim}
 
-Além destas funções, a classe possui ainda funções adicionais que permitem mudar a posição do ponto representado por cada instância. Sempre que uma destas funções é chamada tanto as variáveis de instância das coordenadas polares e cartesianas são atualizadas quer pela função refreshEsfericas() ou refreshCartesianas(). Estas funções que permitem mudar a localização do ponto, garantem ainda que $0 \leq \phi \leq \pi$ e que $0 \leq \theta \leq 2 \times \pi$
-
-\newpage
-
-\section{Figura}
-
-Esta classe representa uma figura que será desenhada pelo motor. Representa por isso apenas um conjunto de pontos numa determinada ordem que correspondem a triângulos, que por sua vez formam uma figura.
-
-Por representar um conjunto de pontos, sem surpresa, a sua única variável de instância é um vector de pontos:
-
-\begin{Verbatim}
-std::vector<Ponto3D> pontos;
-\end{Verbatim}
-
-A utilidade desta classe revela-se pelas funções que disponibiliza. Em primeiro lugar, disponibiliza um conjunto de funções que quando chamadas colocam no vector \textit{pontos} os pontos necessários para o desenho de uma figura em concreto. Dessa forma, estas funções permitem criar planos, caixas, círculos, cilindros e esferas. Estas funções serão explicadas em mais detalhe quando for apresentado o gerador onde será mostrado de que forma estas funções podem ser chamadas bem como de que forma geram os pontos.
-
-Além das funções que permitem criar figuras destaca-se ainda a função \textit{toFicheiro()}, que permite guardar os pontos da figura num ficheiro cujo nome é passado como argumento.
-
-\begin{Verbatim}
-void toFicheiro(std::string filePath)
-\end{Verbatim}
-
-É ainda possível obter os pontos da figura pela função \textit{getPontos()}:
-
-\begin{Verbatim}
-std::vector<Ponto3D> getPontos()
-\end{Verbatim}
-
-\section{TinyXML-2}
-
-Esta biblioteca foi usada para auxílio à leitura de ficheiros XML por parte do motor e pode ser encontrada no endereço: http://www.grinninglizard.com/tinyxml2/
