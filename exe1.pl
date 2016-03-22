@@ -24,14 +24,14 @@
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado instituição(nome). 
 
-instituicao( hospitalGuimaraes ). 
-instituicao( hospitalBraga ).
-instituicao( hospitalBarcelos ).
-instituicao( hospitalPorto ).
-instituicao( universitarioCoimbra ).
-instituicao( hospitalLisboaNorte ).
-instituicao( hospitalBeatrizAngelo ).
-instituicao( hospitalTrofa ).
+instituicao( hospital_guimaraes ). 
+instituicao( hospital_braga ).
+instituicao( hospital_barcelos ).
+instituicao( hospital_porto ).
+instituicao( universitario_coimbra ).
+instituicao( hospital_lisboa_norte ).
+instituicao( hospital_beatriz_angelo ).
+instituicao( hospital_trofa ).
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado servico(nome).
@@ -72,27 +72,27 @@ profissional(7,vitoria ).
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado instserv(intituicao,servico).
 
-instserv( hospitalBraga, cardiologia ).
-instserv( hospitalBeatrizAngelo, endocrinologia ).
-instserv( hospitalBraga, oncologia ).
-instserv( hospitalPorto, cardiologia ).
-instserv( hospitalPorto, psiquiatria ).
-instserv( hospitalTrofa, urologia ).
-instserv( hospitalBarcelos, oftamologia ).
-instserv( hospitalBarcelos, endocrinologia ).
-instserv( hospitalGuimaraes, neurologia ).
-instserv( hospitalLisboaNorte,  neurologia).
+instserv( hospital_braga, cardiologia ).
+instserv( hospital_beatriz_angelo, endocrinologia ).
+instserv( hospital_braga, oncologia ).
+instserv( hospital_porto, cardiologia ).
+instserv( hospital_porto, psiquiatria ).
+instserv( hospital_trofa, urologia ).
+instserv( hospital_barcelos, oftamologia ).
+instserv( hospital_barcelos, endocrinologia ).
+instserv( hospital_guimaraes, neurologia ).
+instserv( hospital_lisboa_norte,  neurologia).
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado utentinst(utente,instituicao).
 
-utentinst(1, hospitalBarcelos ). 
-utentinst(3, hospitalPorto ).
-utentinst(2, hospitalTrofa ). 
-utentinst(1, hospitalBraga ).
-utentinst(7, hospitalBeatrizAngelo ). 
-utentinst(6, hospitalLisboaNorte ). 
-utentinst(6, hospitalBraga ).
+utentinst(1, hospital_barcelos ). 
+utentinst(3, hospital_porto ).
+utentinst(2, hospital_trofa ). 
+utentinst(1, hospital_braga ).
+utentinst(7, hospital_beatriz_angelo ). 
+utentinst(6, hospital_lisboa_norte ). 
+utentinst(6, hospital_braga ).
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado utenserv(utente,servico).
@@ -109,19 +109,19 @@ utenserv(6,cardiologia ).
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado instProfi(intituicao,profissional).
 
-instProfi( hospitalBraga,1 ).
-instProfi( hospitalBarcelos,2).
-instProfi( hospitalLisboaNorte,3).
-instProfi( hospitalBeatrizAngelo,4 ).
-instProfi( hospitalBraga,2).
-instProfi( hospitalBarcelos,4 ).
-instProfi( hospitalPorto,3).
-instProfi( hospitalTrofa,7).
-instProfi( hospitalTrofa,3).
-instProfi( hospitalGuimaraes,3).
-instProfi( hospitalGuimaraes,2).
-instProfi( hospitalPorto, 7).
-instProfi( hospitalPorto, 1).
+instProfi( hospital_braga,1 ).
+instProfi( hospital_barcelos,2).
+instProfi( hospital_lisboa_norte,3).
+instProfi( hospital_beatriz_angelo,4 ).
+instProfi( hospital_braga,2).
+instProfi( hospital_barcelos,4 ).
+instProfi( hospital_porto,3).
+instProfi( hospital_trofa,7).
+instProfi( hospital_trofa,3).
+instProfi( hospital_guimaraes,3).
+instProfi( hospital_guimaraes,2).
+instProfi( hospital_porto, 7).
+instProfi( hospital_porto, 1).
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado servicoProfi(profissional,servico).
 
