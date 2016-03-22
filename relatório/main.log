@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  22 MAR 2016 15:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  22 MAR 2016 19:13
 entering extended mode
 **main.tex
 (main.tex
@@ -1281,38 +1281,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--52
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--57
+Underfull \hbox (badness 10000) in paragraph at lines 53--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
 
  []
 
 [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 67.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 68.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
- [3] [4]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+ [3]
 Cap\'{\i }tulo 3.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 104.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 103.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 110.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [5
+) [4
 
-])
-(chapters/conclusao.tex [6]
+]
+Overfull \hbox (35.76385pt too wide) in paragraph at lines 144--145
+[]\T1/ptm/m/n/12 Por fim, in-clui-mos os uten-tes na base de co-nhe-ci-mento es
+-tes com a as-si-na-tura \T1/ptm/b/n/12 utente(codigo,nome). 
+ []
+
+) (chapters/conclusao.tex [5]
 Cap\'{\i }tulo 4.
-) [7
+) [6
 
 ] (main.aux) ) 
 Here is how much of TeX's memory you used:
  31391 strings out of 493698
  736804 string characters out of 3144375
- 865695 words of memory out of 3000000
+ 863695 words of memory out of 3000000
  34204 multiletter control sequences out of 15000+200000
  42424 words of font info for 55 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1323,9 +1333,9 @@ Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (11 pages, 116432 bytes).
+Output written on main.pdf (10 pages, 115039 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

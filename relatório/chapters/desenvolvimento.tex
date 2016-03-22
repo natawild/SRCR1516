@@ -9,7 +9,7 @@ A programação em lógica baseia-se em dois princípios básicos para a “desc
 
 \section{Motivação e Objetivos}
 \label{p1:MotivObj}
-O PROLOG é uma linguagem declarativa, pois fornece uma descrição do problema que se pretende computar utilizando uma coleção de factos e regras lógicas que indicam como deve ser resolvido o problema proposto. Sendo também uma linguagem que é especialmente associada com a inteligência artificial e linguística computacional foi um dos grandes motivos que nos levou a querer aprender este tipo de linguagem mais direcionado ao conhecimento do que aos algoritmos. 
+O PROLOG é uma linguagem declarativa, pois fornece uma descrição do problema que se pretende computar utilizando uma coleção de factos e regras lógicas que indicam como deve ser resolvido o problema proposto. Sendo também uma linguagem que é especialmente associada com a inteligência artificial e linguística computacional este é um dos grandes motivos que nos levou a querer aprender este tipo de linguagem, esta mais direcionada ao conhecimento do que aos algoritmos. 
 
 
 Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, este exercício surge com o objetivo de consolidar conhecimentos e obter experiência e prática face a problemas de programação em lógica. O objetivo final será a construção de um programa capaz de armazenar conhecimento sobre registo de eventos numa instituição de saúde e através deste solucionar questões deste tema.
@@ -18,7 +18,7 @@ Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, 
 
 \section{Estrutura do documento}
 \label{p1:Estrutura}
-O presente relatório encontra-se organizado em X capítulos. Sendo que neste primeiro introduzimos a linguagem e o tema a tratar menciona-se também a motivação e os objetivos que nos levaram à realização deste exercício. 
+O presente relatório encontra-se organizado em seis capítulos. Sendo que neste primeiro introduzimos a linguagem e o tema a tratar menciona-se também a motivação e os objetivos que nos levaram à realização deste exercício. 
 No segundo capítulo será feito um estudo prévio da linguagem de modo a que o leitor possa entender o exercício. No terceiro capítulo explicaremos o que foi desenvolvido para a implementação do exercício. No quarto capítulo apresentaremos as conclusões e interpretação dos resultados obtidos. Por fim nos últimos dois capítulos será apresentada a bibliografia consultada, no quinto capítulo e os anexos no sexto. 
 
 
@@ -45,17 +45,18 @@ compilar e interpretar o código desenvolvido nesta linguagem.
 \\
 
 
-Para o desenvolvimento desses predicados foi necessário fazer uma análise dos conhecimentos de cada um dos membros sobre o tema e acompanhado de uma pequena pesquisa sobre as características destes.
+Para o desenvolvimento desses predicados foi necessário fazer uma análise de conhecimentos de cada um dos membros sobre o tema e acompanhado de uma pequena pesquisa sobre as características destes.
 
-O estudo inicial passou por caracterizar um utente, isto é, definir todos os parâmetros que definem o que é ser um utente. A conclusão a que se chegou foi que um utente é definido por nome, serviço a que está a ser inscrito ou consultado, profissional atribuído ou responsável por esse serviço e a instituição onde o profissional labora e onde o utente está a ser atendido, que coincidem obviamente. Na realidade, o utente é composto por muitos outros factores, tal como, número de utente, número de contribuinte, número de cartão de cidadão entre muitos outros mas que para a resolução dos critérios designados como mínimos apenas são requeridos aqueles mencionados anteriormente, pois as questões não pretendem incidir nesses campos.
+O estudo inicial passou por caracterizar um utente, este que é definido pelo nome, serviço em que está inscrito ou consultado, profissional atribuído e a instituição onde o profissional exerce e onde o utente é atendido, que devem coincidir. Na realidade, o utente é composto por muitos outros factores, tal como, número de utente, número de contribuinte, número de cartão de cidadão entre muitos outros mas para a resolução dos critérios mínimos apenas são requeridos os mencionados anteriormente, pois as questões não pretendem incidir nesses campos.
 \\
 
-Um serviço é caracterizado por designação, isto é, o nome do serviço, que terá de ser elucidativo, por exemplo, “cirurgia” e por instituição, que corresponde ao nome do local onde se presta esse serviço aos utentes, e como tal será algo como “hospital....” ou “centro de saúde...” ou algo semelhante que reflita que esse local é um local em que se prestam determinados serviços na área da saúde. Na realidade serviços é muito mais complexo e passa por ter chefes de equipas, e por vezes especificação detalhada, como por exemplo, “cirurgia cardíaca” que é diferente de “cirurgia cerebral”. Ou seja dentro do serviço existem categorias e para cada categoria existem chefes de equipas e as respectivas equipas. Generalizando o exemplo, teríamos um chefe do serviço geral “cirurgia” que teria uma equipa de chefes de categorias desse serviço e cada categoria teria uma equipa de profissionais. Mas nada disto é utilizado para cumprir os requisitos mínimos e tal como nos casos anteriores é sim algo que pode ser utilizado como uma extensão do projeto.  
-\\
-Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões, mas um profissional é algo mais que isto. Um profissional tem também um chefe associado, tem uma especialidade, tem um identificador dentro da instituição, visto que um profissional pode exercer funções em mais que uma instituição, e em mais que um serviço. Para além destes possui também informações semelhantes ás do utente que dizem respeito ao facto de serem cidadãos. E que são características possíveis de utilizar em futuras extensões. 
+Um serviço é caracterizado pelo nome, isto é o nome do serviço terá de ser elucidativo, por exemplo, “pediatria” e pela instituição a que corresponde ao nome do local onde se presta esse serviço aos utentes, e como tal será algo como “hospital....” ou “centro de saúde...” ou algo semelhante que reflita que esse local é um local em que se prestam determinados serviços na área da saúde.
 \\
 
-Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos mínimos não pretendem questionar nada de especial que implique que a instituição tenha de ter algo mais no seu predicado além do seu nome. Mas como é óbvio uma instituição  é muito mais que um nome, isto é, quando alguém pensa numa instituição não pensa unicamente no seu nome. Na realidade uma instituição é composta por vários departamentos, um dos quais é o departamento responsável pela aplicação dos diversos serviços e é nesse que se encontram os profissionais, possui colaboradores, outros serviços, como cafetarias, salas de espera, balcões de atendimento ou de reclamações, entre muitos outros. No entanto, restringe-se esse conceito ao simples facto de ser um local onde profissionais prestam serviços a utentes.
+Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões, mas um profissional é algo mais que isto. 
+\\
+
+Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos mínimos não pretendem questionar nada de especial que implique que a instituição tenha de ter algo mais no seu predicado além do seu nome.
 
 
 \section{Programação em Lógica e PROLOG}
@@ -99,41 +100,59 @@ A base de Conhecimento define bases de dados ou conhecimento acumulados sobre de
 Para a elaboração deste exercício tornou-se importante definir uma base de conhecimento
 que possa responder aos pedidos do enunciado.
 
-\subsection{Instituições Existentes }
+\subsection{Instituições}
+
+De acordo com o enunciado existem as instituições de saúde estas que têm a elas associados serviços e estes têm profissionais e respetivos utentes. 
+
+Para a implementação do exercício foi necessário criar uma base de conhecimento das instituições existentes 
+Como tal usamos o predicado instituição para descrever esta relação: \textbf{instituição(nome).}, como no exemplo: 
 
 \begin{verbatim}
-instituição(nome). 
-instituicao( hospitalGuimaraes ). 
-instituicao( hospitalBraga ).
-instituicao( hospitalBarcelos ).
+instituicao( hospital_guimaraes ). 
+instituicao( hospital_braga ).
+instituicao( hospital_barcelos ).
 \end{verbatim}
 
-\subsection{Serviços Existentes}
+Como uma instituição tem a si associado respetivo serviço usámos o predicado \textbf{instserv} com a  assinatura \textbf{instserv (intituicao,servico).}, para relacionar a intituição com o respetivo serviço, como se pode verificar no exemplo abaixo: 
+
+\begin{verbatim}
+instserv( hospital_braga, cardiologia ).
+instserv( hospital_beatriz_angelo, endocrinologia ).
+\end{verbatim}
+
+\subsection{Serviços}
+Um requisito a incluir na base de conhecimento é a existencia de serviços, para representar esta situação temos o predicado servico com a assinatura \textbf{servico(nome).}
+
 
 \begin{Verbatim}
-servico(nome).
-
 servico( cardiologia ). 
 servico( cirugiageral ).
 servico(  neurologia ).
 \end{Verbatim}
 
 \subsection{Profissionais}
-\begin{Verbatim}
-profissional(codigo, nome).
+Mais um requisito do sistema a incluir na base de conhecimento é a existencia de profissionais com a seguinte assinatura \textbf{profissional(codigo, nome).}
 
+
+\begin{Verbatim}
 profissional(1,marcus).
 profissional(2,maria).
 profissional(3,jorge).
 \end{Verbatim}
 
 \subsection{Utentes }
+Por fim, incluimos os utentes na base de conhecimento estes com a assinatura \textbf{utente(codigo,nome).}
 
 \begin{Verbatim}
-utente(codigo,nome).
-
 utente(1,jose).  
 utente(2,carlos). 
 utente(3,maria). 
 \end{Verbatim}
 
+Como os utentes pertencem a uma certa instituição de saúde foi necessário introduzir esse conhecimento na base sendo a sua assinatura \textbf{utentinst(utente,instituicao).}
+
+\begin{verbatim}
+utentinst(1, hospital_barcelos ). 
+utentinst(3, hospital_porto ).
+utentinst(2, hospital_trofa ). 
+\end{verbatim}
