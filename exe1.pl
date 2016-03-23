@@ -24,14 +24,14 @@
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado instituição(nome). 
 
-instituicao( hospitalGuimaraes ). 
-instituicao( hospitalBraga ).
-instituicao( hospitalBarcelos ).
-instituicao( hospitalPorto ).
-instituicao( universitarioCoimbra ).
-instituicao( hospitalLisboaNorte ).
-instituicao( hospitalBeatrizAngelo ).
-instituicao( hospitalTrofa ).
+instituicao( hospital_guimaraes ). 
+instituicao( hospital_braga ).
+instituicao( hospital_barcelos ).
+instituicao( hospital_porto ).
+instituicao( universitario_coimbra ).
+instituicao( hospital_lisboa_norte ).
+instituicao( hospital_beatriz_angelo ).
+instituicao( hospital_trofa ).
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado servico(nome).
@@ -73,17 +73,17 @@ profissional(7,vitoria ).
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado ins_serv_uten_profi(intituicao,servico,Codigo utente,Codigo profissional).
 
-ins_serv_uten_profi( hospitalBraga, cardiologia,1,1 ).
-ins_serv_uten_profi( hospitalTrofa, cardiologia,1,1 ).
-ins_serv_uten_profi( hospitalBeatrizAngelo, endocrinologia,2,2 ).
-ins_serv_uten_profi( hospitalBraga, oncologia,3,3 ).
-ins_serv_uten_profi( hospitalPorto, cardiologia,4,4 ).
-ins_serv_uten_profi( hospitalPorto, psiquiatria,5,5 ).
-ins_serv_uten_profi( hospitalTrofa, urologia,6,6 ).
-ins_serv_uten_profi( hospitalBarcelos, oftamologia,7,7 ).
-ins_serv_uten_profi( hospitalBarcelos, endocrinologia,1,2 ).
-ins_serv_uten_profi( hospitalGuimaraes, neurologia,3,2 ).
-ins_serv_uten_profi( hospitalLisboaNorte,  neurologia,4,5).
+ins_serv_uten_profi( hospital_braga, cardiologia,1,1 ).
+ins_serv_uten_profi( hospital_trofa, cardiologia,1,1 ).
+ins_serv_uten_profi( hospital_beatriz_angelo, endocrinologia,2,2 ).
+ins_serv_uten_profi( hospital_braga, oncologia,3,3 ).
+ins_serv_uten_profi( hospital_porto, cardiologia,4,4 ).
+ins_serv_uten_profi( hospital_porto, psiquiatria,5,5 ).
+ins_serv_uten_profi( hospital_trofa, urologia,6,6 ).
+ins_serv_uten_profi( hospital_barcelos, oftamologia,7,7 ).
+ins_serv_uten_profi( hospital_barcelos, endocrinologia,1,2 ).
+ins_serv_uten_profi( hospital_guimaraes, neurologia,3,2 ).
+ins_serv_uten_profi( hospital_lisboa_norte,  neurologia,4,5).
 
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
