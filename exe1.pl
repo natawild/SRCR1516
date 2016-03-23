@@ -60,7 +60,7 @@ utente(7,joana).
 utente(8,joana).  
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado profissional(nome).
+% Extensao do predicado profissional(codigo,nome).
   
 profissional(1,marcus).
 profissional(2,maria).
