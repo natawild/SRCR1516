@@ -93,7 +93,6 @@ concat([],L,L).
 concat([X|L1],L2,[X|L3]):- concat(L1,L2,L3).
 
 
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado nao
 nao( Questao) :-
@@ -104,10 +103,8 @@ nao(Questao).
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 difList([],_,[]).
 
-
 difList([H1|T1],L2,[H1|L3]):-
 	nao(member(H1,L2)), difList(T1,L2,L3).
-
 
 difList([_|T1],L2,L3):-
 	difList(T1,L2,L3).
@@ -147,9 +144,6 @@ servicoInst(Inst,[Serv]):- ins_serv_uten_profi(Inst,Serv,_,_).
 
 
 
-
-
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 2-Identificar os utentes de uma instituicao
 % Extensao do predicado  utentesInst  : Instituicao,[utentes]->{V,F}
@@ -166,13 +160,12 @@ utentesInst(Inst,[(Cod,Uten)]):-ins_serv_uten_profi(Inst,_,Cod,_),
 
 
 
-
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 3-Identificar os utentes de um determinado servico
-% Extensao do predicado  utentesServ  : [utentes],servico>{V,F}
+% Extensao do predicado  servUtente  : servico,[utentes]->{V,F}
 
-servUtente(Serv,Ute):- findall((K,J),(ins_serv_uten_profi(_,Serv,K,_),utente(K,J)),Ute).
+servUtente(Serv,Ute):-
+    findall((K,J),(ins_serv_uten_profi(_,Serv,K,_),utente(K,J)),Ute).
 
 servUtente(Serv,[(Cod,Uten)|K]):- ins_serv_uten_profi(_,Serv,Cod,_),
                                   utente(Cod,Uten), 
@@ -183,13 +176,13 @@ servUtente(Serv,[(Cod,Uten)]):- ins_serv_uten_profi(_,Serv,Cod,_),
 
 
 
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % 4- Identificar os utentes de um determinado servico numa instituicao
 
 % Extensao do predicado utenservinst:(servico, instituicao,[utentes])->{V,F}
 
-utenServInst(Serv,Inst,Uten):- findall((K,J),(ins_serv_uten_profi(Inst,Serv,K,_),utente(K,J)),Uten). 
+utenServInst(Serv,Inst,Uten):- 
+    findall((K,J),(ins_serv_uten_profi(Inst,Serv,K,_),utente(K,J)),Uten). 
 
 utenServInst(Serv,Inst,[(Cod,Uten)|K]):- utente(Cod,Uten),
                                    ins_serv_uten_profi(Inst,Serv,Cod,_),
@@ -201,31 +194,24 @@ utenServInst(Serv,Inst,[(Cod,Uten)]):- ins_serv_uten_profi(Inst,Serv,Cod,_),
 
 
 
-
-
-
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % 5-Identificar as instituições onde seja prestado um dado serviço ou conjunto de serviços;
-
 % Extensao do predicado instServico: ([Serviço],[Instituição])->{V,F}    
  
  instServicos([Serv|K],I):-    
-	findall(H,servicoInst(H,[Serv|K]),L),eliminarRepetidos(L,I).
-  
+	findall(H,servicoInst(H,[Serv|K]),L),
+    eliminarRepetidos(L,I).
 
 
-inst_Servico(S,[I|K]):- servicoInst(I,[S]),inst_Servico(S,K).  
+inst_Servico(S,[I|K]):- servicoInst(I,[S]),
+    inst_Servico(S,K).  
+    
 inst_Servico(S,[I]):- servicoInst(I,[S]).
 
 
 instServicos([S|T],[I|K]):-inst_Servico(S,[I|K]),instServicos(T,[I|K]).
 instServicos([S],[I|K]):-inst_Servico(S,[I|K]).
 instServicos([S],[I]):-inst_Servico(S,[I]).
-
-
-
-
 
 
 
@@ -237,7 +223,6 @@ instServicos([S],[I]):-inst_Servico(S,[I]).
 todosServicos(L):-
 	findall(S,servico(S),L).
 
-
 servicosForaInst(Ins,Serv,todos):-todosServicos(P), 
                            servicoInst(Ins,K),
                            difList(P,K,Serv).
@@ -246,18 +231,17 @@ servicosForaInst(Ins,[Serv|K]):-nao(servicoInst(Ins,[Serv|K])).
 
                                                     
 
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 7-Determinar as instituições onde um profissional presta servico;
-
 % Extensao do predicado profiServico : profissional,[instituições]->{V,F}
 
 
-profiServico((Cod,Prof),Inst):- findall(K,(ins_serv_uten_profi(K,_,_,Cod),profissional(Cod,Prof)),Inst).
+profiServico((Cod,Prof),Inst):- 
+    findall(K,(ins_serv_uten_profi(K,_,_,Cod),profissional(Cod,Prof)),Inst).
 
 profiServico((Cod,Prof),[Inst|K]):-ins_serv_uten_profi(Inst,_,_,Cod),
                               profissional(Cod,Prof),
-                             profiServico((Cod,Prof),K).
+                               profiServico((Cod,Prof),K).
 
 profiServico((Cod,Prof),[Inst]):-ins_serv_uten_profi(Inst,_,_,Cod),
                                  profissional(Cod,Prof).
@@ -266,11 +250,11 @@ profiServico((Cod,Prof),[Inst]):-ins_serv_uten_profi(Inst,_,_,Cod),
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 8-Determinar todas as instituições(ou serviços, ou profissionais) a que um utente ja recorreu
-
 % Extensao do predicado instSerProf: utente,instituicao ou servico ou profissional->{V,F}
 
 % Instituicao
-instSerProf((Cod,Uten),Inst,ints):- findall(K,(ins_serv_uten_profi(K,_,Cod,_),utente(Cod,Uten)),L),eliminarRepetidos(L,Inst).
+instSerProf((Cod,Uten),Inst,inst):- findall(K,(ins_serv_uten_profi(K,_,Cod,_),utente(Cod,Uten)),L),
+                                    eliminarRepetidos(L,Inst).
 
 instSerProf((Cod,Uten),[Inst|K]):-ins_serv_uten_profi(Inst,_,Cod,_),
                             utente(Cod,Uten),
@@ -282,7 +266,8 @@ instSerProf((Cod,Uten),[Inst]):-ins_serv_uten_profi(Inst,_,Cod,_),
 
 %Servico
 
-instSerProf((CodU,Uten),Serv,serv):- findall(K,(ins_serv_uten_profi(_,K,CodU,_),utente(CodU,Uten)),L),eliminarRepetidos(L,Serv).
+instSerProf((CodU,Uten),Serv,serv):- findall(K,(ins_serv_uten_profi(_,K,CodU,_),utente(CodU,Uten)),L),
+                                    eliminarRepetidos(L,Serv).
 
 instSerProf((CodU,Uten),[Serv|K]):-ins_serv_uten_profi(_,Serv,CodU,_),
                                    utente(CodU,Uten),
@@ -295,7 +280,8 @@ instSerProf((CodU,Uten),[Serv]):-ins_serv_uten_profi(_,Serv,CodU,_),
 
 %Profissional
 
-instSerProf((CodU,Uten),Prof,prof):- findall((K,Nome),(ins_serv_uten_profi(_,_,CodU,K),utente(CodU,Uten),profissional(K,Nome)),L),eliminarRepetidos(L,Prof).
+instSerProf((CodU,Uten),Prof,prof):- findall((K,Nome),(ins_serv_uten_profi(_,_,CodU,K),utente(CodU,Uten),profissional(K,Nome)),L),
+                                    eliminarRepetidos(L,Prof).
 
 instSerProf((CodU,Uten),[(CodP,Prof)|K]):-ins_serv_uten_profi(_,_,CodU,CodP),
                                 profissional(CodP,Prof),
@@ -443,11 +429,11 @@ remocao(Termo):-
 
 /* ########## Remover #############*/
 
-%Nao deixar remover um paciente enconto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
+%Nao deixar remover um paciente enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
 
 -utente(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,Codigo,_)),nao(utente(Codigo,Nome))).
 
-%Nao deixar remover um profissional enconto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
+%Nao deixar remover um profissional enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
 
 -profissional(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,_,Codigo)),nao(profissional(Codigo,Nome))).
 

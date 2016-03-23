@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  22 MAR 2016 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  23 MAR 2016 20:21
 entering extended mode
 **main.tex
 (main.tex
@@ -1314,28 +1314,190 @@ Overfull \hbox (35.76385pt too wide) in paragraph at lines 144--145
 -tes com a as-si-na-tura \T1/ptm/b/n/12 utente(codigo,nome). 
  []
 
-) (chapters/conclusao.tex [5]
+
+Overfull \hbox (26.2396pt too wide) in paragraph at lines 161--162
+\T1/ptm/m/n/12 In-tro-du-zi-mos na base de co-nhe-ci-mento o pre-di-cado \T1/pt
+m/b/n/12 ins_serv_uten_profi( in-ti-tui-cao, ser-vico,Codigo
+ []
+
+[5] <answer1.png, id=42, 299.61937pt x 85.82062pt>
+File: answer1.png Graphic file (type png)
+ <use answer1.png>
+Package pdftex.def Info: answer1.png used on input line 189.
+(pdftex.def)             Requested size: 269.65494pt x 77.23782pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
+
+Overfull \hbox (19.95569pt too wide) in paragraph at lines 209--209
+[]\T1/pcr/m/n/12 findall((K,J),(ins_serv_uten_profi(Inst,_,K,_),utente(K,J)),Ut
+en).[] 
+ []
+
+<answer2.png, id=43, 266.49562pt x 115.18031pt>
+File: answer2.png Graphic file (type png)
+ <use answer2.png>
+Package pdftex.def Info: answer2.png used on input line 214.
+(pdftex.def)             Requested size: 239.84384pt x 103.6613pt.
+
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 233--233
+[]\T1/pcr/m/n/12 findall((K,J),(ins_serv_uten_profi(_,Serv,K,_),utente(K,J)),Ut
+e).[] 
+ []
+
+
+Overfull \hbox (34.35568pt too wide) in paragraph at lines 233--233
+[]\T1/pcr/m/n/12 servUtente(Serv,[(Cod,Uten)|K]):- ins_serv_uten_profi(_,Serv,C
+od,_),[] 
+ []
+
+[6 <./answer1.png>]
+Overfull \hbox (19.95569pt too wide) in paragraph at lines 233--233
+[]\T1/pcr/m/n/12 servUtente(Serv,[(Cod,Uten)]):- ins_serv_uten_profi(_,Serv,Cod
+,_),[] 
+ []
+
+<answer3.png, id=47, 249.93375pt x 85.06781pt>
+File: answer3.png Graphic file (type png)
+ <use answer3.png>
+Package pdftex.def Info: answer3.png used on input line 239.
+(pdftex.def)             Requested size: 224.9383pt x 76.5603pt.
+
+Overfull \hbox (41.55568pt too wide) in paragraph at lines 256--256
+[]\T1/pcr/m/n/12 findall((K,J),(ins_serv_uten_profi(Inst,Serv,K,_),utente(K,J))
+,Uten).[] 
+ []
+
+
+Overfull \hbox (91.95566pt too wide) in paragraph at lines 256--256
+[]\T1/pcr/m/n/12 utenServInst(Serv,Inst,[(Cod,Uten)]):- ins_serv_uten_profi(Ins
+t,Serv,Cod,_),[] 
+ []
+
+<answer4.png, id=48, 348.55219pt x 77.53969pt>
+File: answer4.png Graphic file (type png)
+ <use answer4.png>
+Package pdftex.def Info: answer4.png used on input line 260.
+(pdftex.def)             Requested size: 313.69405pt x 69.78505pt.
+ [7 <./answer2.png> <./answer3.png>]
+Overfull \hbox (63.15567pt too wide) in paragraph at lines 283--283
+[] \T1/pcr/m/n/12 instServicos([S|T],[I|K]):-inst_Servico(S,[I|K]),instServicos
+(T,[I|K]).[] 
+ []
+
+<answer5.png, id=52, 345.54094pt x 73.77562pt>
+File: answer5.png Graphic file (type png)
+ <use answer5.png>
+Package pdftex.def Info: answer5.png used on input line 288.
+(pdftex.def)             Requested size: 310.98396pt x 66.39742pt.
+
+<answer6.png, id=53, 773.13844pt x 106.14656pt>
+File: answer6.png Graphic file (type png)
+ <use answer6.png>
+Package pdftex.def Info: answer6.png used on input line 309.
+(pdftex.def)             Requested size: 463.88666pt x 63.68842pt.
+
+Overfull \hbox (8.64255pt too wide) in paragraph at lines 309--310
+ [][] 
+ []
+
+
+Overfull \hbox (63.15567pt too wide) in paragraph at lines 325--325
+[]\T1/pcr/m/n/12 findall(K,(ins_serv_uten_profi(K,_,_,Cod),profissional(Cod,Pro
+f)),Inst).[] 
+ []
+
+
+Overfull \hbox (41.55568pt too wide) in paragraph at lines 325--325
+[]\T1/pcr/m/n/12 profiServico((Cod,Prof),[Inst|K]):-ins_serv_uten_profi(Inst,_,
+_,Cod),[] 
+ []
+
+[8 <./answer4.png> <./answer5.png>]
+Overfull \hbox (27.15569pt too wide) in paragraph at lines 325--325
+[]\T1/pcr/m/n/12 profiServico((Cod,Prof),[Inst]):-ins_serv_uten_profi(Inst,_,_,
+Cod),[] 
+ []
+
+<answer7.png, id=57, 255.95625pt x 70.01157pt>
+File: answer7.png Graphic file (type png)
+ <use answer7.png>
+Package pdftex.def Info: answer7.png used on input line 329.
+(pdftex.def)             Requested size: 230.35847pt x 63.00981pt.
+
+Overfull \hbox (3.03111pt too wide) in paragraph at lines 334--334
+ |[]\T1/ptm/b/n/14.4 Determinar to-das as ins-ti-tui-ções(ou ser-vi-ços ou pro-
+fis-si-o-nais) a quem
+ []
+
+
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 349--349
+[] \T1/pcr/m/n/12 findall(K,(ins_serv_uten_profi(K,_,Cod,_),utente(Cod,Uten)),L
+),[] 
+ []
+
+
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 349--349
+[]\T1/pcr/m/n/12 findall(K,(ins_serv_uten_profi(_,K,CodU,_),utente(CodU,Uten)),
+L),[] 
+ []
+
+
+Overfull \hbox (34.35568pt too wide) in paragraph at lines 349--349
+[]\T1/pcr/m/n/12 findall((K,Nome),(ins_serv_uten_profi(_,_,CodU,K),utente(CodU,
+Uten),[] 
+ []
+
+[9 <./answer6.png> <./answer7.png>]
+<answer8.png, id=62, 395.22656pt x 100.12407pt>
+File: answer8.png Graphic file (type png)
+ <use answer8.png>
+Package pdftex.def Info: answer8.png used on input line 354.
+(pdftex.def)             Requested size: 355.7006pt x 90.11081pt.
+
+<answer9.png, id=63, 343.2825pt x 109.91063pt>
+File: answer9.png Graphic file (type png)
+ <use answer9.png>
+Package pdftex.def Info: answer9.png used on input line 379.
+(pdftex.def)             Requested size: 308.95139pt x 98.91862pt.
+
+
+LaTeX Warning: File `answer10.png' not found on input line 398.
+
+
+! Package pdftex.def Error: File `answer10.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.398 	\includegraphics[scale=0.9]{answer10.png}
+                                                
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (chapters/conclusao.tex [10 <./answer8.png> <./answer9.png>] [11]
 Cap\'{\i }tulo 4.
-) [6
+) [12
 
 ] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 31391 strings out of 493698
- 736804 string characters out of 3144375
- 863695 words of memory out of 3000000
- 34204 multiletter control sequences out of 15000+200000
- 42424 words of font info for 55 fonts, out of 3000000 for 9000
+ 31474 strings out of 493698
+ 737855 string characters out of 3144375
+ 864802 words of memory out of 3000000
+ 34258 multiletter control sequences out of 15000+200000
+ 47949 words of font info for 59 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 62i,6n,83p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,8n,83p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/
 Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (10 pages, 115039 bytes).
+Output written on main.pdf (16 pages, 153405 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
+ 94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
