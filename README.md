@@ -1,2 +1,2 @@
 # SRCR1516
-Trabalho da treta
+Trabalho da disciplina de SRCR
