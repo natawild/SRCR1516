@@ -19,7 +19,7 @@ Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, 
 \section{Estrutura do documento}
 \label{p1:Estrutura}
 O presente relatório encontra-se organizado em seis capítulos. Sendo que neste primeiro introduzimos a linguagem e o tema a tratar menciona-se também a motivação e os objetivos que nos levaram à realização deste exercício. 
-No segundo capítulo será feito um estudo prévio da linguagem de modo a que o leitor possa entender o exercício. No terceiro capítulo explicaremos o que foi desenvolvido para a implementação do exercício. No quarto capítulo apresentaremos as conclusões e interpretação dos resultados obtidos. Por fim nos últimos dois capítulos será apresentada a bibliografia consultada, no quinto capítulo e os anexos no sexto. 
+No segundo capítulo será feito um estudo prévio da linguagem de modo a que o leitor possa entender o exercício. No terceiro capítulo explicaremos o que foi desenvolvido para a implementação do exercício. No quarto capítulo apresentaremos as conclusões e interpretação dos resultados obtidos. Por fim será apresentados um anexo com o código desenvolvido. 
 
 
 
@@ -45,16 +45,16 @@ compilar e interpretar o código desenvolvido nesta linguagem.
 
 Para o desenvolvimento desses predicados foi necessário fazer uma análise de conhecimentos de cada um dos membros sobre o tema e acompanhado de uma pequena pesquisa sobre as características destes.
 
-O estudo inicial passou por caracterizar um utente, este que é definido pelo nome, serviço em que está inscrito ou consultado, profissional atribuído e a instituição onde o profissional exerce e onde o utente é atendido, que devem coincidir. Na realidade, o utente é composto por muitos outros factores, tal como, número de utente, número de contribuinte, número de cartão de cidadão entre muitos outros mas para a resolução dos critérios mínimos apenas são requeridos os mencionados anteriormente, pois as questões não pretendem incidir nesses campos.
+O estudo inicial passou por caracterizar um utente, este que é definido pelo nome, serviço em que está inscrito ou consultado, profissional atribuído e a instituição onde o profissional exerce e onde o utente é atendido, que devem coincidir. Na realidade, o utente é composto por muitos outros elementos, tal como, número de utente, número de contribuinte, número de cartão de cidadão entre muitos outros, porém para simplificar e como não é necessário para este caso em estudo, vamos apenas utilizar um código e o nome do utente. 
 \\
 
-Um serviço é caracterizado pelo nome, isto é o nome do serviço terá de ser elucidativo, por exemplo, “pediatria” e pela instituição a que corresponde ao nome do local onde se presta esse serviço aos utentes, e como tal será algo como “hospital....” ou “centro de saúde...” ou algo semelhante que reflita que esse local é um local em que se prestam determinados serviços na área da saúde.
+Um serviço é caracterizado pelo nome, isto é o nome do serviço terá de ser elucidativo, por exemplo, “pediatria” e pela instituição a que corresponde ao nome do local onde se presta esse serviço aos utentes, e como tal será algo como “hospital....” ou “centro de saúde...” ou algo semelhante que reflita que esse local é um local em que se prestam serviços na área da saúde.
 \\
 
-Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões.
+Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões.O profissional também terá um códiogo e um nome para a sua identificação. 
 \\
 
-Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos não pretendem questionar algo implique que a instituição tenha de ter algo mais no seu predicado além do seu nome.
+Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos não pretendem questionar algo implique que a instituição tenha mais atributos no seu predicado além do nome.
 
 
 \section{Programação em Lógica e PROLOG}
