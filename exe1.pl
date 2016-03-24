@@ -21,7 +21,7 @@
 :-dynamic profissional/2.
 :-dynamic servico/1.
 
-%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+%--------------------------------- Base de Conhecimento - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado instituição(nome). 
 
 instituicao( hospital_guimaraes ). 
@@ -92,13 +92,11 @@ ins_serv_uten_profi( hospital_lisboa_norte,  neurologia,4,5).
 concat([],L,L).
 concat([X|L1],L2,[X|L3]):- concat(L1,L2,L3).
 
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado nao
 nao( Questao) :-
 	Questao, !,fail.
 nao(Questao).
-
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 difList([],_,[]).
@@ -125,8 +123,6 @@ eliminaElemento( _,[],[] ) .
 eliminaElemento( E,[E|T],T1 ) :- eliminaElemento( E,T,T1 ).
 eliminaElemento( E,[H|T],[H|T1] ) :- E\==H,
 					eliminaElemento( E,T,T1 ).
-
-
 
 
 
@@ -352,10 +348,10 @@ construir(Solucoes) :- retract(temp(X)), !,
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensão do predicado comprimento: L, R -> {V, F}
 
-comprimento([], 0) .
+comprimento([], 0).
 comprimento([_|T], R) :-
 	comprimento(T, X),
-	R is 1+X .
+	R is 1+X.
 
 
 
@@ -368,13 +364,13 @@ inserirConhecimento(Termo) :-
 	teste( Lista ).
 
 insercao(Termo) :-
-	assert(Termo) .
+	assert(Termo).
 insercao(Termo)	:-
-	retract(Termo), !, fail .
+	retract(Termo), !, fail.
 
-teste([]) .
+teste([]).
 teste([H|T]) :-
-	H, teste(T) .	
+	H, teste(T).	
 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
@@ -391,59 +387,42 @@ remocao(Termo):-
 	assert(Termo),!,fail.
 
 
-
-
 /* #######Invariantes############*/
 
 % Nao deixa introduzir o mesmo conhecimentos
-
-+utente(Codigo,Uten) :: (solucoes( (Codigo,Uten), utente(Codigo,Uten), S),comprimento(S,N),N==1
-	                   ).
++utente(Codigo,Uten) :: (solucoes( (Codigo,Uten), utente(Codigo,Uten), S),comprimento(S,N),N==1).
 
 % Nao deixa inserir utentes com o mesmo codigo
-
-+utente(Codigo,_) :: (solucoes( Uten, utente(Codigo,Uten), S),comprimento(S,N),N==1
-	                   ).
++utente(Codigo,_) :: (solucoes( Uten, utente(Codigo,Uten), S),comprimento(S,N),N==1 ).
 
 % Nao deixa introduzir nomes iguas para as instituicoes
++instituicao(Nome) :: (solucoes( Nome, instituicao(Nome), S),comprimento(S,N),N==1 ). 
 
-+instituicao(Nome) :: (solucoes( Nome, instituicao(Nome), S),comprimento(S,N),N==1
-	                   ). 
-
-% Nao deixa introduzir nomes iguas para os servico
-
-+servico(Nome) :: (solucoes( Nome, servico(Nome), S),comprimento(S,N),N==1
-	                   ). 
-
+% Nao deixa introduzir nomes iguais para os servico
++servico(Nome) :: (solucoes( Nome, servico(Nome), S),comprimento(S,N),N==1). 
 
 % Nao deixa introduzir o mesmo conhecimentos
-
-+profissional(Codigo,Prof) :: (solucoes( (Codigo,Prof), profissional(Codigo,Prof), S),comprimento(S,N),N==1
-	                   ).
++profissional(Codigo,Prof) :: (solucoes( (Codigo,Prof), profissional(Codigo,Prof), S),comprimento(S,N),N==1 ).
 
 % Nao deixa inserir profissionais com o mesmo codigo
-
-+profissional(Codigo,_) :: (solucoes( Prof, profissional(Codigo,Prof), S),comprimento(S,N),N==1
-	                   ).
++profissional(Codigo,_) :: (solucoes( Prof, profissional(Codigo,Prof), S),comprimento(S,N),N==1 ).
 
 
 /* ########## Remover #############*/
 
-%Nao deixar remover um paciente enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
-
+% Nao deixar remover um paciente enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
 -utente(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,Codigo,_)),nao(utente(Codigo,Nome))).
 
-%Nao deixar remover um profissional enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
 
+% Nao deixar remover um profissional enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
 -profissional(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,_,Codigo)),nao(profissional(Codigo,Nome))).
 
-% Nao deixar remover um servico com profissionais a trabalhar nele ou utentes a usar-lo, ou estar na instituicao
 
+% Nao deixar remover um servico com profissionais a trabalhar nele ou utentes a usar-lo, ou estar na instituicao
 -servico(Nome) :: (nao(ins_serv_uten_profi(_,Nome,_,_))).
 
 
 % Nao deixar remover uma instituicao com profissionais, utentes, ou servicos
-
 -instituicao(Nome) :: (nao(ins_serv_uten_profi(Nome,_,_,_))).
 
 

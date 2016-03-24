@@ -12,16 +12,18 @@
 \contentsline {subsection}{\numberline {3.1.3}Profissionais}{5}
 \contentsline {subsection}{\numberline {3.1.4}Utentes }{5}
 \contentsline {subsection}{\numberline {3.1.5}Relacionamento entre Entidades}{5}
-\contentsline {section}{\numberline {3.2}Funcionalidades B\IeC {\'a}sicas}{5}
-\contentsline {subsection}{\numberline {3.2.1}Identificar os servi\IeC {\c c}os existentes numa institui\IeC {\c c}\IeC {\~a}o}{5}
+\contentsline {section}{\numberline {3.2}Funcionalidades B\IeC {\'a}sicas}{6}
+\contentsline {subsection}{\numberline {3.2.1}Identificar os servi\IeC {\c c}os existentes numa institui\IeC {\c c}\IeC {\~a}o}{6}
 \contentsline {subsection}{\numberline {3.2.2}Identificar os utentes de uma institui\IeC {\c c}\IeC {\~a}o}{6}
-\contentsline {subsection}{\numberline {3.2.3}Identificar os utentes de um determinado servi\IeC {\c c}o}{6}
-\contentsline {subsection}{\numberline {3.2.4}Identificar os utentes de um determinados servi\IeC {\c c}o numa institui\IeC {\c c}\IeC {\~a}o}{7}
+\contentsline {subsection}{\numberline {3.2.3}Identificar os utentes de um determinado servi\IeC {\c c}o}{7}
+\contentsline {subsection}{\numberline {3.2.4}Identificar os utentes de um determinado servi\IeC {\c c}o numa institui\IeC {\c c}\IeC {\~a}o}{7}
 \contentsline {subsection}{\numberline {3.2.5}Identificar as institui\IeC {\c c}\IeC {\~o}es onde seja prestado um dado servi\IeC {\c c}o ou conjunto de servi\IeC {\c c}os}{8}
-\contentsline {subsection}{\numberline {3.2.6}Identificar os servi\IeC {\c c}os que n\IeC {\~a}o se podem encontrar numa institui\IeC {\c c}\IeC {\~a}o}{8}
-\contentsline {subsection}{\numberline {3.2.7}Determinar as institui\IeC {\c c}\IeC {\~o}es onde um profissional presta servi\IeC {\c c}o }{8}
-\contentsline {subsection}{\numberline {3.2.8}Determinar todas as institui\IeC {\c c}\IeC {\~o}es(ou servi\IeC {\c c}os ou profissionais) a quem o utente j\IeC {\'a} recorreu}{9}
+\contentsline {subsection}{\numberline {3.2.6}Identificar os servi\IeC {\c c}os que n\IeC {\~a}o se podem encontrar numa institui\IeC {\c c}\IeC {\~a}o}{9}
+\contentsline {subsection}{\numberline {3.2.7}Determinar as institui\IeC {\c c}\IeC {\~o}es onde um profissional presta servi\IeC {\c c}o }{9}
+\contentsline {subsection}{\numberline {3.2.8}Determinar todas as institui\IeC {\c c}\IeC {\~o}es(ou servi\IeC {\c c}os ou profissionais) a quem o utente j\IeC {\'a} recorreu}{10}
 \contentsline {subsection}{\numberline {3.2.9}Registar utentes, profissionais, servi\IeC {\c c}os ou institui\IeC {\c c}\IeC {\~o}es}{10}
-\contentsline {subsection}{\numberline {3.2.10}Remover utente (profissionais, servi\IeC {\c c}os, institui\IeC {\c c}\IeC {\~o}es) dos registos}{10}
-\contentsline {subsection}{\numberline {3.2.11}Funcionalidades Extra}{10}
-\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{12}
+\contentsline {subsection}{\numberline {3.2.10}Remover utente (profissionais, servi\IeC {\c c}os, institui\IeC {\c c}\IeC {\~o}es) dos registos}{11}
+\contentsline {subsection}{\numberline {3.2.11}Funcionalidades Extra}{13}
+\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{14}
+\contentsline {chapter}{Anexos}{15}
+\contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{15}

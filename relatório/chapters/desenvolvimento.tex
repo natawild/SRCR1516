@@ -32,7 +32,6 @@ exercício e algumas das ferramentas fundamentais para a elaboração do mesmo.
 
 \section{Estudos anteriores}
 \label{p2:estudp}
-
 Para a realização deste trabalho foram necessários alguns conhecimentos anteriores sobre programação em lógica e, posteriormente, o uso da linguagem de programação PROLOG.
 Este conhecimento foi adquirido ao longo das aulas teóricas ( programação em lógica) e aulas
 teórico-práticas (PROLOG) de Sistemas de Representação de Conhecimento e Raciocínio.
@@ -44,7 +43,6 @@ e, é aqui, que entram os conhecimentos de PROLOG e da ferramenta \textit{SICSTu
 compilar e interpretar o código desenvolvido nesta linguagem.
 \\
 
-
 Para o desenvolvimento desses predicados foi necessário fazer uma análise de conhecimentos de cada um dos membros sobre o tema e acompanhado de uma pequena pesquisa sobre as características destes.
 
 O estudo inicial passou por caracterizar um utente, este que é definido pelo nome, serviço em que está inscrito ou consultado, profissional atribuído e a instituição onde o profissional exerce e onde o utente é atendido, que devem coincidir. Na realidade, o utente é composto por muitos outros factores, tal como, número de utente, número de contribuinte, número de cartão de cidadão entre muitos outros mas para a resolução dos critérios mínimos apenas são requeridos os mencionados anteriormente, pois as questões não pretendem incidir nesses campos.
@@ -53,10 +51,10 @@ O estudo inicial passou por caracterizar um utente, este que é definido pelo no
 Um serviço é caracterizado pelo nome, isto é o nome do serviço terá de ser elucidativo, por exemplo, “pediatria” e pela instituição a que corresponde ao nome do local onde se presta esse serviço aos utentes, e como tal será algo como “hospital....” ou “centro de saúde...” ou algo semelhante que reflita que esse local é um local em que se prestam determinados serviços na área da saúde.
 \\
 
-Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões, mas um profissional é algo mais que isto. 
+Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões.
 \\
 
-Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos mínimos não pretendem questionar nada de especial que implique que a instituição tenha de ter algo mais no seu predicado além do seu nome.
+Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos não pretendem questionar algo implique que a instituição tenha de ter algo mais no seu predicado além do seu nome.
 
 
 \section{Programação em Lógica e PROLOG}
@@ -65,7 +63,7 @@ De modo a que a leitura deste documento seja perceptível em termos de conceitos
 Tal como foi mencionado anteriormente uma linguagem de programação lógica utiliza a lógica para representar conhecimento e inferências para manipular informação. Um programa neste tipo de programação possui então os seguintes parâmetros:
 
 \begin{itemize}
-	\item Factos - constatações sobre algo que se conhece e se sabe verdadeiro, por exemplo cor( azul )
+	\item Factos - constatações sobre algo que se conhece e se sabe verdadeiro, por exemplo cor( azul ), mae( sofia, joão )
 	\item Predicados – implementam relações, por exemplo o predicado filho( filho, pai ) implementa a relação de descendência direta (ser filho de)
 	\item Regras – utilizadas para definir novos predicados. 
 \end{itemize}
@@ -113,7 +111,7 @@ instituicao( hospital_braga ).
 instituicao( hospital_barcelos ).
 \end{verbatim}
 
-Como uma instituição tem a si associado respetivo serviço usámos o predicado \textbf{instserv} com a  assinatura \textbf{instserv (intituicao,servico).}, para relacionar a intituição com o respetivo serviço, como se pode verificar no exemplo abaixo: 
+Inicialmente tinhamos pensado relacionar a instituição com o serviço, pois como uma instituição tem a si associado respetivo/s serviço/s, usámos o predicado \textbf{instserv} com a  assinatura \textbf{instserv (intituicao,servico).}, porém repensámos e decidimos que poderiamos interligar todas entidades num só predicado. Este facto pode ser verificado no capítulo 3.1.5, entretanto fica um exerto da base de conhecimento de como se tinha pensado: 
 
 \begin{verbatim}
 instserv( hospital_braga, cardiologia ).
@@ -123,7 +121,6 @@ instserv( hospital_beatriz_angelo, endocrinologia ).
 \subsection{Serviços}
 Um requisito a incluir na base de conhecimento é a existencia de serviços, para representar esta situação temos o predicado servico com a assinatura \textbf{servico(nome).}
 
-
 \begin{Verbatim}
 servico( cardiologia ). 
 servico( cirugiageral ).
@@ -132,7 +129,6 @@ servico(  neurologia ).
 
 \subsection{Profissionais}
 Mais um requisito do sistema a incluir na base de conhecimento é a existencia de profissionais com a seguinte assinatura \textbf{profissional(codigo, nome).}
-
 
 \begin{Verbatim}
 profissional(1,marcus).
@@ -149,26 +145,33 @@ utente(2,carlos).
 utente(3,maria). 
 \end{Verbatim}
 
-Como os utentes pertencem a uma certa instituição de saúde foi necessário introduzir esse conhecimento na base sendo a sua assinatura \textbf{utentinst(utente,instituicao).}
+Como os utentes pertencem a uma certa instituição de saúde foi necessário introduzir esse conhecimento na base sendo a sua assinatura
 
-\begin{verbatim}
-utentinst(1, hospital_barcelos ). 
-utentinst(3, hospital_porto ).
-utentinst(2, hospital_trofa ). 
-\end{verbatim}
 
 \subsection{Relacionamento entre Entidades}
-Relacionamos instituição de saúde com os seviços prestados pelo profissional com o utente. Introduzimos na base de conhecimento o predicado \textbf{ins\_serv\_uten\_profi( intituicao, servico,Codigo utente, Codigo profissional ).} 
+Como a cada isntituição estão relacionados serviços e esses serviços necessitam de profissionais de saúde e para terminar o ciclo são precisos os utentes. Resolvemos criar um facto na base de conhecimento que relacionasse as quatro entidades. Para tal introduzimos na base de conhecimento o predicado \textbf{ins\_serv\_uten\_profi( intituicao, servico,Codigo utente, Codigo profissional ).}, segue de seguida um exerto e uma imagem ilustrativa da base de conhecimento implementada. 
 
 \begin{verbatim}
 ins_serv_uten_profi( hospital_braga, cardiologia,1,1 ).
 ins_serv_uten_pofi( hospital_trofa, cardiologia,1,1 ).
 \end{verbatim}
 
+\begin{figure}[<+htpb+>]
+	\centering
+	\includegraphics[scale=0.3]{esquema.jpg}
+	\caption{Esquema da base de conhecimento }
+	\label{p3:fig:esquema1}
+\end{figure}
+\newpage
+
+
 \section{Funcionalidades Básicas}
-Após a apresentação da base de conhecimento do exercício torna-se possivel desenvolver alhuns teoremas e axiomas que consigam responder aos desafios apresentados. Desta forma, apresentaremos e explicaremos a forma como resolvemos cada um dos desafios e quais os resultados obtidos pelas soluções por nós apresentadas. 
+\label{p3:funcbasic}
+
+Após a apresentação da base de conhecimento do exercício torna-se possivel desenvolver alguns teoremas que consigam responder aos desafios apresentados. Desta forma, apresentaremos e explicaremos a forma como resolvemos cada um dos desafios e quais os resultados obtidos pelas soluções por nós apresentadas. 
+
 \subsection{Identificar os serviços existentes numa instituição}
-Pretende-se que seja possivel apresentar todos os serviços existentes numa determinada instituição de saúde. Para tal basta procurar todos os serviços que estejam ligados à instituição pretendida através do axioma \textit{servicoInst(Inst,Serv)}, este que nos devolve uma lista de todos os serviços.  
+Pretende-se que seja possivel apresentar todos os serviços existentes numa determinada instituição de saúde. Para tal basta procurar todos os serviços (\textit{findall}) que estejam ligados à instituição pretendida através do axioma \textit{servicoInst(Inst,Serv)}, este que nos devolve uma lista com todos os serviços existentes numa instituição.  
 Segue de seguida o axioma implementado: 
 \begin{verbatim}
 servicoInst(Inst,Serv):-
@@ -182,12 +185,12 @@ servicoInst(Inst,[Serv]):-
 ins_serv_uten_profi(Inst,Serv,_,_).
 \end{verbatim}
 
-Mostramos de seguida o output do programa para este axioma. 
+Mostramos de seguida o output obtido do programa para este axioma: 
 
 \begin{figure}[<+htpb+>]
 	\centering
 	\includegraphics[scale=0.9]{answer1.png}
-	\caption{Exemplo de output do programa}
+	\caption{Exemplo de output do axioma servicoInst}
 	\label{p3:fig:output1}
 \end{figure}
 
@@ -208,7 +211,7 @@ ins_serv_uten_profi(Inst,_,Cod,_),
 utente(Cod,Uten).
 \end{verbatim}
 
-O output produzido pela execução do axioma :
+O output produzido pela execução do axioma é:
 \begin{figure}[<+htpb+>]
 	\centering
 	\includegraphics[scale=0.9]{answer2.png}
@@ -241,17 +244,19 @@ Mostrámos de seguida o output da execução do axioma:
 	\label{p3:fig:output3}
 \end{figure}
 
-\subsection{Identificar os utentes de um determinados serviço numa instituição}
-Para a identificação dos utentes que estão num determinado serviço numa certa instituição de saúde, implementamos o axioma \textit{utenServInst(Serv,Inst,Uten)}, este que procura o serviço, a intituição e os utentes. 
+\subsection{Identificar os utentes de um determinado serviço numa instituição}
+Para a identificação dos utentes que estão num determinado serviço numa certa instituição de saúde, implementamos o axioma \textit{utenServInst(Serv,Inst,Uten)}, este que procura o serviço e a intituição e nos devolve uma lista com os utentes. 
 \begin{verbatim}
 utenServInst(Serv,Inst,Uten):- 
 findall((K,J),(ins_serv_uten_profi(Inst,Serv,K,_),utente(K,J)),Uten). 
 
-utenServInst(Serv,Inst,[(Cod,Uten)|K]):- utente(Cod,Uten),
+utenServInst(Serv,Inst,[(Cod,Uten)|K]):-
+utente(Cod,Uten),
 ins_serv_uten_profi(Inst,Serv,Cod,_),
 utenServInst(Serv,Inst,K).
 
-utenServInst(Serv,Inst,[(Cod,Uten)]):- ins_serv_uten_profi(Inst,Serv,Cod,_),
+utenServInst(Serv,Inst,[(Cod,Uten)]):-
+ins_serv_uten_profi(Inst,Serv,Cod,_),
 utente(Cod,Uten).
 \end{verbatim}
 
@@ -264,7 +269,7 @@ utente(Cod,Uten).
 
 
 \subsection{Identificar as instituições onde seja prestado um dado serviço ou conjunto de serviços}
-
+A implementação deste axioma é semelhante aos anteriores, pois é necessário relacionar o serviço ou vários serviços à respetiva instituição. Para tal implementamos o axioma \textbf{instServico: ([Serviço],[Instituição])}, que recorre ao \textbf{servicoInst} para garantir que o serviço está na instituição e também elimina os nomes dos serviços que apareçam repetidos. 
 
 
 \begin{verbatim}
@@ -277,11 +282,16 @@ utente(Cod,Uten).
  
  inst_Servico(S,[I]):- servicoInst(I,[S]).
  
- instServicos([S|T],[I|K]):-inst_Servico(S,[I|K]),instServicos(T,[I|K]).
+ instServicos([S|T],[I|K]):-
+ inst_Servico(S,[I|K]),
+ instServicos(T,[I|K]).
+ 
  instServicos([S],[I|K]):-inst_Servico(S,[I|K]).
+ 
  instServicos([S],[I]):-inst_Servico(S,[I]).
 \end{verbatim}
 
+De seguida mostramos o output obtido: 
 
 \begin{figure}[<+htpb+>]
 	\centering
@@ -291,6 +301,7 @@ utente(Cod,Uten).
 \end{figure}
 
 \subsection{Identificar os serviços que não se podem encontrar numa instituição}
+Neste desafio é necessário saber quais os serviços exitentes, depois saber quais os serviços que fazem parte de uma instituição. No final subtraimos o total de serviços aos existentes em cada instituição e devolve assim os serviços que não existem em determinada instituição. Foi implementado o axioma \textbf{difList} para subtrair todos o serviços existentes aos existentes em cada instituição. 
 
 \begin{verbatim}
 todosServicos(L):-
@@ -303,6 +314,7 @@ difList(P,K,Serv).
 servicosForaInst(Ins,[Serv|K]):-nao(servicoInst(Ins,[Serv|K])).
 \end{verbatim}
 
+Mostramos de seguida um exemplo da execução do programa: 
 
 \begin{figure}[<+htpb+>]
 	\centering
@@ -312,6 +324,7 @@ servicosForaInst(Ins,[Serv|K]):-nao(servicoInst(Ins,[Serv|K])).
 \end{figure}
 
 \subsection{Determinar as instituições onde um profissional presta serviço }
+Para este desafio foi necessário descobrir quais as instituições onde determinado profissional presta serviço. Para tal usamos o método de procurar todas as intituições que satisfazem o objetivo de ser um profissional que presta serviço numa determinada instituição. 
 \begin{verbatim}
 profiServico((Cod,Prof),Inst):- 
 findall(K,(ins_serv_uten_profi(K,_,_,Cod),profissional(Cod,Prof)),Inst).
@@ -323,6 +336,7 @@ profiServico((Cod,Prof),K).
 profiServico((Cod,Prof),[Inst]):-ins_serv_uten_profi(Inst,_,_,Cod),
 profissional(Cod,Prof).
 \end{verbatim}
+Mostramos de seguida um exemplo de execução do axioma: 
 
 \begin{figure}[<+htpb+>]
 	\centering
@@ -332,6 +346,11 @@ profissional(Cod,Prof).
 \end{figure}
 
 \subsection{Determinar todas as instituições(ou serviços ou profissionais) a quem o utente já recorreu}
+
+Este desafio foi realizado por partes, pois é necessário saber quais as intituições todas a que um utente já recorreu, começamos por criar o axioma \textbf{instSerProf((Cod,Uten),Inst,ints)}, em que quando se dá um utente devolve uma lista de instituições onde esse utente já frequentou. 
+
+De seguida implementamos o axioma \textbf{instSerProf((CodU,Uten),Serv,serv)}, que permite saber quais os serviços que um utente já frequentou. 
+Por fim construímos o axioma \textbf{instSerProf((CodU,Uten),Prof,prof)}, que nos devolve uma lista com os profissionais a quem determinado utente recorreu. Todos estes axiomas estão a eliminar informação repetida. 
 
 \begin{verbatim}
 instSerProf((Cod,Uten),Inst,ints):-
@@ -348,7 +367,8 @@ profissional(K,Nome)),L),
 eliminarRepetidos(L,Prof).
 \end{verbatim}
 
-\newpage
+Exemplificamos na imagem abaixo a execução dos axiomas acima descritos: 
+
 \begin{figure}[<+htpb+>]
 	\centering
 	\includegraphics[scale=0.9]{answer8.png}
@@ -358,6 +378,8 @@ eliminarRepetidos(L,Prof).
 
 
 \subsection{Registar utentes, profissionais, serviços ou instituições}
+Para possibilitar a inserção de conhecimento na base implementamos o teorema \textbf{inserirConhecimento}, este teorema que necessita de verificar os invariantes definidos por nós, pois não podiamos deixar que informação repetida fosse adicionada à base de conhecimento. Fica de seguida um exerto de como implementamos as inserções na base de conhecimento: 
+
 \begin{Verbatim}
 adicionarUtentes(Codigo,Utente):- 
 inserirConhecimento(utente(Codigo,Utente)).
@@ -370,18 +392,48 @@ adicionarProfissional(Codigo,Profissional):-
 
 adicionarInstituicao(Nome):- 
 inserirConhecimento(instituicao(Nome)).
-
-
 \end{Verbatim}
+
+Criamos vários invariantes para garantir que não é inserido conhecimento repetido no sistema. 
+
+O primeiro invariante criado não permite que seja introduzido de novo um utente já existente, assim como um profissional: 
+
+\begin{Verbatim}
++utente(Codigo,Uten) :: (solucoes( (Codigo,Uten),
+ utente(Codigo,Uten), S),comprimento(S,N),N==1).
+\end{Verbatim}
+
+O segundo invariante não permite introduzir um código de utente já existente, assim como também implementamos para o profissional o mesmo invariante: 
+\begin{Verbatim}
++utente(Codigo,_) :: (solucoes( Uten, utente(Codigo,Uten), S),
+comprimento(S,N),N==1).
+\end{Verbatim}
+
+No terceiro invariante não permitimos que se introduzisse o mesmo nome a uma intituição, partindo do facto que não existem instituições com o mesmo nome. 
+
+\begin{Verbatim}
++instituicao(Nome) :: (solucoes( Nome, instituicao(Nome), S),
+comprimento(S,N),N==1). 
+\end{Verbatim}
+No quarto inavariante não permitimos que se introdizem o mesmo nome para um serviço. 
+
+\begin{Verbatim}
++servico(Nome) :: (solucoes( Nome, servico(Nome), S),
+comprimento(S,N),N==1). 
+\end{Verbatim}
+
+Mostramos de seguida a execução dos teoremas e a respetiva listagem com os dados inseridos na base de conhecimento. 
 
 \begin{figure}[<+htpb+>]
 	\centering
 	\includegraphics[scale=0.9]{answer9.png}
-	\caption{Exemplo da execução do axioma adicionar utente, profissionais, serviço ou instituições}
+	\caption{Exemplo da execução do axioma adicionar utente ou serviço com a respetiva listagem de dados}
 	\label{p3:fig:output9}
 \end{figure}
 
 \subsection{Remover utente (profissionais, serviços, instituições) dos registos}
+
+Para possibilitar a remoção de conhecimento foi necessário criar o predicado \textbf{remover}, este predicado também necessita de verificar invariantes criados por nós. Mostramos de seguida o exercerto dos predicados de remoção :
 
 \begin{Verbatim}
 removerUtentes(Codigo,Utente):- remover(utente(Codigo,Utente)).
@@ -393,11 +445,38 @@ removerProfissional(Codigo,Profissional):- remover(profissional(Codigo,Profissio
 removerInstituicao(Nome):- remover(instituicao(Nome)).
 \end{Verbatim}
 
+O primeiro invariante criado não permite que seja removido um utente enquanto estiver a ser consultado: 
+
+\begin{Verbatim}
+-utente(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,Codigo,_)),nao(utente(Codigo,Nome))).
+\end{Verbatim}
+
+O segundo invariante não permite remover um profissional enquanto este estiver num serviço ou instituição. 
+
+\begin{Verbatim}
+-profissional(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,_,Codigo)),nao(profissional(Codigo,Nome))).
+\end{Verbatim}
+
+O terceiro invariante não permite  que seja removido um servico com profissionais a trabalhar nele ou utentes a usá-lo, ou estar na instituicao
+
+\begin{Verbatim}
+-servico(Nome) :: (nao(ins_serv_uten_profi(_,Nome,_,_))).
+\end{Verbatim}
+
+O quarto invariante não permite remover uma instituicao com profissionais, utentes, ou servicos
+\begin{Verbatim}
+-instituicao(Nome) :: (nao(ins_serv_uten_profi(Nome,_,_,_))).
+\end{Verbatim}
+
+Mostramos de seguida um exemplo de remoção de conhecimento: 
+
 \begin{figure}[<+htpb+>]
 	\centering
 	\includegraphics[scale=0.9]{answer10.png}
 	\caption{Exemplo da execução do axioma profiServico}
 	\label{p3:fig:output10}
 \end{figure}
+
+\newpage
 
 \subsection{Funcionalidades Extra}

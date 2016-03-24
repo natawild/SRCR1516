@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  23 MAR 2016 20:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  24 MAR 2016 17:20
 entering extended mode
 **main.tex
 (main.tex
@@ -1167,37 +1167,43 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
 \@enLab=\toks43
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\appendix\appendix.sty"
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count177
+\c@@ppsavesec=\count178
+\c@@ppsaveapp=\count179
+)
 \tikzscale@accuracy=\skip60
  (main.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count177
+\scratchcounter=\count180
 \scratchdimen=\dimen304
 \scratchbox=\box60
-\nofMPsegments=\count178
-\nofMParguments=\count179
+\nofMPsegments=\count181
+\nofMParguments=\count182
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count180
+\MPscratchCnt=\count183
 \MPscratchDim=\dimen305
-\MPnumerator=\count181
-\makeMPintoPDFobject=\count182
+\MPnumerator=\count184
+\makeMPintoPDFobject=\count185
 \everyMPtoPDFconversion=\toks45
 ) ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': you might b
@@ -1271,233 +1277,218 @@ Cap\'{\i }tulo 1.
 ]
 Cap\'{\i }tulo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--46
+Underfull \hbox (badness 10000) in paragraph at lines 35--45
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--52
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--55
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
 [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 68.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 66.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 66.
  [3]
 Cap\'{\i }tulo 3.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 103.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 110.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 101.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 108.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [4
 
 ]
-Overfull \hbox (35.76385pt too wide) in paragraph at lines 144--145
+Overfull \hbox (35.76385pt too wide) in paragraph at lines 140--141
 []\T1/ptm/m/n/12 Por fim, in-clui-mos os uten-tes na base de co-nhe-ci-mento es
 -tes com a as-si-na-tura \T1/ptm/b/n/12 utente(codigo,nome). 
  []
 
-
-Overfull \hbox (26.2396pt too wide) in paragraph at lines 161--162
-\T1/ptm/m/n/12 In-tro-du-zi-mos na base de co-nhe-ci-mento o pre-di-cado \T1/pt
-m/b/n/12 ins_serv_uten_profi( in-ti-tui-cao, ser-vico,Codigo
- []
-
-[5] <answer1.png, id=42, 299.61937pt x 85.82062pt>
+<esquema.jpg, id=39, 963.6pt x 722.7pt>
+File: esquema.jpg Graphic file (type jpg)
+ <use esquema.jpg>
+Package pdftex.def Info: esquema.jpg used on input line 161.
+(pdftex.def)             Requested size: 289.08223pt x 216.81166pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 162.
+ [5 <./esquema.jpg>]
+<answer1.png, id=43, 299.61937pt x 85.82062pt>
 File: answer1.png Graphic file (type png)
  <use answer1.png>
-Package pdftex.def Info: answer1.png used on input line 189.
+Package pdftex.def Info: answer1.png used on input line 192.
 (pdftex.def)             Requested size: 269.65494pt x 77.23782pt.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
 
-Overfull \hbox (19.95569pt too wide) in paragraph at lines 209--209
+Overfull \hbox (19.95569pt too wide) in paragraph at lines 212--212
 []\T1/pcr/m/n/12 findall((K,J),(ins_serv_uten_profi(Inst,_,K,_),utente(K,J)),Ut
 en).[] 
  []
 
-<answer2.png, id=43, 266.49562pt x 115.18031pt>
+[6 <./answer1.png>] <answer2.png, id=47, 266.49562pt x 115.18031pt>
 File: answer2.png Graphic file (type png)
- <use answer2.png>
-Package pdftex.def Info: answer2.png used on input line 214.
+
+<use answer2.png>
+Package pdftex.def Info: answer2.png used on input line 217.
 (pdftex.def)             Requested size: 239.84384pt x 103.6613pt.
 
-Overfull \hbox (12.75569pt too wide) in paragraph at lines 233--233
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 236--236
 []\T1/pcr/m/n/12 findall((K,J),(ins_serv_uten_profi(_,Serv,K,_),utente(K,J)),Ut
 e).[] 
  []
 
 
-Overfull \hbox (34.35568pt too wide) in paragraph at lines 233--233
+Overfull \hbox (34.35568pt too wide) in paragraph at lines 236--236
 []\T1/pcr/m/n/12 servUtente(Serv,[(Cod,Uten)|K]):- ins_serv_uten_profi(_,Serv,C
 od,_),[] 
  []
 
-[6 <./answer1.png>]
-Overfull \hbox (19.95569pt too wide) in paragraph at lines 233--233
+
+Overfull \hbox (19.95569pt too wide) in paragraph at lines 236--236
 []\T1/pcr/m/n/12 servUtente(Serv,[(Cod,Uten)]):- ins_serv_uten_profi(_,Serv,Cod
 ,_),[] 
  []
 
-<answer3.png, id=47, 249.93375pt x 85.06781pt>
+<answer3.png, id=48, 249.93375pt x 85.06781pt>
 File: answer3.png Graphic file (type png)
  <use answer3.png>
-Package pdftex.def Info: answer3.png used on input line 239.
+Package pdftex.def Info: answer3.png used on input line 242.
 (pdftex.def)             Requested size: 224.9383pt x 76.5603pt.
 
-Overfull \hbox (41.55568pt too wide) in paragraph at lines 256--256
+Overfull \hbox (41.55568pt too wide) in paragraph at lines 261--261
 []\T1/pcr/m/n/12 findall((K,J),(ins_serv_uten_profi(Inst,Serv,K,_),utente(K,J))
 ,Uten).[] 
  []
 
-
-Overfull \hbox (91.95566pt too wide) in paragraph at lines 256--256
-[]\T1/pcr/m/n/12 utenServInst(Serv,Inst,[(Cod,Uten)]):- ins_serv_uten_profi(Ins
-t,Serv,Cod,_),[] 
- []
-
-<answer4.png, id=48, 348.55219pt x 77.53969pt>
+[7 <./answer2.png> <./answer3.png>]
+<answer4.png, id=52, 348.55219pt x 77.53969pt>
 File: answer4.png Graphic file (type png)
  <use answer4.png>
-Package pdftex.def Info: answer4.png used on input line 260.
+Package pdftex.def Info: answer4.png used on input line 265.
 (pdftex.def)             Requested size: 313.69405pt x 69.78505pt.
- [7 <./answer2.png> <./answer3.png>]
-Overfull \hbox (63.15567pt too wide) in paragraph at lines 283--283
-[] \T1/pcr/m/n/12 instServicos([S|T],[I|K]):-inst_Servico(S,[I|K]),instServicos
-(T,[I|K]).[] 
- []
 
-<answer5.png, id=52, 345.54094pt x 73.77562pt>
+<answer5.png, id=53, 345.54094pt x 73.77562pt>
 File: answer5.png Graphic file (type png)
  <use answer5.png>
-Package pdftex.def Info: answer5.png used on input line 288.
+Package pdftex.def Info: answer5.png used on input line 298.
 (pdftex.def)             Requested size: 310.98396pt x 66.39742pt.
-
-<answer6.png, id=53, 773.13844pt x 106.14656pt>
+ [8 <./answer4.png>] <answer6.png, id=57, 773.13844pt x 106.14656pt>
 File: answer6.png Graphic file (type png)
  <use answer6.png>
-Package pdftex.def Info: answer6.png used on input line 309.
+Package pdftex.def Info: answer6.png used on input line 321.
 (pdftex.def)             Requested size: 463.88666pt x 63.68842pt.
 
-Overfull \hbox (8.64255pt too wide) in paragraph at lines 309--310
+Overfull \hbox (8.64255pt too wide) in paragraph at lines 321--322
  [][] 
  []
 
 
-Overfull \hbox (63.15567pt too wide) in paragraph at lines 325--325
+Overfull \hbox (63.15567pt too wide) in paragraph at lines 338--338
 []\T1/pcr/m/n/12 findall(K,(ins_serv_uten_profi(K,_,_,Cod),profissional(Cod,Pro
 f)),Inst).[] 
  []
 
 
-Overfull \hbox (41.55568pt too wide) in paragraph at lines 325--325
+Overfull \hbox (41.55568pt too wide) in paragraph at lines 338--338
 []\T1/pcr/m/n/12 profiServico((Cod,Prof),[Inst|K]):-ins_serv_uten_profi(Inst,_,
 _,Cod),[] 
  []
 
-[8 <./answer4.png> <./answer5.png>]
-Overfull \hbox (27.15569pt too wide) in paragraph at lines 325--325
+
+Overfull \hbox (27.15569pt too wide) in paragraph at lines 338--338
 []\T1/pcr/m/n/12 profiServico((Cod,Prof),[Inst]):-ins_serv_uten_profi(Inst,_,_,
 Cod),[] 
  []
 
-<answer7.png, id=57, 255.95625pt x 70.01157pt>
+<answer7.png, id=58, 255.95625pt x 70.01157pt>
 File: answer7.png Graphic file (type png)
  <use answer7.png>
-Package pdftex.def Info: answer7.png used on input line 329.
+Package pdftex.def Info: answer7.png used on input line 343.
 (pdftex.def)             Requested size: 230.35847pt x 63.00981pt.
 
-Overfull \hbox (3.03111pt too wide) in paragraph at lines 334--334
+Overfull \hbox (3.03111pt too wide) in paragraph at lines 348--348
  |[]\T1/ptm/b/n/14.4 Determinar to-das as ins-ti-tui-ções(ou ser-vi-ços ou pro-
 fis-si-o-nais) a quem
  []
 
-
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 349--349
+[9 <./answer5.png> <./answer6.png>]
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 368--368
 [] \T1/pcr/m/n/12 findall(K,(ins_serv_uten_profi(K,_,Cod,_),utente(Cod,Uten)),L
 ),[] 
  []
 
 
-Overfull \hbox (12.75569pt too wide) in paragraph at lines 349--349
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 368--368
 []\T1/pcr/m/n/12 findall(K,(ins_serv_uten_profi(_,K,CodU,_),utente(CodU,Uten)),
 L),[] 
  []
 
 
-Overfull \hbox (34.35568pt too wide) in paragraph at lines 349--349
+Overfull \hbox (34.35568pt too wide) in paragraph at lines 368--368
 []\T1/pcr/m/n/12 findall((K,Nome),(ins_serv_uten_profi(_,_,CodU,K),utente(CodU,
 Uten),[] 
  []
 
-[9 <./answer6.png> <./answer7.png>]
-<answer8.png, id=62, 395.22656pt x 100.12407pt>
+<answer8.png, id=63, 395.22656pt x 100.12407pt>
 File: answer8.png Graphic file (type png)
  <use answer8.png>
-Package pdftex.def Info: answer8.png used on input line 354.
+Package pdftex.def Info: answer8.png used on input line 374.
 (pdftex.def)             Requested size: 355.7006pt x 90.11081pt.
-
-<answer9.png, id=63, 343.2825pt x 109.91063pt>
+ [10 <./answer7.png> <./answer8.png>] <answer9.png, id=67, 298.11375pt x 305.64
+188pt>
 File: answer9.png Graphic file (type png)
- <use answer9.png>
-Package pdftex.def Info: answer9.png used on input line 379.
-(pdftex.def)             Requested size: 308.95139pt x 98.91862pt.
 
+<use answer9.png>
+Package pdftex.def Info: answer9.png used on input line 429.
+(pdftex.def)             Requested size: 268.2999pt x 275.07513pt.
+ [11] <answer10.png, id=71, 286.06876pt x 290.58563pt>
+File: answer10.png Graphic file (type png)
 
-LaTeX Warning: File `answer10.png' not found on input line 398.
-
-
-! Package pdftex.def Error: File `answer10.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.398 	\includegraphics[scale=0.9]{answer10.png}
-                                                
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-) (chapters/conclusao.tex [10 <./answer8.png> <./answer9.png>] [11]
+<use answer10.png>
+Package pdftex.def Info: answer10.png used on input line 475.
+(pdftex.def)             Requested size: 257.45949pt x 261.52464pt.
+ [12 <./answer9.png>]) (chapters/conclusao.tex [13 <./answer10.png>]
 Cap\'{\i }tulo 4.
-) [12
+) [14
 
-] (main.aux) ) 
+]
+Ap\^endice A.
+[15
+
+
+] [16] [17] [18] [19] [20] [21] [22] [23] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 31474 strings out of 493698
- 737855 string characters out of 3144375
- 864802 words of memory out of 3000000
- 34258 multiletter control sequences out of 15000+200000
+ 31563 strings out of 493698
+ 739312 string characters out of 3144375
+ 866246 words of memory out of 3000000
+ 34359 multiletter control sequences out of 15000+200000
  47949 words of font info for 59 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  62i,8n,83p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
-/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (16 pages, 153405 bytes).
+{C:/Program Files/MiKTeX 
+2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courie
+r/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on main.pdf (27 pages, 241075 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
+ 131 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
