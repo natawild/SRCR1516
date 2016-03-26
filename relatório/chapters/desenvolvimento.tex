@@ -480,3 +480,42 @@ Mostramos de seguida um exemplo de remoção de conhecimento:
 \newpage
 
 \subsection{Funcionalidades Extra}
+
+Após a conclusão das funcionalidades básicas exigidas e de forma a enriquecer o nosso exercício decidimos implementar funcionalidades extra. 
+Assim sendo, passaremos a explicar estas novas funcionalidades, que se baseiam na contagem de entidades no sistema. 
+
+\subsubsection{Contagem de utentes, serviços, profissionais e instituições}
+
+Para a inserção desta funcionalidade foi necessária a criação de um predicado que permitisse calcular o comprimento de uma lista, para tal implementou-se o predicado \textbf{comprimento}:
+\begin{Verbatim}
+comprimento([], 0).
+comprimento([_|T], R) :-
+comprimento(T, X),
+R is 1+X.
+\end{Verbatim}
+
+Para a contagem das caracteristicas pretendidas em cada caso o método utilizado foi semelhante, aplicámos o predicado \textbf{comprimento} aos elementos pretendidos, como segue no exemplo de contar o número de serviços existentes em determinada instituição de saúde: 
+
+\begin{Verbatim}
+numero_Servico(Inst,N):- servicoInst(Inst,K),comprimento(K,Contador), 
+N is Contador.
+\end{Verbatim}
+
+Um outro exemplo é o da contagem dos profissionais existentes em determinada instituição de saúde em que se utilizou o \textbf{findall}. Este mecanismo serve para encontrar todos os profissionais em determinada instituição, com o objetivo de obter o comprimento da lista (contador). O resultado será unificado,  \textbf{N} passará a assumir esse resultado, como se pode verificar na implementação deste predicado abaixo:  
+
+\begin{Verbatim}
+numero_Profissionais(Inst,N):-
+ findall(Prof,ins_serv_uten_profi(Inst,_,_,Prof),L),
+comprimento(L,Contador), 
+N is Contador.
+\end{Verbatim}
+
+Mostramos de seguida todos os exemplos de execução da nossas funcionalidades extras: 
+\begin{figure}[<+htpb+>]
+	\centering
+	\includegraphics[scale=0.9]{extras.png}
+	\caption{Exemplo da execução dos extras do exercício}
+	\label{p3:fig:output10}
+\end{figure}
+
+

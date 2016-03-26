@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  24 MAR 2016 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  26 MAR 2016 01:56
 entering extended mode
 **main.tex
 (main.tex
@@ -1174,7 +1174,11 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsaveapp=\count179
 )
 \tikzscale@accuracy=\skip60
- (main.aux)
+ (main.aux
+
+LaTeX Warning: Label `p3:fig:output10' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
@@ -1188,8 +1192,7 @@ LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 36.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
@@ -1461,34 +1464,44 @@ File: answer10.png Graphic file (type png)
 <use answer10.png>
 Package pdftex.def Info: answer10.png used on input line 475.
 (pdftex.def)             Requested size: 257.45949pt x 261.52464pt.
- [12 <./answer9.png>]) (chapters/conclusao.tex [13 <./answer10.png>]
+ [12 <./answer9.png>] [13 <./answer10.png>]
+<extras.png, id=78, 392.96812pt x 237.13594pt>
+File: extras.png Graphic file (type png)
+ <use extras.png>
+Package pdftex.def Info: extras.png used on input line 516.
+(pdftex.def)             Requested size: 353.66803pt x 213.42035pt.
+)
+(chapters/conclusao.tex [14 <./extras.png>]
 Cap\'{\i }tulo 4.
-) [14
+) [15
 
 ]
 Ap\^endice A.
-[15
+[16
 
 
-] [16] [17] [18] [19] [20] [21] [22] [23] (main.aux) ) 
+] [17] [18] [19] [20] [21] [22] [23] [24] (main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 31563 strings out of 493698
- 739312 string characters out of 3144375
- 866246 words of memory out of 3000000
- 34359 multiletter control sequences out of 15000+200000
+ 31573 strings out of 493698
+ 739479 string characters out of 3144375
+ 866284 words of memory out of 3000000
+ 34368 multiletter control sequences out of 15000+200000
  47949 words of font info for 59 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  62i,8n,83p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 
-2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courie
-r/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on main.pdf (27 pages, 241051 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi
+8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (28 pages, 247919 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
+ 135 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

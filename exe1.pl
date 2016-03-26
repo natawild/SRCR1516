@@ -320,10 +320,6 @@ removerInstituicao(Nome):- remover(instituicao(Nome)).
 
 
 
-
-
-
-
 /* ################# MECANISMOS ####################*/
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
@@ -339,9 +335,6 @@ construir(Solucoes) :- retract(temp(X)), !,
 			(X==fim, !, Solucoes=[];
 			Solucoes=[X | Resto], 
 			construir(Resto)).
-
-
-
 
 
 
@@ -428,21 +421,22 @@ remocao(Termo):-
 
 
 
-
-
 /*##############Extras###############################*/
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Numero de serviços existentes num hospital.
 % Extensão do predicado numero_Servico: Instituicao,Numero -> {v, F}
 
-numero_Servico(Inst,N):- servicoInst(Inst,K),comprimento(K,Contador), N is Contador.
+numero_Servico(Inst,N):- servicoInst(Inst,K),comprimento(K,Contador), 
+                        N is Contador.
 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Numero de profissionais existentes num hospital.
 % Extensão do predicado numero_Profissionais: Instituicao,Numero -> {v, F}
 
-numero_Profissionais(Inst,N):- findall(Prof,ins_serv_uten_profi(Inst,_,_,Prof),L),comprimento(L,Contador), N is Contador.
+numero_Profissionais(Inst,N):- findall(Prof,ins_serv_uten_profi(Inst,_,_,Prof),L),
+                               comprimento(L,Contador),
+                               N is Contador.
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Numero de utentes existentes num hospital.
@@ -459,20 +453,20 @@ numero_Utentes(Inst,N):- utentesInst(Inst,K),comprimento(K,Contador), N is Conta
 numero_Utentes_Int_Serv(Inst,Serv,N):- findall(K,ins_serv_uten_profi(Inst,Serv,K,_),L),comprimento(L,Contador), N is Contador.
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-%Numero de hospitais disponivel na base de conhecimento
+% Numero de hospitais disponivel na base de conhecimento
 % Extensão do predicado numero_Ins: Numero -> {v, F}
 
 numero_Ins(Numero):-findall(K,instituicao(K),Z),comprimento(Z,Contador),Numero is Contador. 
 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-%Numero de servicos disponivel na base de conhecimento
+% Numero de servicos disponivel na base de conhecimento
 % Extensão do predicado numero_Servico: Numero -> {v, F}
 
 numero_Servico(Numero):-findall(K,servico(K),Z),comprimento(Z,Contador),Numero is Contador. 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-%Numero de utentes disponivel na base de conhecimento
+% Numero de utentes disponivel na base de conhecimento
 % Extensão do predicado numero_Utentes: Numero -> {v, F}
 
 numero_Utentes(Numero):-findall((J,K),utente(J,K),Z),comprimento(Z,Contador),Numero is Contador. 

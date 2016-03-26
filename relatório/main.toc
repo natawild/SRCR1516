@@ -24,6 +24,7 @@
 \contentsline {subsection}{\numberline {3.2.9}Registar utentes, profissionais, servi\IeC {\c c}os ou institui\IeC {\c c}\IeC {\~o}es}{10}
 \contentsline {subsection}{\numberline {3.2.10}Remover utente (profissionais, servi\IeC {\c c}os, institui\IeC {\c c}\IeC {\~o}es) dos registos}{11}
 \contentsline {subsection}{\numberline {3.2.11}Funcionalidades Extra}{13}
-\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{14}
-\contentsline {chapter}{Anexos}{15}
-\contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{15}
+\contentsline {subsubsection}{Contagem de utentes, servi\IeC {\c c}os, profissionais e institui\IeC {\c c}\IeC {\~o}es}{13}
+\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{15}
+\contentsline {chapter}{Anexos}{16}
+\contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{16}
