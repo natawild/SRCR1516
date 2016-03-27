@@ -18,7 +18,7 @@ Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, 
 
 \section{Estrutura do documento}
 \label{p1:Estrutura}
-O presente relatório encontra-se organizado em seis capítulos. Sendo que neste primeiro introduzimos a linguagem e o tema a tratar menciona-se também a motivação e os objetivos que nos levaram à realização deste exercício. 
+O presente relatório encontra-se organizado em cinco capítulos. Sendo que neste primeiro introduzimos a linguagem e o tema a tratar menciona-se também a motivação e os objetivos que nos levaram à realização deste exercício. 
 No segundo capítulo será feito um estudo prévio da linguagem de modo a que o leitor possa entender o exercício. No terceiro capítulo explicaremos o que foi desenvolvido para a implementação do exercício. No quarto capítulo apresentaremos as conclusões e interpretação dos resultados obtidos. Por fim será apresentados um anexo com o código desenvolvido. 
 
 
@@ -26,8 +26,8 @@ No segundo capítulo será feito um estudo prévio da linguagem de modo a que o 
 
 \chapter{Preliminares}
 \label{cap:p2}
-Neste capítulo vao ser apresentados alguns conceitos fundamentais para a elaboraçãoo deste
-exercício e algumas das ferramentas fundamentais para a elaboração do mesmo.
+Neste capítulo vao ser apresentados alguns conceitos fundamentais para a elaboração deste
+exercício e algumas das ferramentas fundamentais para a realização do mesmo.
 
 
 \section{Estudos anteriores}
@@ -51,10 +51,9 @@ O estudo inicial passou por caracterizar um utente, este que é definido pelo no
 Um serviço é caracterizado pelo nome, isto é o nome do serviço terá de ser elucidativo, por exemplo, “pediatria” e pela instituição a que corresponde ao nome do local onde se presta esse serviço aos utentes, e como tal será algo como “hospital....” ou “centro de saúde...” ou algo semelhante que reflita que esse local é um local em que se prestam serviços na área da saúde.
 \\
 
-Um profissional é caracterizado pelo seu nome, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões.O profissional também terá um códiogo e um nome para a sua identificação. 
-\\
+Um profissional é caracterizado pelo seu nome e código, serviço em que está inserido, sendo que pode estar em mais que um serviço e a instituição onde labora. E estes são apenas os requisitos mínimos que permitem ao sistema determinar as respostas a todas as questões.
 
-Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema visto que os requisitos não pretendem questionar algo implique que a instituição tenha mais atributos no seu predicado além do nome.
+Uma instituição é caracterizada apenas pelo seu nome por forma a simplificar este sistema, visto que os requisitos não pretendem questionar algo implique que a instituição tenha mais atributos no seu predicado. 
 
 
 \section{Programação em Lógica e PROLOG}
@@ -84,7 +83,6 @@ Deixamos, então, alguns exemplos importantes para a usar:
 Com estas noções como base passa-se agora ao desenvolvimento das tarefas do exercício.
 
 
-
 \chapter{Descrição do Trabalho e Análise de Resultados}
 \label{cap:p3}
 
@@ -102,7 +100,7 @@ que possa responder aos pedidos do enunciado.
 
 De acordo com o enunciado existem as instituições de saúde estas que têm a elas associados serviços e estes têm profissionais e respetivos utentes. 
 
-Para a implementação do exercício foi necessário criar uma base de conhecimento das instituições existentes 
+Para a implementação do exercício foi necessário criar uma base de conhecimento das instituições existentes. 
 Como tal usamos o predicado instituição para descrever esta relação: \textbf{instituição(nome).}, como no exemplo: 
 
 \begin{verbatim}
@@ -128,7 +126,7 @@ servico(  neurologia ).
 \end{Verbatim}
 
 \subsection{Profissionais}
-Mais um requisito do sistema a incluir na base de conhecimento é a existencia de profissionais com a seguinte assinatura \textbf{profissional(codigo, nome).}
+Mais um requisito do sistema a incluir na base de conhecimento é a existencia de profissionais com a seguinte assinatura \textbf{profissional(codigo, nome).}, neste caso introduziu-se um código para que a informação fosse o mais correta possivel, no caso de existir profissionais com o mesmo nome. 
 
 \begin{Verbatim}
 profissional(1,marcus).
@@ -137,15 +135,13 @@ profissional(3,jorge).
 \end{Verbatim}
 
 \subsection{Utentes }
-Por fim, incluimos os utentes na base de conhecimento estes com a assinatura \textbf{utente(codigo,nome).}
+Por fim, incluimos os utentes na base de conhecimento estes com a assinatura \textbf{utente(codigo,nome).}, neste caso também se introduziu o código para não haver ambiguidade nos utentes existentes. 
 
 \begin{Verbatim}
 utente(1,jose).  
 utente(2,carlos). 
 utente(3,maria). 
 \end{Verbatim}
-
-Como os utentes pertencem a uma certa instituição de saúde foi necessário introduzir esse conhecimento na base sendo a sua assinatura
 
 
 \subsection{Relacionamento entre Entidades}
@@ -158,7 +154,7 @@ ins_serv_uten_pofi( hospital_trofa, cardiologia,1,1 ).
 
 \begin{figure}[<+htpb+>]
 	\centering
-	\includegraphics[scale=0.3]{esquema.jpg}
+	\includegraphics[scale=0.18]{esquema.jpg}
 	\caption{Esquema da base de conhecimento }
 	\label{p3:fig:esquema1}
 \end{figure}
@@ -223,17 +219,21 @@ O output produzido pela execução do axioma é:
 \subsection{Identificar os utentes de um determinado serviço}
 Mais uma vez a forma de identificar os utentes de determinado serviço é semelhante às anteriores em que usámos a funcionalidade \textit{findall} que nos devolve uma lista com os utentes, neste caso o código de utente e o respetivo nome. 
 
-\begin{verbatim}
+\begin{Verbatim}
 servUtente(Serv,Ute):-
-	findall((K,J),(ins_serv_uten_profi(_,Serv,K,_),utente(K,J)),Ute).
+findall((K,J),(ins_serv_uten_profi(_,Serv,K,_),utente(K,J)),Ute).
+\end{Verbatim}
 
+Nesta cláusula é fornecida uma lista de utentes, ou penas um utente na lista e é verificado se pertencem ou pertence ao serviço pretendido: 
+\begin{Verbatim}
 servUtente(Serv,[(Cod,Uten)|K]):- ins_serv_uten_profi(_,Serv,Cod,_),
 utente(Cod,Uten), 
 servUtente(Serv,K).
 
 servUtente(Serv,[(Cod,Uten)]):- ins_serv_uten_profi(_,Serv,Cod,_),
 utente(Cod,Uten).
-\end{verbatim}
+\end{Verbatim}
+
 
 Mostrámos de seguida o output da execução do axioma: 
 
@@ -396,7 +396,8 @@ inserirConhecimento(instituicao(Nome)).
 
 Criamos vários invariantes para garantir que não é inserido conhecimento repetido no sistema. 
 
-O primeiro invariante criado não permite que seja introduzido de novo um utente já existente, assim como um profissional: 
+O primeiro invariante criado não permite que seja introduzido de novo um utente já existente. Foi criado outro invariante muito semelhante a este mas para a inserção de um novo profissional. No código em baixo pode-se verificar a implementação do invariante que não permite a inserção de utentes repetidos: 
+
 
 \begin{Verbatim}
 +utente(Codigo,Uten) :: (solucoes( (Codigo,Uten),
@@ -440,7 +441,8 @@ removerUtentes(Codigo,Utente):- remover(utente(Codigo,Utente)).
 
 removerServico(Servico):- remover(servico(Servico)).
 
-removerProfissional(Codigo,Profissional):- remover(profissional(Codigo,Profissional)).
+removerProfissional(Codigo,Profissional):-
+ remover(profissional(Codigo,Profissional)).
 
 removerInstituicao(Nome):- remover(instituicao(Nome)).
 \end{Verbatim}
@@ -448,13 +450,15 @@ removerInstituicao(Nome):- remover(instituicao(Nome)).
 O primeiro invariante criado não permite que seja removido um utente enquanto estiver a ser consultado: 
 
 \begin{Verbatim}
--utente(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,Codigo,_)),nao(utente(Codigo,Nome))).
+-utente(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,Codigo,_)),
+nao(utente(Codigo,Nome))).
 \end{Verbatim}
 
 O segundo invariante não permite remover um profissional enquanto este estiver num serviço ou instituição. 
 
 \begin{Verbatim}
--profissional(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,_,Codigo)),nao(profissional(Codigo,Nome))).
+-profissional(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,_,Codigo)),
+nao(profissional(Codigo,Nome))).
 \end{Verbatim}
 
 O terceiro invariante não permite  que seja removido um servico com profissionais a trabalhar nele ou utentes a usá-lo, ou estar na instituicao
@@ -510,7 +514,44 @@ comprimento(L,Contador),
 N is Contador.
 \end{Verbatim}
 
-Mostramos de seguida todos os exemplos de execução da nossas funcionalidades extras: 
+\subsubsection{Adicionar e remover conhecimento}
+
+Criou-se também um mecanismo que permite a inserção de uma instituição, um serviço um utente e um profissional. 
+
+\begin{Verbatim}
+adicionarInstServico(Inst,Serv,CodUten,CodProf):- 
+inserirConhecimento(ins_serv_uten_profi
+(Inst,Serv,CodUten,CodProf)).
+\end{Verbatim}
+
+Por outro lado criamos também um mecanismo para a remoção destes conhecimentos :
+\begin{Verbatim}
+removerInstServico(Inst,Serv,CodUten,CodProf):- 
+remover(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)).
+\end{Verbatim}
+
+\subsubsection{Invariantes Criados}
+Criámos um inavariante que não deixa inserir  um hospital, servico, utente ou profissional que nao exista:
+
+\begin{Verbatim}
++ins_serv_uten_profi(Inst,Serv,CodUten,CodProf) :: 
+(solucoes((Inst,Serv,CodUten,CodProf),
+(utente(CodUten,_),profissional(CodProf,_),
+instituicao(Inst),servico(Serv)),K), comprimento(K,N),N==1).
+\end{Verbatim}
+
+Implementámos também um inavriante que não permite a inserção de conhecimento repetido: 
+
+\begin{Verbatim}
++ins_serv_uten_profi(Inst,Serv,CodUten,CodProf) ::
+ (solucoes((Inst,Serv,CodUten,CodProf),
+(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)),K),
+ comprimento(K,N),N==1).
+\end{Verbatim}
+
+
+
+Mostramos de seguida todos os exemplos de execução da nossas funcionalidades extra: 
 \begin{figure}[<+htpb+>]
 	\centering
 	\includegraphics[scale=0.9]{extras.png}

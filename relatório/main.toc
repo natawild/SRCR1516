@@ -16,15 +16,17 @@
 \contentsline {subsection}{\numberline {3.2.1}Identificar os servi\IeC {\c c}os existentes numa institui\IeC {\c c}\IeC {\~a}o}{6}
 \contentsline {subsection}{\numberline {3.2.2}Identificar os utentes de uma institui\IeC {\c c}\IeC {\~a}o}{6}
 \contentsline {subsection}{\numberline {3.2.3}Identificar os utentes de um determinado servi\IeC {\c c}o}{7}
-\contentsline {subsection}{\numberline {3.2.4}Identificar os utentes de um determinado servi\IeC {\c c}o numa institui\IeC {\c c}\IeC {\~a}o}{7}
+\contentsline {subsection}{\numberline {3.2.4}Identificar os utentes de um determinado servi\IeC {\c c}o numa institui\IeC {\c c}\IeC {\~a}o}{8}
 \contentsline {subsection}{\numberline {3.2.5}Identificar as institui\IeC {\c c}\IeC {\~o}es onde seja prestado um dado servi\IeC {\c c}o ou conjunto de servi\IeC {\c c}os}{8}
 \contentsline {subsection}{\numberline {3.2.6}Identificar os servi\IeC {\c c}os que n\IeC {\~a}o se podem encontrar numa institui\IeC {\c c}\IeC {\~a}o}{9}
 \contentsline {subsection}{\numberline {3.2.7}Determinar as institui\IeC {\c c}\IeC {\~o}es onde um profissional presta servi\IeC {\c c}o }{9}
 \contentsline {subsection}{\numberline {3.2.8}Determinar todas as institui\IeC {\c c}\IeC {\~o}es(ou servi\IeC {\c c}os ou profissionais) a quem o utente j\IeC {\'a} recorreu}{10}
 \contentsline {subsection}{\numberline {3.2.9}Registar utentes, profissionais, servi\IeC {\c c}os ou institui\IeC {\c c}\IeC {\~o}es}{10}
-\contentsline {subsection}{\numberline {3.2.10}Remover utente (profissionais, servi\IeC {\c c}os, institui\IeC {\c c}\IeC {\~o}es) dos registos}{11}
-\contentsline {subsection}{\numberline {3.2.11}Funcionalidades Extra}{13}
-\contentsline {subsubsection}{Contagem de utentes, servi\IeC {\c c}os, profissionais e institui\IeC {\c c}\IeC {\~o}es}{13}
-\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{15}
-\contentsline {chapter}{Anexos}{16}
-\contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{16}
+\contentsline {subsection}{\numberline {3.2.10}Remover utente (profissionais, servi\IeC {\c c}os, institui\IeC {\c c}\IeC {\~o}es) dos registos}{12}
+\contentsline {subsection}{\numberline {3.2.11}Funcionalidades Extra}{14}
+\contentsline {subsubsection}{Contagem de utentes, servi\IeC {\c c}os, profissionais e institui\IeC {\c c}\IeC {\~o}es}{14}
+\contentsline {subsubsection}{Adicionar e remover conhecimento}{14}
+\contentsline {subsubsection}{Invariantes Criados}{15}
+\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{16}
+\contentsline {chapter}{Anexos}{17}
+\contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{17}

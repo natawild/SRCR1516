@@ -12,9 +12,7 @@
 :- set_prolog_flag( single_var_warnings,off ).
 :- set_prolog_flag( unknown,fail ).
 
-
 /* permitir adicionar a base de conhecimento	*/
-
 
 :-dynamic utente/2.
 :-dynamic instituicao/1.
@@ -85,7 +83,6 @@ ins_serv_uten_profi( hospital_barcelos, endocrinologia,1,2 ).
 ins_serv_uten_profi( hospital_guimaraes, neurologia,3,2 ).
 ins_serv_uten_profi( hospital_lisboa_norte,  neurologia,4,5).
 
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado concat:(Lista,Lista,Lista)->{V,F}
 
@@ -115,7 +112,6 @@ eliminarRepetidos( [],[] ) .
 eliminarRepetidos( [H|T],[H|R] ) :- eliminaElemento( H,T,T2 ),
 					eliminarRepetidos( T2,R ).
 
-
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensão do predicado eliminaElemento: Elemento,Lista,Resultados -> {V, F}
 	
@@ -123,7 +119,6 @@ eliminaElemento( _,[],[] ) .
 eliminaElemento( E,[E|T],T1 ) :- eliminaElemento( E,T,T1 ).
 eliminaElemento( E,[H|T],[H|T1] ) :- E\==H,
 					eliminaElemento( E,T,T1 ).
-
 
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
@@ -137,7 +132,6 @@ servicoInst(Inst,[Serv|K]):- ins_serv_uten_profi(Inst,Serv,_,_),
                              servicoInst(Inst,K).
 
 servicoInst(Inst,[Serv]):- ins_serv_uten_profi(Inst,Serv,_,_).
-
 
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
@@ -155,7 +149,6 @@ utentesInst(Inst,[(Cod,Uten)]):-ins_serv_uten_profi(Inst,_,Cod,_),
                                 utente(Cod,Uten).
 
 
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 3-Identificar os utentes de um determinado servico
 % Extensao do predicado  servUtente  : servico,[utentes]->{V,F}
@@ -169,7 +162,6 @@ servUtente(Serv,[(Cod,Uten)|K]):- ins_serv_uten_profi(_,Serv,Cod,_),
 
 servUtente(Serv,[(Cod,Uten)]):- ins_serv_uten_profi(_,Serv,Cod,_),
                                    utente(Cod,Uten).
-
 
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
@@ -187,7 +179,6 @@ utenServInst(Serv,Inst,[(Cod,Uten)|K]):- utente(Cod,Uten),
 
 utenServInst(Serv,Inst,[(Cod,Uten)]):- ins_serv_uten_profi(Inst,Serv,Cod,_),
                                    utente(Cod,Uten).
-
 
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -
@@ -210,7 +201,6 @@ instServicos([S],[I|K]):-inst_Servico(S,[I|K]).
 instServicos([S],[I]):-inst_Servico(S,[I]).
 
 
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 6-Identificar os serviços que não se podem encontrar numa instituição;
 
@@ -224,8 +214,7 @@ servicosForaInst(Ins,Serv,todos):-todosServicos(P),
                            difList(P,K,Serv).
 
 servicosForaInst(Ins,[Serv|K]):-nao(servicoInst(Ins,[Serv|K])).
-
-                                                    
+                                              
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 7-Determinar as instituições onde um profissional presta servico;
@@ -241,7 +230,6 @@ profiServico((Cod,Prof),[Inst|K]):-ins_serv_uten_profi(Inst,_,_,Cod),
 
 profiServico((Cod,Prof),[Inst]):-ins_serv_uten_profi(Inst,_,_,Cod),
                                  profissional(Cod,Prof).
-
 
 
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
@@ -289,8 +277,6 @@ instSerProf((CodU,Uten),[(CodP,Prof)]):-ins_serv_uten_profi(_,_,CodU,CodP),
                                         utente(CodU,Uten).
 
 
-
-
 %-------------------------- - - - - - - - - - -  -  -  -  -   -         
 % 9-Registar utentes, profissionais, servicos ou instituicoes;
 
@@ -318,8 +304,6 @@ removerProfissional(Codigo,Profissional):- remover(profissional(Codigo,Profissio
 removerInstituicao(Nome):- remover(instituicao(Nome)).
 
 
-
-
 /* ################# MECANISMOS ####################*/
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
@@ -328,6 +312,7 @@ removerInstituicao(Nome):- remover(instituicao(Nome)).
 solucoes(X, Teorema, _) :- Teorema, 
 				  assert(temp(X)), 
 				  fail. 
+                  
 solucoes(_, _, Solucoes) :- assert(temp(fim)), 
 				  construir(Solucoes).
 
@@ -337,7 +322,6 @@ construir(Solucoes) :- retract(temp(X)), !,
 			construir(Resto)).
 
 
-
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensão do predicado comprimento: L, R -> {V, F}
 
@@ -345,8 +329,6 @@ comprimento([], 0).
 comprimento([_|T], R) :-
 	comprimento(T, X),
 	R is 1+X.
-
-
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensão do predicado que permite a inserção de conhecimento: Termo -> {v, F}
@@ -365,7 +347,6 @@ teste([]).
 teste([H|T]) :-
 	H, teste(T).	
 
-
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensão do predicado que permite a remoção de conhecimento: Termo -> {v, F}
 
@@ -379,11 +360,10 @@ remocao(Termo):-
 remocao(Termo):-
 	assert(Termo),!,fail.
 
-
 /* #######Invariantes############*/
-
 % Nao deixa introduzir o mesmo conhecimentos
-+utente(Codigo,Uten) :: (solucoes( (Codigo,Uten), utente(Codigo,Uten), S),comprimento(S,N),N==1).
++utente(Codigo,Uten) :: (solucoes( (Codigo,Uten), 
+utente(Codigo,Uten), S),comprimento(S,N),N==1).
 
 % Nao deixa inserir utentes com o mesmo codigo
 +utente(Codigo,_) :: (solucoes( Uten, utente(Codigo,Uten), S),comprimento(S,N),N==1 ).
@@ -395,7 +375,8 @@ remocao(Termo):-
 +servico(Nome) :: (solucoes( Nome, servico(Nome), S),comprimento(S,N),N==1). 
 
 % Nao deixa introduzir o mesmo conhecimentos
-+profissional(Codigo,Prof) :: (solucoes( (Codigo,Prof), profissional(Codigo,Prof), S),comprimento(S,N),N==1 ).
++profissional(Codigo,Prof) :: (solucoes( (Codigo,Prof), 
+profissional(Codigo,Prof), S),comprimento(S,N),N==1 ).
 
 % Nao deixa inserir profissionais com o mesmo codigo
 +profissional(Codigo,_) :: (solucoes( Prof, profissional(Codigo,Prof), S),comprimento(S,N),N==1 ).
@@ -403,11 +384,13 @@ remocao(Termo):-
 
 /* ########## Remover #############*/
 
-% Nao deixar remover um paciente enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
+% Nao deixar remover um paciente enquanto estiver a ser consultado por um profissional, 
+% ou estiver num servico ou numa instituicao
 -utente(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,Codigo,_)),nao(utente(Codigo,Nome))).
 
 
-% Nao deixar remover um profissional enquanto estiver a ser consultado por um profissional, ou estiver num servico ou numa instituicao
+% Nao deixar remover um profissional enquanto estiver a ser consultado por um profissional, 
+% ou estiver num servico ou numa instituicao
 -profissional(Codigo,Nome) :: (nao(ins_serv_uten_profi(_,_,_,Codigo)),nao(profissional(Codigo,Nome))).
 
 
@@ -450,7 +433,9 @@ numero_Utentes(Inst,N):- utentesInst(Inst,K),comprimento(K,Contador), N is Conta
 % Numero de utentes que estao num certo servicos num dado hospital
 % Extensão do predicado numero_Utentes_Int_Serv: Instituicao,Servico,Numero -> {v, F}
 
-numero_Utentes_Int_Serv(Inst,Serv,N):- findall(K,ins_serv_uten_profi(Inst,Serv,K,_),L),comprimento(L,Contador), N is Contador.
+numero_Utentes_Int_Serv(Inst,Serv,N):-
+ findall(K,ins_serv_uten_profi(Inst,Serv,K,_),L),
+ comprimento(L,Contador), N is Contador.
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Numero de hospitais disponivel na base de conhecimento
@@ -476,7 +461,8 @@ numero_Utentes(Numero):-findall((J,K),utente(J,K),Z),comprimento(Z,Contador),Num
 % Extensão do predicado numero_Profissionais: Numero -> {v, F}
 %Numero de profissionais disponivel na base de conhecimento
 
-numero_Profissionais(Numero):-findall((J,K),profissional(J,K),Z),comprimento(Z,Contador),Numero is Contador. 
+numero_Profissionais(Numero):-findall((J,K),profissional(J,K),Z),
+    comprimento(Z,Contador),Numero is Contador. 
 
 
 /*#######Invariantes########*/ 
@@ -484,24 +470,22 @@ numero_Profissionais(Numero):-findall((J,K),profissional(J,K),Z),comprimento(Z,C
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Nao deixar que insira um hospital, servico, utente ou profissional que nao exista
 
-+ins_serv_uten_profi(Inst,Serv,CodUten,CodProf) :: (solucoes((Inst,Serv,CodUten,CodProf),(utente(CodUten,_),profissional(CodProf,_),instituicao(Inst),servico(Serv)),K),
-                                                   comprimento(K,N),N==1).
++ins_serv_uten_profi(Inst,Serv,CodUten,CodProf) :: 
+(solucoes((Inst,Serv,CodUten,CodProf),(utente(CodUten,_),profissional(CodProf,_),
+instituicao(Inst),servico(Serv)),K), comprimento(K,N),N==1).
                                               
-
-
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Nao deixar inserir conhecimento repetido
 
-
-+ins_serv_uten_profi(Inst,Serv,CodUten,CodProf) :: (solucoes((Inst,Serv,CodUten,CodProf),(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)),K),
-                                                   comprimento(K,N),N==1).
-
++ins_serv_uten_profi(Inst,Serv,CodUten,CodProf) :: (solucoes((Inst,Serv,CodUten,CodProf),
+(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)),K), comprimento(K,N),N==1).
 
 
+adicionarInstServico(Inst,Serv,CodUten,CodProf):- 
+inserirConhecimento(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)).
 
-adicionarInstServico(Inst,Serv,CodUten,CodProf):- inserirConhecimento(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)).
-
-removerInstServico(Inst,Serv,CodUten,CodProf):- remover(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)).
+removerInstServico(Inst,Serv,CodUten,CodProf):- 
+remover(ins_serv_uten_profi(Inst,Serv,CodUten,CodProf)).
 
 
 
