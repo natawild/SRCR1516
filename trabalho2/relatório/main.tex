@@ -1,0 +1,129 @@
+\documentclass[pdftex,12pt,a4paper]{report}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{fancyvrb}
+\fvset{xleftmargin=2em}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage{tikzscale}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+
+\usepackage[utf8]{inputenc} % isto é um comentário
+\usepackage[portuges]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+%\usepackage{lmodern}
+\usepackage[obeyspaces,spaces]{url}
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{titlesec}
+\usepackage{mathtools}
+%identa 1º paragrafo de capitulos e secções
+\usepackage{indentfirst}
+\usepackage{enumerate}
+
+\usepackage[titletoc,toc]{appendix}
+\renewcommand{\appendixtocname}{Anexos}
+
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}
+
+
+\begin{document}
+
+\input{./capa.tex}
+
+\tableofcontents
+\listoffigures 
+
+\input{chapters/resumo.tex}
+\input{chapters/desenvolvimento.tex}
+\input{chapters/conclusao.tex}
+
+\begin{appendices}
+	\chapter{Código implementado}
+\begin{Verbatim}
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% SIST. REPR. CONHECIMENTO E RACIOCINIO - MiEI/3
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Base de Conhecimento do registo de eventos numa instituição de saúde
+
+%--------------------------------- - - - - - - - - - - - - - - -
+% SICStus PROLOG: Declaracoes iniciais
+
+:- op( 900,xfy,'::' ).
+:- set_prolog_flag( discontiguous_warnings,off ).
+:- set_prolog_flag( single_var_warnings,off ).
+:- set_prolog_flag( unknown,fail ).
+
+/* permitir adicionar a base de conhecimento	*/
+
+:-dynamic utente/2.
+:-dynamic instituicao/1.
+:-dynamic profissional/2.
+:-dynamic servico/1.
+
+%--------------------------------- Base de Conhecimento - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado instituição(nome). 
+
+instituicao( hospital_guimaraes ). 
+instituicao( hospital_braga ).
+instituicao( hospital_barcelos ).
+instituicao( hospital_porto ).
+instituicao( universitario_coimbra ).
+instituicao( hospital_lisboa_norte ).
+instituicao( hospital_beatriz_angelo ).
+instituicao( hospital_trofa ).
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado servico(nome).
+
+servico( cardiologia ). 
+servico( cirugiageral ).
+servico(  neurologia ).
+servico(  ortopedia ).
+servico(  psiquiatria ).
+servico(  oftamologia ).
+servico(  ginecologia/obstetricia ).
+servico(  oncologia ).
+servico(  endocrinologia ).
+servico(  urologia ).  
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado utente(codigo,nome).
+
+utente(1,jose).  
+utente(2,carlos). 
+utente(3,maria). 
+utente(4,jose).   
+utente(5,antonio). 
+utente(6,manuel).  
+utente(7,joana).
+utente(8,joana).  
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado profissional(codigo,nome).
+
+profissional(1,marcus).
+profissional(2,maria).
+profissional(3,jorge).
+profissional(4,celia).
+profissional(5,carlos).
+profissional(6,antonio).
+profissional(7,vitoria ).
+
+
+
+
+
+\end{Verbatim}
+
+\end{appendices}
+
+\end {document}

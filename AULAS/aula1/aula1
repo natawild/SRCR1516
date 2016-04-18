@@ -1,0 +1,102 @@
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% SIST. REPR. CONHECIMENTO E RACIOCINIO - MiEI/3
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Base de Conhecimento com informacao genealogica.
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado filho: Filho,Pai -> {V,F}
+
+:- dynamic filho/2.
+:- dynamic pai/2.
+:- dynamic avo/2.
+
+filho( joao,jose ).
+filho( jose,manuel ).
+filho( carlos,jose ).
+filho( filipe,paulo ).
+filho( maria, paulo).
+filho( celia, antonio). 
+filho(antonio, adelino). 
+filho(adelino, gil). 
+filho( gil, mario ). 
+filho( mario, arlindo ). 
+
+avo(antonio,nadia). 
+
+genero( joao, masculino ).
+genero( jose, masculino ).
+genero( maria, feminino ). 
+genero( joana, feminino ). 
+
+%--------------------------------- - - - xi- - - - - - -  -  -  -  -   -
+% Extensao do predicado pai: Pai,Filho -> {V,F}
+
+pai( P,F ) :-
+    filho( F,P ).
+
+%--------------------------------- xii e xiii- - - - - - - - - -  -  -  -  -   -
+% Extensao do predicado avo: Avo,Neto -> {V,F}
+
+avo( A,N ) :- 
+    filho( N,X ), 
+    filho( X,A ).
+
+neto( N,A ) :- avo( A,N ).
+
+
+%--------------------------------- - -xiv - - - - - - - -  -  -  -  -   -
+% Extensao do predicado descendente: Descendente,Ascendente -> {V,F}
+
+descendente( X,Y ) :- filho( X,Y ).
+
+descendente( X,Y ) :-
+    filho( X,A ),
+    descendente( A,Y ).
+    
+    
+%--------------------------------- - - - -xv - - - - - -  -  -  -  -   -
+% Extensao do predicado descendente: Descendente,Ascendente,Grau -> {V,F}
+
+descendente( D,A,1 ) :- filho( D,A ).
+
+descendente( D,A,G ) :-
+    filho( D,X ),
+    descendente( X,A,N ),
+    G is N+1.
+
+
+%--------------------------------- - - - - - -xvii - - - -  -  -  -  -   -
+% Extensao do predicado bisavo: Bisavo,Bisneto -> {V,F}
+
+bisavo( X,Y ) :- 
+    pai( X,Z ), 
+    avo( Z,Y ).
+    
+bisneto( X,Y) :- bisavo( Y,X ).
+
+
+
+%--------------------------------- - - - - - -xviii- - - -  -  -  -  -   -
+% Extensão do predicado trisavo: Trisavo,Trineto -> {V,F}
+trisavo( X, Y ) :- 
+    pai(X,Z), 
+    bisavo(Z,Y).
+
+trisneto( X,Y ) :- 
+    trisavo( Y,Z ).
+
+%--------------------------------- - - - xix - - - - - -  -  -  -  -   -
+% Extensão do predicado tretraneto: Tetra,tetravo-> {V,F}
+
+tetravo( X,Y ):-
+    pai( X, Z), 
+    trisavo( Z, Y). 
+    
+tetraneto( X,Y ):- 
+    tetravo( Y,Z ).  
+
+
+
+
+
