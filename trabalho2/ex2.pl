@@ -23,20 +23,24 @@
 % Extensao do predicado utente(IdUten,Nome,Idade,Morada) ->{V,F,D}
 
 utente(1,gil,12,rua_Braga).
+
 utente(20,gil,12,rua_Braga).
+
 utente(2,carlos,20,rua_Guimaraes).
 utente(3,sandro,30,rua_Lisboa).
 utente(4,ana,10,rua_Varzim).
 utente(5,filipa,15,rua_Coimbra).
 utente(6,antonio,13,rua_Pacos).
 utente(7,filipe,13,rua_Guimaraes).
-utente(8, celia,22, barcelos). 
 
 -utente(ID,N,I,M):- nao(utente(ID,N,I,M)),
                     nao(excecao(utente(ID,N,I,M))).
 
 
--utente(10,quim,60,mouquim). 
+
+
+
+
 
 % Nao sabemos a morada nem nunca vamos deixar saber que se saiba
 
@@ -58,11 +62,12 @@ excecao(utente(9,carlos,60,guimaraes)).
 excecao(utente(9,carlos,60,fafe)).								  
 								  
 
-% Nao sabemos a idade ao certo do utente, mas sabemos que tem entre 30 a 40 anos  
+% Nao sabemos a idade ao certo do utente 
 
 excecao(utente(10,lourenco,I,fafe)):- (I>=30,I=<40).
 
-								 
+utente(11,filipe,30,morada_desconhecido).
+utente(12,celia,22,morada_desconhecido).									 
 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
