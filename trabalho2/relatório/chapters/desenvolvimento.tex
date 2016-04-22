@@ -32,27 +32,19 @@ No segundo capítulo será feito um estudo prévio da linguagem de modo a que o 
 
 \chapter{Preliminares}
 \label{cap:p2}
-Neste capítulo vao ser apresentados alguns conceitos fundamentais para a elaboração deste
-exercício e algumas das ferramentas fundamentais para a realização do mesmo.
+Neste capítulo vao ser apresentados alguns conceitos fundamentais para a elaboração deste exercício e algumas das ferramentas fundamentais para a realização do mesmo.
 
 
 \section{Estudos anteriores}
 \label{p2:estudp}
 Para a realização deste trabalho foram necessários alguns conhecimentos anteriores sobre programação em lógica e, posteriormente, o uso da linguagem de programação PROLOG.
-Este conhecimento foi adquirido ao longo das aulas teóricas ( programação em lógica) e aulas
-teórico-práticas (PROLOG) de Sistemas de Representação de Conhecimento e Raciocínio.
-Sobre estes conhecimentos, devemos destacar todos os conceitos que foram aprendidos tais
-como o que são predicados, o que são cláusulas, o que é a base de conhecimento, entre outros
-conceitos de programação em lógica que serão explicados ao longo deste documento.
-Após termos alguns conhecimentos de programação em lógica falta colocá-los em prática,
-e, é aqui, que entram os conhecimentos de PROLOG e da ferramenta \textit{SICSTus} usada para
+Este conhecimento foi adquirido ao longo das aulas teóricas ( programação em lógica) e aulas teórico-práticas (PROLOG) de Sistemas de Representação de Conhecimento e Raciocínio.
+Sobre estes conhecimentos, devemos destacar todos os conceitos que foram aprendidos tais como o que são predicados, o que são cláusulas, o que é a base de conhecimento, entre outros conceitos de programação em lógica que serão explicados ao longo deste documento.
+Após termos alguns conhecimentos de programação em lógica falta colocá-los em prática, e, é aqui, que entram os conhecimentos de PROLOG e da ferramenta \textit{SICSTus} usada para
 compilar e interpretar o código desenvolvido nesta linguagem.
 \\
 
 Para o desenvolvimento desses predicados foi necessário fazer uma análise de conhecimentos de cada um dos membros sobre o tema e acompanhado de uma pequena pesquisa sobre as características destes.
-
-O estudo inicial passou por caracterizar um utente, este que é definido pelo nome, serviço em que está inscrito ou consultado, profissional atribuído e a instituição onde o profissional exerce e onde o utente é atendido, que devem coincidir. Na realidade, o utente é composto por muitos outros elementos, tal como, número de utente, número de contribuinte, número de cartão de cidadão entre muitos outros, porém para simplificar e como não é necessário para este caso em estudo, vamos apenas utilizar um código e o nome do utente. 
-\\
 
 
 
@@ -60,52 +52,42 @@ O estudo inicial passou por caracterizar um utente, este que é definido pelo no
 \section{Base de dados vs Representação de Conhecimento}
 \label{p2:bdrepreconh}
 
-Os sistemas de Bases de Dados (BD’s) e os sistemas de representação de conhecimento lidam
-com aspectos concretos do mundo real e podem-se comparar nos termos em que dividem a
-utilização da informação [Analide,2002].
+Os sistemas de Bases de Dados (BD’s) e os sistemas de representação de conhecimento lidam com aspectos concretos do mundo real e podem-se comparar nos termos em que dividem a utilização da informação [Analide,2002].
 
-Posto isto, apresentamos os pressupostos no qual se baseiam as linguagens de manipulação,
-tanto das bases de dados como dos sistemas de representação de conhecimento.
+Posto isto, apresentamos os pressupostos no qual se baseiam as linguagens de manipulação, tanto das bases de dados como dos sistemas de representação de conhecimento.
 
 \subsection{Base de Dados}
-Os pressupostos em que se baseiam as linguagens de manipulação de base de dados seguem o principio de que apenas existe e é válida a informação contida nesta. Assim sendo, apresentámos
-então, os seguintes pressupostos:
+Os pressupostos em que se baseiam as linguagens de manipulação de base de dados seguem o principio de que apenas existe e é válida a informação contida nesta. Assim sendo, apresentámos então, os seguintes pressupostos:
 
 \begin{itemize}
-	\item Pressuposto do Mundo Fechado - toda a informação não mencionada na base de dados é considerada falsa;
-	\item Pressuposto dos Nomes Únicos – duas constantes diferentes ( que definam valofes atómicos ou objetos) designam, necessariamente duas entidades diferentes do universo de discurso; 
-	\item Pressuposto do Domínio Fechado – não existem mais objetos no universo para além daqueles designados por constantes na base de dados.  
+	\item \textbf{Pressuposto do Mundo Fechado} - toda a informação não mencionada na base de dados é considerada falsa;
+	\item \textbf{Pressuposto dos Nomes Únicos} – duas constantes diferentes ( que definam valores atómicos ou objetos) designam, necessariamente duas entidades diferentes do universo de discurso; 
+	\item \textbf{Pressuposto do Domínio Fechado} – não existem mais objetos no universo para além daqueles designados por constantes na base de dados.  
 \end{itemize}
+
 
 \subsection{Sistema de Representação de Conhecimento}
 
-
-Porém, nem sempre se pretende assumir que a informação representada é a única que se pode
-considerar válida e que as entidades representadas sejam as únicas existentes. Posto isto, apresentámos, então, os seguintes pressupostos:
+Porém, nem sempre se pretende assumir que a informação representada é a única que se pode considerar válida e que as entidades representadas sejam as únicas existentes. Posto isto, apresentámos, então, os seguintes pressupostos:
 
 \begin{itemize}
-	\item Pressuposto do Mundo Aberto - podem existir outros factos ou conclusões verdadeiros para além daqueles representados na base de conhecimento; 
-	\item Pressuposto dos Nomes Únicos – duas constantes diferentes ( que definam valores atómicos ou objetos) designam, necessariamente duas entidades diferentes do universo de discurso; 
-	\item Pressuposto do Domínio Aberto – podem existem mais objetos do universo de discurso para além daqueles designados pelas constantes da base de conhecimento.  
+	\item \textbf{Pressuposto do Mundo Aberto} - podem existir outros factos ou conclusões verdadeiros para além daqueles representados na base de conhecimento; 
+	\item \textbf{Pressuposto dos Nomes Únicos} – duas constantes diferentes ( que definam valores atómicos ou objetos) designam, necessariamente duas entidades diferentes do universo de discurso; 
+	\item \textbf{Pressuposto do Domínio Aberto} – podem existem mais objetos do universo de discurso para além daqueles designados pelas constantes da base de conhecimento.  
 \end{itemize}
 
 \section{Representação da Informação Incompleta}
 
 
-Muitas vezes presenciámos situações onde a informação existente é insuficiente e/ou incompleta.
-Perante estas situações, é importante saber representá-las para além do verdadeiro ou
-falso; temos de ser capazes de demonstrar que a questão/situação em causa é incompleta/desconhecida
-e que o seu valor não pode ser definido no imediato, ao contrário do que acontece,
-na maior parte das situações, nas mais variadas linguagens de programação.
-E aqui que a programação em lógica estendida se apresenta como capaz de resolver estas
-situações. Através da programação em lógica estendida seremos capazes de representar tais
-situações desconhecidas. A forma de representar o conhecimento é apresentada a seguir:
+Muitas vezes presenciámos situações onde a informação existente é insuficiente e/ou incompleta. Perante estas situações, é importante saber representá-las para além do verdadeiro ou falso; temos de ser capazes de demonstrar que a questão ou situação em causa é incompleta ou desconhecida e que o seu valor não pode ser definido no imediato, ao contrário do que acontece, na maior parte das situações, nas mais variadas linguagens de programação.
+
+E aqui que a programação em lógica estendida se apresenta como capaz de resolver estas situações. Através da programação em lógica estendida seremos capazes de representar tais situações desconhecidas. A forma de representar o conhecimento é apresentada a seguir:
 
 
 \begin{itemize}
-	\item Verdadeiro: quando for possivel provar uma questão(Q) na base de conhecimento; 
-	\item Falso: quando for possível provar a falsidade de uma questão(-Q) na base de conhecimento;
-	\item Desconhecido: quando não for possível provar a questãoQ nem a questão-Q
+	\item \textbf{Verdadeiro}: quando for possivel provar uma questão(Q) na base de conhecimento; 
+	\item \textbf{Falso}: quando for possível provar a falsidade de uma questão(-Q) na base de conhecimento;
+	\item \textbf{Desconhecido}: quando não for possível provar a questãoQ nem a questão-Q
 \end{itemize}
 
 
