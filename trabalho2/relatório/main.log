@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  22 APR 2016 09:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  22 APR 2016 11:35
 entering extended mode
 **main.tex
 (main.tex
@@ -1297,31 +1297,34 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 132.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<esquema.jpg, id=41, 714.67pt x 1150.2975pt>
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+ []
+
+[6
+
+] [7] [8] [9] <esquema.jpg, id=55, 714.67pt x 1150.2975pt>
 File: esquema.jpg Graphic file (type jpg)
  <use esquema.jpg>
-Package pdftex.def Info: esquema.jpg used on input line 160.
+Package pdftex.def Info: esquema.jpg used on input line 330.
 (pdftex.def)             Requested size: 128.63504pt x 207.04462pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 161.
- [6
-
-])
-(chapters/conclusao.tex [7 <./esquema.jpg>]
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 331.
+) (chapters/conclusao.tex [10 <./esquema.jpg>]
 Cap\'{\i }tulo 4.
-) [8
+) [11
 
 ]
 Ap\^endice A.
-[9
+[12
 
 
-] [10] (main.aux) ) 
+] [13] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 31503 strings out of 493698
- 738404 string characters out of 3144375
- 866140 words of memory out of 3000000
- 34309 multiletter control sequences out of 15000+200000
+ 31512 strings out of 493698
+ 738556 string characters out of 3144375
+ 866141 words of memory out of 3000000
+ 34318 multiletter control sequences out of 15000+200000
  47949 words of font info for 59 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  62i,7n,83p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1331,9 +1334,9 @@ gram Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr
 8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 203644 bytes).
+Output written on main.pdf (17 pages, 212989 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 89 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

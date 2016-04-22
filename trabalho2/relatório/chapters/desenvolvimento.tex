@@ -125,7 +125,7 @@ Para a elaboração deste exercício tornou-se importante definir uma base de co
 \label{p3:funcbasic}
 Nesta secção serão apresentados e explicados os métodos usados para a resolução das funcionalidades básicas propostas.
 
-\subsection{Representação de Conhecimento Positivo e Negativo}
+\subsection{Representar Conhecimento Positivo e Negativo}
 
 A representação do conhecimento positivo é feito nos factos, por exemplo:
 
@@ -141,19 +141,189 @@ utente(7,filipe,13,rua_Guimaraes).
 utente(8, celia,22, barcelos). 
 \end{verbatim}
 
+O conhecimento negativo é representado de duas formas, ou utilizando a negação por falha ou a negação forte: \\
 
 
-\subsection{Representação de casos de Conhecimento Imperfeito, pela utilização de valores nulos de todos os tipos}
+Negação por falha: 
+\begin{verbatim}
+-utente(ID,N,I,M):- nao(utente(ID,N,I,M)),
+					nao(excecao(utente(ID,N,I,M))).
+\end{verbatim}
+
+Negação forte: 
+\begin{verbatim}
+-utente(10,quim,60,mouquim). 
+\end{verbatim}
 
 
 
-\subsection{Manipulação de Invariantes que designem restrições à inserção e à remoção de conhecimento}
+\subsection{Representar casos de Conhecimento Imperfeito, pela utilização de valores nulos de todos os tipos estudados}
+
+Os valores nulos surgem como uma estratégia para a enumeração de casos, para os quais se pretende fazer a distinção entre situações em que as respostas a questões deverão ser concretizadas como conhecidas (V ou F) ou desconhecidas. 
+Assim existem três tipos de valores nulos:
+
+\begin{itemize}
+	\item Valor nulo do tipo desconhecido;	
+	\item Valor nulo do tipo desconhecido de um conjunto dado de valores;
+	\item Valor nulo do tipo não permitido. 
+\end{itemize}
+
+Para a representação do utente cuja morada é desconhecida na base de conhecimento, utilizámos os valores nulos do tipo desconhecido: 
 
 
-\subsection{Tratamento de problemática da evolução do conhecimento, pela criação dos procediemntos adequados}
+
+Para o caso em que o utente pode ter a morada de guimarães ou fafe  usámos valores nulos do tipo desconhecido de um conjunto de valores, assim como a idade variar entre 30 e 40 anos: 
+
+\begin{Verbatim}
+excecao(utente(9,carlos,60,guimaraes)).
+excecao(utente(9,carlos,60,fafe)).
+
+excecao(utente(10,lourenco,I,fafe)):- (I>=30,I=<40).	
+\end{Verbatim}
+
+Para o tipo não permitido, usámos o exemplo em que a morada de um utente não pode ser conhecida: 
+
+\begin{verbatim}
+utente(8,johnny,10,morada_desconhecido).
+
+excecao(utente(ID,NO,I,R)):- 
+utente(ID,NO,I,morada_desconhecido).
+
+nulo(morada_desconhecido).
+\end{verbatim}
 
 
-\subsection{Desenvolvimento de um sistema de inferência capaz de implementar os mecanismos de raciocínio inerentes a estes sistemas}
+\subsection{Manipular Invariantes que designem restrições à inserção e à remoção de conhecimento no sistema}
+
+Quando existe a necessidade de remover ou inserir novos factos na base de conhecimento temos de ter em atenção se nada dependes deles, ou se eles já não se encontram presentes, ou se já existem. 
+
+\subsubsection{Inserção de Conhecimento}
+As extensões ~de predicados que permitem a inserção de conhecimento são as seguintes: 
+\begin{verbatim}
+inserirUtente(ID,NO,I,M):-evolucao(utente(ID,NO,I,M)).
+inserirServico(ID,D,I,C):-evolucao(servico(ID,D,I,C)).
+inserirConsulta(D,IDU,IDS,C):-evolucao(consulta(D,IDU,IDS,C)).
+\end{verbatim}
+No caso particular de adicionar uma nova consulta esta só pode ser inserida se o utente e o serviço estiverem registados: 
+\begin{verbatim}
+% Só se pode adicionar uma consulta se o id do utente existir 
++consulta(_,ID,_,_) ::
+(solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N),N==1).
+
+% Só se pode adicionar consultar se o id do servico existir
++consulta(_,_,IDS,_) ::
+(solucoes(NO,servico(IDS,NO,_,_),S),comprimento(S,N),N==1).
+\end{verbatim}
+
+No caso de se pretender inserir conhecimento que já está na base de conhecimento, também não é permitido com o uso dos invariantes: 
+
+\begin{Verbatim}
+% Nao deixa inserir o mesmo conhecimento em relacao as consultas
++consulta(D,IDU,IDS,C) ::
+(solucoes((D,IDU,IDS,C),consulta(D,IDU,IDS,C),S),comprimento(S,N),
+N==1).
+
+% Nao deixa inserir o mesmo conhecimento em relacao aos servicos
++servico(ID,D,I,C) :: 
+(solucoes((ID,D,I,C),servico(ID,D,I,C),S),comprimento(S,N),N==1).
+
+% Nao deixa inserir o mesmo conhecimento em relacao aos utentes
++utente(ID,NO,I,M) :: 
+(solucoes((ID,NO,I,M),utente(ID,NO,I,M),S),comprimento(S,N), N==1).
+\end{Verbatim}
+
+Assim como a repetição do identificador do utente, serviço 
+
+\begin{Verbatim}
+% Nao deixa inserir o mesmo id em relacao aos utentes
++utente(ID,_,_,_) ::
+(solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N), N==1).
+
+% Nao deixa inserir servicos com o mesmo ID
++servico(ID,_,_,_) ::
+(solucoes(D,servico(ID,D,_,_),S),comprimento(S,N),N==1).
+\end{Verbatim}
+
+\subsubsection{Remoção de Conhecimento}
+Para a remoção de conhecimento utilizamos os seguintes predicados: 
+\begin{verbatim}
+removerUtente(ID,NO,I,M):-remover(utente(ID,NO,I,M)).
+removerServico(ID,NO,I,C):-remover(servico(ID,NO,I,C)).
+removerConsulta(D,IDU,IDS,C):-remover(consulta(D,IDU,IDS,C)).
+\end{verbatim}
+
+Para o caso da remoção de conhecimento é necessário não permitir que seja removido um utente que está a ter uma consulta, assim como um serviço que está a ser utilizado, para tal foram desenvolvidos os seguintes invariantes: 
+
+\begin{verbatim}
+% Nao deixar remover utentes que estejam nas consultas
+-utente(ID,_,_,_) :: 
+(nao(consulta(_,ID,S,_)),nao(utente(ID,_,_,_))).
+
+% Nao deixar remover um servico que está nas consultas 
+-servico(ID,X,Y,Z) :: 
+(nao(consulta(P,L,ID,K)),nao(servico(ID,X,Y,Z))).
+\end{verbatim}
+
+
+\subsection{Lidar com a problemática da evolução do conhecimento, criando procedimentos adequados}
+
+O tratamento da problemática da evolução de conhecimento prende-se com o facto de inserir ou remover conhecimento na base de conhecimento, deixar essa base coesa e fidedigna. Para que isso aconteça, não podemos apagar informação que seja dependência de outra, ou inserir informação repetida; assim aquando da alteração da base de conhecimento, teremos que testar se não irá corromper a base do conhecimento. De forma a garantir esta coerência, usámos os invariantes para a inserção e remoção já falados acima, nas funções \textit{solucoes} e \textit{remover}. 
+
+\begin{itemize}
+\item Função de evolução do conhecimento: 
+\begin{verbatim}
+evolucao( Termo ) :-
+solucoes( Invariante,+Termo::Invariante,Lista ),
+insercao( Termo ),
+teste( Lista ).
+
+insercao( Termo ) :-
+assert( Termo ).
+
+insercao( Termo ) :-
+retract( Termo ),!,fail.
+
+teste( [] ).
+teste( [R|LR] ) :-
+R,
+teste( LR ).
+\end{verbatim}
+\item Função de remoção de conhecimento
+
+\begin{verbatim}
+remover(Termo):-
+solucoes(Inv,-Termo::Inv,LInv),
+remocao(Termo),
+teste(LInv).
+
+remocao(Termo):-
+retract(Termo).
+remocao(Termo):-
+assert(Termo),!,fail.
+\end{verbatim}
+
+\end{itemize}
+
+\subsection{Desenvolver um sistema de inferência capaz de implementar os mecanismos de raciocínio inerentes a estes sistemas}
+
+O pretendido neste ponto é que se implemente um mecanismo interpretador de questões, que mediante uma questão obtenhamos uma de três respostas possíveis: \textit{Verdadeiro}, \textit{Falso} ou \textit{Desconhecido}. 
+
+O conceito utilizado foi o do \textbf{Princípio do Mundo Fechado}, ou seja, toda a informação que não exista mencionada na base de conhecimento é considerada falsa. 
+
+O interpretador dada uma questão, caso se possa concluir a veracidade da questão na base de dados a resposta será \textit{'verdadeiro'}, caso esteja presente como uma negação forte na base de dados a resposta será \textit{'falso'}; e para o cao em que não está presente na base de dados como verdadeira, nem negada fortemente terá como resposta \textit{'desconhecido'}. Desta forma conseguimos um programa em lógica estendido. 
+
+Mostramos de seguida o predicado demo: 
+\begin{verbatim}
+demo( Questao,verdadeiro ) :-
+Questao.
+demo( Questao, falso ) :-
+-Questao.
+demo( Questao,desconhecido ) :-
+nao( Questao ),
+nao( -Questao ).
+\end{verbatim}
+
+\subsection{Funcionalidades extra}
 
 \begin{figure}[<+htpb+>]
 	\centering
