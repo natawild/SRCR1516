@@ -23,6 +23,9 @@
 % Extensao do predicado utente(IdUten,Nome,Idade,Morada) ->{V,F,D}
 
 utente(1,gil,12,rua_Braga).
+
+utente(20,gil,12,rua_Braga).
+
 utente(2,carlos,20,rua_Guimaraes).
 utente(3,sandro,30,rua_Lisboa).
 utente(4,ana,10,rua_Varzim).
@@ -77,7 +80,7 @@ servico(4,cirugia_Geral,hospital_Guimaraes,guimaraes).
 servico(5,ortopedia,hospital_Coimbra,coimbra).
 servico(6,psiquiatria,hospital_Fafe,fafe).
 servico(7,ginecologia,hospital_Fafe,fafe).
-
+servico(10,cardiologia,hospital_Lisboa,lisboa).
  
 
 -servico(ID,D,I,C):- nao(servico(ID,D,I,C)),
@@ -160,6 +163,21 @@ removerServico(ID,NO,I,C):-remover(servico(ID,NO,I,C)).
 removerConsulta(D,IDU,IDS,C):-remover(consulta(D,IDU,IDS,C)).
 
 
+% Contar o numero de utentes
+
+conta_Utente(Numero):-(findall((ID,N,I,M),(utente(ID,N,I,M)),S),comprimento(S,Tamanho), Numero is Tamanho).
+
+
+
+% Contar o numero de Servicos
+
+conta_Servico(Numero):-(findall((ID,N,I,M),servico(ID,N,I,M),S),comprimento(S,Tamanho), Numero is Tamanho).
+
+% Contar o numero de Consultas
+
+conta_Consulta(Numero):-(findall((ID,N,I,M),consulta(ID,N,I,M),S),comprimento(S,Tamanho), Numero is Tamanho).
+
+
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensão do predicado que permite a remoção de conhecimento: Termo -> {v, F}
@@ -237,11 +255,6 @@ comprimento( S,N ) :-
 % Nao deixa inserir o mesmo conhecimento em relacao aos servicos
 
 +servico(ID,D,I,C) :: (solucoes((ID,D,I,C),servico(ID,D,I,C),S),comprimento(S,N),N==1).
-
-
-% Nao deixa inserir servicos com o mesmo nome 
-
-+servico(_,D,_,_) :: (solucoes(ID,servico(ID,D,_,_),S),comprimento(S,N),N==1).
 
 
 % Nao deixa inserir servicos com o mesmo ID
