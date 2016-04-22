@@ -39,7 +39,7 @@ utente(7,filipe,13,rua_Guimaraes).
 
 
 
-
+-utente(13,joaquim,60,rua_Fafe).
 
 
 % Nao sabemos a morada nem nunca vamos deixar saber que se saiba
