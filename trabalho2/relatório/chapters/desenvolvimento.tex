@@ -121,6 +121,35 @@ Nesta parte do documento serão explicitadas todas as etapas de resolução dos 
 A base de Conhecimento define bases de dados ou conhecimento acumulados sobre determinado assunto.
 Para a elaboração deste exercício tornou-se importante definir uma base de conhecimento que possa responder aos pedidos do enunciado.
 
+Como tal seguindo o enunciado, em que o tema é caracterizar um universo de discurso na àrea de prestação de cuidados de saúde criaram-se predicados que permitem a inserção de conhecimento dos utentes, serviços e consultas: 
+
+\begin{itemize}
+	\item utente(IdUten,Nome,Idade,Morada) ->{V,F,D}
+	\begin{Verbatim}
+	utente(1,gil,12,rua_Braga).
+	utente(2,carlos,20,rua_Guimaraes).
+	utente(7,filipe,13,rua_Guimaraes).
+	utente(18, celia,22, barcelos). 
+	\end{Verbatim}
+	
+	\item servico(ID,Descricao,Instituicao,Cidade) ->{V,F,D}
+	
+	\begin{Verbatim}
+	servico(1,cardiologia,hospital_Braga,braga).
+	servico(2,urologia,hospital_Braga,braga).
+	servico(3,neurologia,hospital_Guimaraes,guimaraes). 
+
+	\end{Verbatim}
+	
+	\item consulta(Data,IDUtente,IDServico,Custo) ->{V,F,D}
+	
+	\begin{Verbatim}
+	consulta(data(2010,1,10),1,1,200).
+	consulta(data(2011,2,11),2,2,20).
+	consulta(data(2012,3,12),3,3,210).
+	\end{Verbatim}
+\end{itemize}
+
 \section{Funcionalidades Básicas}
 \label{p3:funcbasic}
 Nesta secção serão apresentados e explicados os métodos usados para a resolução das funcionalidades básicas propostas.
@@ -133,12 +162,12 @@ A representação do conhecimento positivo é feito nos factos, por exemplo:
 utente(1,gil,12,rua_Braga).
 utente(20,gil,12,rua_Braga).
 utente(2,carlos,20,rua_Guimaraes).
-utente(3,sandro,30,rua_Lisboa).
-utente(4,ana,10,rua_Varzim).
-utente(5,filipa,15,rua_Coimbra).
-utente(6,antonio,13,rua_Pacos).
-utente(7,filipe,13,rua_Guimaraes).
-utente(8, celia,22, barcelos). 
+servico(1,cardiologia,hospital_Braga,braga).
+servico(2,urologia,hospital_Braga,braga).
+servico(3,neurologia,hospital_Guimaraes,guimaraes). 
+consulta(data(2010,1,10),1,1,200).
+consulta(data(2011,2,11),2,2,20).
+consulta(data(2012,3,12),3,3,210).
 \end{verbatim}
 
 O conhecimento negativo é representado de duas formas, ou utilizando a negação por falha ou a negação forte: \\
@@ -152,7 +181,7 @@ Negação por falha:
 
 Negação forte: 
 \begin{verbatim}
--utente(10,quim,60,mouquim). 
+-utente(13,joaquim,60,rua_fafe). 
 \end{verbatim}
 
 
