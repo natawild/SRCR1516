@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  22 APR 2016 09:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  22 APR 2016 09:33
 entering extended mode
 **main.tex
 (main.tex
@@ -1293,26 +1293,27 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 ] [4] [5]
 Cap\'{\i }tulo 3.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 132.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 <esquema.jpg, id=41, 714.67pt x 1150.2975pt>
 File: esquema.jpg Graphic file (type jpg)
  <use esquema.jpg>
-Package pdftex.def Info: esquema.jpg used on input line 150.
+Package pdftex.def Info: esquema.jpg used on input line 160.
 (pdftex.def)             Requested size: 128.63504pt x 207.04462pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 151.
-)
-(chapters/conclusao.tex [6
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 161.
+ [6
 
-] [7 <./esquema.jpg>]
+])
+(chapters/conclusao.tex [7 <./esquema.jpg>]
 Cap\'{\i }tulo 4.
 ) [8
 
 ]
 Ap\^endice A.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 49.
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [9
+[9
 
 
 ] [10] (main.aux) ) 
@@ -1330,7 +1331,7 @@ gram Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr
 8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 203236 bytes).
+Output written on main.pdf (14 pages, 203644 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -91,17 +91,15 @@ E aqui que a programação em lógica estendida se apresenta como capaz de resol
 \end{itemize}
 
 
-De facto, para cumprir com os pressupostos definidos anteriormente, teremos de definir outro tipo de informação, além da informação positiva e a informação negativa. Esta pode ser
-representada da seguinte forma:
+De facto, para cumprir com os pressupostos definidos anteriormente, teremos de definir outro tipo de informação, além da informação positiva e a informação negativa. Esta pode ser representada da seguinte forma:
 
 
 \begin{itemize}
-	\item Negação por Falha: quando não existe nenhuma prova. É representada pelo teorema \textit{não}, anteriormente utilizado no \textit{Exercício 1};
-	\item Negação Forte:  representada por (-) e que afirma que determinado predicado é falso.
+	\item \textbf{Negação por Falha}: quando não existe nenhuma prova. É representada pelo termo \textit{não}, anteriormente utilizado no \textit{Exercício 1};
+	\item \textbf{Negação Forte ou clássica}: representada pela conectiva (\textbf{-}) e que afirma que determinado predicado é falso.
 \end{itemize}
 
-Por fim, atendendo aos requisitos do trabalho, será ainda necessário obdecer às seguintes
-caracteristicas:
+Por fim, atendendo aos requisitos do trabalho, será ainda necessário obdecer às seguintes caracteristicas:
 
 \begin{itemize}
 	\item Representar casos de conhecimento imperfeito, pela utilização de valores nulos de todos os tipos estudados;
@@ -121,8 +119,7 @@ Nesta parte do documento serão explicitadas todas as etapas de resolução dos 
 \label{p3:baseConhe}
 
 A base de Conhecimento define bases de dados ou conhecimento acumulados sobre determinado assunto.
-Para a elaboração deste exercício tornou-se importante definir uma base de conhecimento
-que possa responder aos pedidos do enunciado.
+Para a elaboração deste exercício tornou-se importante definir uma base de conhecimento que possa responder aos pedidos do enunciado.
 
 \section{Funcionalidades Básicas}
 \label{p3:funcbasic}
@@ -131,6 +128,19 @@ Nesta secção serão apresentados e explicados os métodos usados para a resolu
 \subsection{Representação de Conhecimento Positivo e Negativo}
 
 A representação do conhecimento positivo é feito nos factos, por exemplo:
+
+\begin{verbatim}
+utente(1,gil,12,rua_Braga).
+utente(20,gil,12,rua_Braga).
+utente(2,carlos,20,rua_Guimaraes).
+utente(3,sandro,30,rua_Lisboa).
+utente(4,ana,10,rua_Varzim).
+utente(5,filipa,15,rua_Coimbra).
+utente(6,antonio,13,rua_Pacos).
+utente(7,filipe,13,rua_Guimaraes).
+utente(8, celia,22, barcelos). 
+\end{verbatim}
+
 
 
 \subsection{Representação de casos de Conhecimento Imperfeito, pela utilização de valores nulos de todos os tipos}

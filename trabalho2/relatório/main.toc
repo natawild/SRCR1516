@@ -12,10 +12,10 @@
 \contentsline {section}{\numberline {3.1}Base de Conhecimento}{6}
 \contentsline {section}{\numberline {3.2}Funcionalidades B\IeC {\'a}sicas}{6}
 \contentsline {subsection}{\numberline {3.2.1}Representa\IeC {\c c}\IeC {\~a}o de Conhecimento Positivo e Negativo}{6}
-\contentsline {subsection}{\numberline {3.2.2}Representa\IeC {\c c}\IeC {\~a}o de casos de Conhecimento Imperfeito, pela utiliza\IeC {\c c}\IeC {\~a}o de valores nulos de todos os tipos}{6}
-\contentsline {subsection}{\numberline {3.2.3}Manipula\IeC {\c c}\IeC {\~a}o de Invariantes que designem restri\IeC {\c c}\IeC {\~o}es \IeC {\`a} inser\IeC {\c c}\IeC {\~a}o e \IeC {\`a} remo\IeC {\c c}\IeC {\~a}o de conhecimento}{6}
-\contentsline {subsection}{\numberline {3.2.4}Tratamento de problem\IeC {\'a}tica da evolu\IeC {\c c}\IeC {\~a}o do conhecimento, pela cria\IeC {\c c}\IeC {\~a}o dos procediemntos adequados}{6}
-\contentsline {subsection}{\numberline {3.2.5}Desenvolvimento de um sistema de infer\IeC {\^e}ncia capaz de implementar os mecanismos de racioc\IeC {\'\i }nio inerentes a estes sistemas}{6}
+\contentsline {subsection}{\numberline {3.2.2}Representa\IeC {\c c}\IeC {\~a}o de casos de Conhecimento Imperfeito, pela utiliza\IeC {\c c}\IeC {\~a}o de valores nulos de todos os tipos}{7}
+\contentsline {subsection}{\numberline {3.2.3}Manipula\IeC {\c c}\IeC {\~a}o de Invariantes que designem restri\IeC {\c c}\IeC {\~o}es \IeC {\`a} inser\IeC {\c c}\IeC {\~a}o e \IeC {\`a} remo\IeC {\c c}\IeC {\~a}o de conhecimento}{7}
+\contentsline {subsection}{\numberline {3.2.4}Tratamento de problem\IeC {\'a}tica da evolu\IeC {\c c}\IeC {\~a}o do conhecimento, pela cria\IeC {\c c}\IeC {\~a}o dos procediemntos adequados}{7}
+\contentsline {subsection}{\numberline {3.2.5}Desenvolvimento de um sistema de infer\IeC {\^e}ncia capaz de implementar os mecanismos de racioc\IeC {\'\i }nio inerentes a estes sistemas}{7}
 \contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{8}
 \contentsline {chapter}{Anexos}{9}
 \contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{9}
