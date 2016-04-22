@@ -6,10 +6,6 @@
 package srcr;
 
 /**
- *
- * @author gil
- */
-/**
  * Classe que abstrai a utilização da classe Scanner, escondendo todos os
  * problemas relacionados com excepções, e que oferece métodos simples e
  * robustos para a leitura de valores de tipos simples e String.

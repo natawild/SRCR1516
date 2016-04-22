@@ -171,7 +171,7 @@ public class Prolog {
       }
       if(flag==1) {
          
-      System.out.println("Não existe mais consultas com essa "+data);
+      System.out.println("Não existe mais consultas com essa data "+data);
       }
         
       else {
@@ -481,11 +481,379 @@ public class Prolog {
  }
  
  
- 
- 
+  public int adicionarUtente(int id,String nome, int idade, String morada) throws SPException, InterruptedException, Exception {
+    int flag=0;
+  
+    if(existeId(id)==1) {
+       System.out.println("Já existe o id "+id);
+       return 0;
+   }   
+    
+   
 
+  String queryS ="inserirUtente("+id+","+nome+","+idade+","+morada +").";
+        
+        
+   HashMap map =new HashMap();
+       
+   
+   Query query = sp.openPrologQuery(queryS, map);
+  
+   while(query.nextSolution()) {
+   
+       
+       flag=1;
+   
+   
+   }
+      
+      if(flag==0) {
+      
+      System.out.println("Não se pode saber a morada do utente "+nome);
+      
+      
+      }
+      
+      else {
+      System.out.println("Utente inserido com sucesso");
+      }
+  
+  
+  query.close();
+  return 1;
+  }
+  
  
- 
+  public  int existeId(int id) throws SPException, InterruptedException, Exception {
+  
+  String queryS ="utente("+id+",Nome,Idade,Morada).";
+   int flag=0;     
+        
+   HashMap map =new HashMap();
+       
+   
+   Query query = sp.openPrologQuery(queryS, map);
+  
+      while(query.nextSolution()) {
+      flag=1;
+      
+      }
+      
+      
+      
+  query.close();
+  return flag;
+  }
+  
+  public int adicionarServico(int id,String nome,String instituicao,String cidade) throws SPException, InterruptedException, Exception {
+  
+  int flag=0;
+  
+    if(existeIdServico(id)==1) {
+       System.out.println("Já existe o id "+id);
+       return 0;
+   }   
+    
+   
+
+  String queryS ="inserirServico("+id+","+nome+","+instituicao+","+cidade +").";
+        
+        
+   HashMap map =new HashMap();
+       
+   
+   Query query = sp.openPrologQuery(queryS, map);
+  
+   while(query.nextSolution()) {
+   
+       
+       flag=1;
+   
+   
+   }
+      
+        System.out.println("Servico inserido com sucesso");
+      
+  
+  
+  query.close();
+  return 1;
+  }
+  
+  
+
+
+
+public int existeIdServico(int id)throws SPException, InterruptedException, Exception{
+    
+     String queryS ="servico("+id+ ",Descricao,Instituicao,Cidade).";
+   int flag=0;     
+        
+   HashMap map =new HashMap();
+       
+   
+   Query query = sp.openPrologQuery(queryS, map);
+  
+      while(query.nextSolution()) {
+      flag=1;
+      
+      }
+
+  query.close();
+    
+    return flag;
+}
+   
+  
+public int existeIdConsulta(String data,int idUtente,int idServico,float custo) throws SPException, InterruptedException, Exception{
+    
+    int flag=0;
+    
+     
+     String queryS ="consulta("+data+","+idUtente+","+idServico+","+custo +").";
+       
+        
+   HashMap map =new HashMap();
+       
+   
+   Query query = sp.openPrologQuery(queryS, map);
+  
+      while(query.nextSolution()) {
+      flag=1;
+      
+      }
+
+  query.close();
+    
+    return flag;
+}
+    
+public int inserirConsulta(String data,int idUtente,int idServico,float custo) throws SPException, InterruptedException, Exception{   
+    int flag=0;
+    if(existeIdConsulta(data,idUtente,idServico,custo)==1) {
+    
+    System.out.println("Já existe essa consulta");
+    
+    return 0;
+    }
+    
+    if(existeId(idUtente)==0) {
+    
+    System.out.println("Não existe esse utente");
+    
+    return 0;
+    }
+    
+    if(existeIdServico(idServico)==0) {
+    
+    System.out.println("Não existe esse servico");
+    
+    return 0;
+    
+    }
     
     
+    String queryS ="inserirConsulta("+data+","+idUtente+","+idServico+","+custo +").";
+    
+    HashMap map =new HashMap();
+       
+    Query query = sp.openPrologQuery(queryS, map);
+    
+   while(query.nextSolution()) {
+   
+       
+       flag=1;
+   
+   
+   }
+      
+      if(flag==0) {
+      
+      System.out.println("Não se pode saber o servido do utente "+idUtente+ "na data "+data);
+      
+      
+      }
+      
+      else {
+      System.out.println("Consulta inserida com sucesso");
+      }
+  
+  
+  query.close();
+  return 1;
+}
+
+ public void removerUtente(int id) throws SPException, InterruptedException, Exception {
+ 
+     int flag=0;
+
+    String queryS ="removerUtente("+id+ ",Nome,Idade,Morada).";
+    
+    HashMap map =new HashMap();
+       
+    Query query = sp.openPrologQuery(queryS, map);
+    
+   while(query.nextSolution()) {    
+       flag=1;
+   }
+      
+      if(flag==0) {
+      
+      System.out.println("Não se pode remover o utente cujo o id é "+id);
+      
+      
+      }
+      
+      else {
+      System.out.println("Utente removido com sucesso");
+      }
+  
+  
+  query.close();
+ }  
+
+
+ public void removerServico(int idS)throws SPException, InterruptedException, Exception {
+ 
+        int flag=0;
+
+    String queryS ="removerServico("+idS+ ",Nome,Instituicao,Cidade).";
+    
+    HashMap map =new HashMap();
+       
+    Query query = sp.openPrologQuery(queryS, map);
+    
+   while(query.nextSolution()) {    
+       flag=1;
+   }
+      
+      if(flag==0) {
+      
+      System.out.println("Não se pode remover o servico cujo o id é "+idS);
+      
+      
+      }
+      
+      else {
+      System.out.println("Servico removido com sucesso");
+      }
+  
+  
+  query.close();
+ 
+ }
+ 
+ public int removerConsulta(String data,int idUtente,int idServico,int custo) throws SPException, InterruptedException, Exception{   
+    int flag=0;
+     
+     
+    if(existeId(idUtente)==0) {
+    
+    System.out.println("Não existe esse utente");
+    
+    return 0;
+    }
+    
+    if(existeIdServico(idServico)==0) {
+    
+    System.out.println("Não existe esse servico");
+    
+    return 0;
+    
+    }
+    
+    
+     String queryS ="removerConsulta("+data+","+idUtente+","+idServico+","+custo +").";
+    
+    HashMap map =new HashMap();
+       
+    Query query = sp.openPrologQuery(queryS, map);
+    
+   while(query.nextSolution()) {
+  
+       flag=1;
+   System.out.println("ola");
+   
+   } 
+   
+   if(flag==0) {
+   
+       System.out.println("Impossivel remover esta consulta");
+   
+   }
+   
+   else {
+     
+   System.out.println("Consulta removida com sucesso");
+   
+   }
+   
+   
+   query.close();
+   return 1;
+    
+   
+ }
+ 
+ public void demonstracaoUtente(int id,String nome, int idade, String morada)throws SPException, InterruptedException, Exception{   
+     
+    
+     
+     String queryS ="demo(utente("+id+","+nome+","+idade+","+morada+"),Questao).";
+    
+    HashMap map =new HashMap();
+       
+    Query query = sp.openPrologQuery(queryS, map);
+     
+     while(query.nextSolution()) {
+     
+     System.out.println(map.toString());
+     }
+         
+ }
+ 
+ 
+  public void demonstracaoServico(int id,String nome, String instituicao, String cidade)throws SPException, InterruptedException, Exception{   
+     
+
+     
+     String queryS ="demo(servico("+id+","+nome+","+instituicao+","+cidade+"),Questao).";
+    
+    HashMap map =new HashMap();
+       
+    Query query = sp.openPrologQuery(queryS, map);
+     
+     while(query.nextSolution()) {
+     
+     System.out.println(map.toString());
+     }
+         
+ }
+  
+  public void demonstracaoConsulta(String data,int idU, int idS, int custo)throws SPException, InterruptedException, Exception{   
+     
+   
+     
+     String queryS ="demo(consulta("+data+","+idU+","+idS+","+custo+"),Questao).";
+    
+    HashMap map =new HashMap();
+       
+    Query query = sp.openPrologQuery(queryS, map);
+     
+     while(query.nextSolution()) {
+     
+     System.out.println(map.toString());
+     }
+         
+ }
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 }

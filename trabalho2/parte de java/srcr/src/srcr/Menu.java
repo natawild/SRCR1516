@@ -30,6 +30,15 @@ public class Menu {
                      ". Ver as consultas que nao se sabe a data.",
                      ". Ver as consultas que nao se sabe o custo.",
                      ". Ver os utentes em que a morada seja desconhecida.",
+                     ". Adicionar utente",
+                     ". Adicionar servico",
+                     ". Adicionar consulta",
+                     ". Remover utente",
+                     ". Remover servico",
+                     ". Remover consulta",
+                     ". Demonstração do utente",
+                     ". Demonstração do servico",
+                     ". Demonstração da consulta",
                      ". Sair."
         };
         
