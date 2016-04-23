@@ -31,9 +31,6 @@ public class Srcr {
         p = new Prolog(path);
        
         int op=-1;
-       
-      
-          
           
          while(op!=0) {
         new Menu();
@@ -70,9 +67,7 @@ public class Srcr {
                      System.out.println("Escreva o nome do servico que deseja procurar");
                       nome=lerString();
                      p.procuraServico(nome);
-                     
-                     
-                     
+                   
                      break;
                      
                      
@@ -98,9 +93,7 @@ public class Srcr {
                     p.utentePagou(data,idU);
                     
                     break;
-                    
-                    
-                    
+                  
                  case 8:
                       
                      System.out.println("Escreva o id do utente que quer consultar");
@@ -111,9 +104,7 @@ public class Srcr {
                      
                      break;
                      
-                     
-                     
-                     
+                   
                  case 9:
                       System.out.println("Escreva o id do utente que quer consultar");
                      
@@ -122,15 +113,11 @@ public class Srcr {
                      p.idServico(idS);
                      
                      break;
-                    
-                   
-                     
+            
                  case 10:
                       
-                     
                      p.dadaDesconhecida();
-                     
-                     
+                  
                      break;
                      
                  case 11:
@@ -139,10 +126,7 @@ public class Srcr {
                      
                      
                      break;
-                     
-                     
-                     
-                     
+            
                  case 12:
                      
                      p.moradaDesconhecida();
@@ -164,9 +148,7 @@ public class Srcr {
                      String morada=lerString();
                      
                      p.adicionarUtente(idU,nome,idade,morada);
-                    
-                     
-                     
+                 
                      break ;
                      
                  case 14:
@@ -183,12 +165,8 @@ public class Srcr {
                      System.out.println("Introduza a cidade da instituicao");
                      String cidade=lerString();
                      
-                     
                      p.adicionarServico(idS, nome, instituicao, cidade);
-                     
-                     
-                     
-                     
+                
                      break;
                      
                   
@@ -304,36 +282,22 @@ public class Srcr {
                      System.out.println("Introduza o custo da consulta");
                     custo=lerInt();
                      
-                     
                      p.demonstracaoConsulta(data, idU, idS, custo);
-                     
-                     
-                     
+                 
                      break;
                      
                      
                  default:
                      System.out.println("Introduza um numero valido");
              }
-           
+        
           
          System.out.println("Prima ENTER para continuar.");
          
          lerString();
          
-         
-         
-         
-         
-         
-         
-         
-         
          }
-         
-         
-        
-        
+   
     }
     
 }

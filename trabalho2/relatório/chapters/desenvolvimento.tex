@@ -1,8 +1,6 @@
 \chapter{Introdução}
 \label{cap:p1}
 Este primeiro capítulo tem como objetivo apresentar uma breve introdução ao exercício a realizar. Sendo assim, é necessário perceber os motivos que levaram à resolução do exercício assim como os objetivos pretendidos.
-A Programação em Lógica é um tipo específico de programação cujo objetivo é a implementação de um programa cujo conteúdo se prende em factos (registos que se sabem verdadeiros), predicados (associados aos factos) e regras. A este programa podem ser estruturadas questões sobre o seu conteúdo e obter-se-ão respostas válidas e corroboradas pela lógica em si.
-A programação em lógica baseia-se em dois princípios básicos para a “descoberta” das respostas (soluções) a essas questões: lógica, usada para representar os conhecimentos e informação, e Inferência, regras aplicadas à Lógica para manipular o conhecimento.
 
 A extensão à programação em lógica surge da necessidade de abandonar conceitos restritos obrigatoriamente associados à programação em lógica abordada no primeiro trabalho prático.
 A extensão à programação e lógica permite então abandonar o conceito de mundo fechado, que consiste em apenas assumir verdadeiro aquilo que se conhece (aquilo que está presente na base de conhecimento) e também abandonar o conceito de domínio fechado, que consiste em assumir que não existem mais objetos que não aqueles mencionados na base de conhecimento. Assim sendo existem, ao contrário da programação em lógica três valores de verdade, são eles os valores falso, verdadeiro e desconhecido.
@@ -11,14 +9,12 @@ Para além destas mudanças, a extensão à programação em lógica introduz o 
 
 
 
-
-
 \section{Motivação e Objetivos}
 \label{p1:MotivObj}
 O PROLOG é uma linguagem declarativa, pois fornece uma descrição do problema que se pretende computar utilizando uma coleção de factos e regras lógicas que indicam como deve ser resolvido o problema proposto. Sendo também uma linguagem que é especialmente associada com a inteligência artificial e linguística computacional este é um dos grandes motivos que nos levou a querer aprender este tipo de linguagem, esta mais direcionada ao conhecimento do que aos algoritmos. 
 
 
-Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, este exercício surge com o objetivo de consolidar conhecimentos e obter experiência e prática face a problemas de programação em lógica. O objetivo final será a construção de um programa capaz de armazenar conhecimento sobre registo de eventos numa instituição de saúde e através deste solucionar questões deste tema.
+Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, este exercício surge com o objetivo de consolidar conhecimentos e obter experiência e prática face a problemas de representação do conhecimento imperfeito. O objetivo final será a construção de uma  aplicação capaz de armazenar conhecimento e sobre registo de eventos numa instituição de saúde e a interação com o sistema será desenvolvida em JAVA com recurso à biblioteca JASPER.
 
 
 
@@ -26,7 +22,6 @@ Após os conhecimentos adquiridos na linguagem de programação lógica PROLOG, 
 \label{p1:Estrutura}
 O presente relatório encontra-se organizado em cinco capítulos. Sendo que neste primeiro introduzimos a linguagem e o tema a tratar menciona-se também a motivação e os objetivos que nos levaram à realização deste exercício. 
 No segundo capítulo será feito um estudo prévio da linguagem de modo a que o leitor possa entender o exercício. No terceiro capítulo explicaremos o que foi desenvolvido para a implementação do exercício. No quarto capítulo apresentaremos as conclusões e interpretação dos resultados obtidos. Por fim será apresentados um anexo com o código desenvolvido. 
-
 
 
 
@@ -39,14 +34,9 @@ Neste capítulo vao ser apresentados alguns conceitos fundamentais para a elabor
 \label{p2:estudp}
 Para a realização deste trabalho foram necessários alguns conhecimentos anteriores sobre programação em lógica e, posteriormente, o uso da linguagem de programação PROLOG.
 Este conhecimento foi adquirido ao longo das aulas teóricas ( programação em lógica) e aulas teórico-práticas (PROLOG) de Sistemas de Representação de Conhecimento e Raciocínio.
-Sobre estes conhecimentos, devemos destacar todos os conceitos que foram aprendidos tais como o que são predicados, o que são cláusulas, o que é a base de conhecimento, entre outros conceitos de programação em lógica que serão explicados ao longo deste documento.
+Sobre estes conhecimentos, devemos destacar todos os conceitos que foram aprendidos tais como o que são predicados, o que são cláusulas, conhecimento imperfeito, o que é a base de conhecimento, entre outros conceitos de programação em lógica que serão explicados ao longo deste documento.
 Após termos alguns conhecimentos de programação em lógica falta colocá-los em prática, e, é aqui, que entram os conhecimentos de PROLOG e da ferramenta \textit{SICSTus} usada para
 compilar e interpretar o código desenvolvido nesta linguagem.
-\\
-
-Para o desenvolvimento desses predicados foi necessário fazer uma análise de conhecimentos de cada um dos membros sobre o tema e acompanhado de uma pequena pesquisa sobre as características destes.
-
-
 
 
 \section{Base de dados vs Representação de Conhecimento}
@@ -400,6 +390,202 @@ De modo a tornar a aplicação mais funcional e perspetivel adicionámos algumas
 \end{figure}
 
 
+\begin{figure}[<+ht+>]
+	\centering
+	\includegraphics[scale=0.8]{questao8.jpg}
+	\caption{Procurar por id de utente}
+\end{figure}
+
+\begin{figure}[<+ht+>]
+	\centering
+	\includegraphics[scale=0.8]{questao9.jpg}
+	\caption{Procurar por id de serviço}
+\end{figure}
+
+\begin{figure}[<+ht+>]
+	\centering
+	\includegraphics[scale=0.8]{questao10.jpg}
+	\caption{Procurar as consultas que não se sabe a data}
+\end{figure}
+
+\begin{figure}[<+ht+>]
+	\centering
+	\includegraphics[scale=0.8]{questao11.jpg}
+	\caption{Procurar as consultas que não se sabe o custo}
+\end{figure}
+
+\begin{figure}[<+ht+>]
+	\centering
+	\includegraphics[scale=0.8]{questao12.jpg}
+	\caption{Procurar os utentes com morada desconhecida}
+\end{figure}
+
+
+
+\clearpage
+
+\subsection{Interação com o Sistema em Java}
+Foi sugerido que desenvolvessemos uma aplicação Java para tornar o uso do programa mais intuitivo do que o Prolog. Para isso recorremos à biblioteca \textit{Jasper} e criámos um programa com ligação ao \textit{SICStus Prolog}. 
+
+Mostrámos de seguida o menu na figura abaixo com as diversas operações possiveis a realizar: 
+
+\begin{figure}[<+h+>]
+	\centering
+	\includegraphics[scale=0.7]{menu.jpg}
+	\caption{Menu da aplicação}
+\end{figure}
+
+
+
+  \begin{minipage}{\linewidth}
+  	\centering
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao13}
+  			\caption{Adicionar Utente}
+  		\end{figure}
+  	\end{minipage}
+  	\hspace{0.05\linewidth}
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao13_falhado}
+  			\caption{Exemplo de falha na inserção de um utente já existente}
+  		\end{figure}
+  	\end{minipage}
+  \end{minipage}
+
+
+  \begin{minipage}{\linewidth}
+  	\centering
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao14}
+  			\caption{Adicionar Serviço}
+  		\end{figure}
+  	\end{minipage}
+  	\hspace{0.05\linewidth}
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao14_falhada}
+  			\caption{Exemplo de falha na inserção de um serviço já existente}
+  		\end{figure}
+  	\end{minipage}
+  \end{minipage}
+
+  \begin{minipage}{\linewidth}
+  	\centering
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao15}
+  			\caption{Adicionar Consulta}
+  		\end{figure}
+  	\end{minipage}
+  	\hspace{0.05\linewidth}
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao15_falhada}
+  			\caption{Exemplo de falha na inserção de uma consulta já existente}
+  		\end{figure}
+  	\end{minipage}
+  \end{minipage}
+
+
+  \begin{minipage}{\linewidth}
+  	\centering
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao16}
+  			\caption{Remover Utente}
+  		\end{figure}
+  	\end{minipage}
+  	\hspace{0.05\linewidth}
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao16_falhada}
+  			\caption{Exemplo de falha na remoção de um utente}
+  		\end{figure}
+  	\end{minipage}
+  	\hspace{0.05\linewidth}
+  		\begin{minipage}{0.45\linewidth}
+  			\begin{figure}[H]
+  				\includegraphics[width=\linewidth]{questao16_idNaoExiste}
+  				\caption{Exemplo de falha na remoção de um utente quando este não exite}
+  			\end{figure}
+  		\end{minipage}
+  \end{minipage}
+  
+  
+    \begin{minipage}{\linewidth}
+    	\centering
+    	\begin{minipage}{0.45\linewidth}
+    		\begin{figure}[H]
+    			\includegraphics[width=\linewidth]{questao17}
+    			\caption{Remover Serviço}
+    		\end{figure}
+    	\end{minipage}
+    	\hspace{0.05\linewidth}
+    	\begin{minipage}{0.45\linewidth}
+    		\begin{figure}[H]
+    			\includegraphics[width=\linewidth]{questao17_falhada}
+    			\caption{Exemplo de falha na remoção de um serviço}
+    		\end{figure}
+    	\end{minipage}
+    	\hspace{0.05\linewidth}
+    	\begin{minipage}{0.45\linewidth}
+    		\begin{figure}[H]
+    			\includegraphics[width=\linewidth]{questao17_idNaoExiste}
+    			\caption{Exemplo de falha na remoção de um serviço quando id não existe}
+    		\end{figure}
+    	\end{minipage}
+    \end{minipage}
+    
+      \begin{minipage}{\linewidth}
+      	\centering
+      	\begin{minipage}{0.45\linewidth}
+      		\begin{figure}[H]
+      			\includegraphics[width=\linewidth]{questao18}
+      			\caption{Remover Consulta}
+      		\end{figure}
+      	\end{minipage}
+      	\hspace{0.05\linewidth}
+      	\begin{minipage}{0.45\linewidth}
+      		\begin{figure}[H]
+      			\includegraphics[width=\linewidth]{questao18_UtenteNaoExiste}
+      			\caption{Exemplo de falha na remoção de uma consulta quando utente não existe}
+      		\end{figure}
+      	\end{minipage}
+      	\begin{minipage}{0.45\linewidth}
+      		\begin{figure}[H]
+      			\includegraphics[width=\linewidth]{questao18_ServicoNaoExiste}
+      			\caption{Exemplo de falha na remoção de uma consulta quando serviço não existe}
+      		\end{figure}
+      	\end{minipage}
+      	\begin{minipage}{0.45\linewidth}
+      	\begin{figure}[H]
+      		\includegraphics[width=\linewidth]{questao18_ConsultaNaoExiste}
+      		\caption{Exemplo de falha na remoção de uma consulta quando consulta não existe}
+      	\end{figure}
+      \end{minipage}
+      \end{minipage}
+      
+      
+  \begin{minipage}{\linewidth}
+  	\centering
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao19}
+  			\caption{Demo do utente}
+  		\end{figure}
+  	\end{minipage}
+  	\hspace{0.05\linewidth}
+  	\begin{minipage}{0.45\linewidth}
+  		\begin{figure}[H]
+  			\includegraphics[width=\linewidth]{questao19_ConhecimentoIndeterminado}
+  			\caption{Exemplo conhecimento indeterminado}
+  		\end{figure}
+  	\end{minipage}
+  \end{minipage}
+      
 
 
 

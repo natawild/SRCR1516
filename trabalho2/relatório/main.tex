@@ -24,6 +24,17 @@
 %identa 1º paragrafo de capitulos e secções
 \usepackage{indentfirst}
 \usepackage{enumerate}
+\usepackage{listings}
+\lstset{
+	basicstyle=\small,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	frame=tB,
+	mathescape=true,
+	escapeinside={(*@}{@*)}
+}
 
 \usepackage[titletoc,toc]{appendix}
 \renewcommand{\appendixtocname}{Anexos}
@@ -46,12 +57,16 @@
 
 \begin{appendices}
 	\chapter{Código implementado}
-\begin{Verbatim}
+	\section{PROLOG}
+	
+\begin{verbatim}
+
+
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % SIST. REPR. CONHECIMENTO E RACIOCINIO - MiEI/3
 
-%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+%--------------------Exercício 2 ------------- - - - - - - - - - -  -  -  -  -   -
 % Base de Conhecimento do registo de eventos numa instituição de saúde
 
 %--------------------------------- - - - - - - - - - - - - - - -
@@ -64,65 +79,338 @@
 
 /* permitir adicionar a base de conhecimento	*/
 
-:-dynamic utente/2.
-:-dynamic instituicao/1.
-:-dynamic profissional/2.
-:-dynamic servico/1.
+:-dynamic utente/4.
+:-dynamic servico/4.
+:-dynamic consulta/4.
 
-%--------------------------------- Base de Conhecimento - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado instituição(nome). 
+% Extensao do predicado utente(IdUten,Nome,Idade,Morada) ->{V,F,D}
 
-instituicao( hospital_guimaraes ). 
-instituicao( hospital_braga ).
-instituicao( hospital_barcelos ).
-instituicao( hospital_porto ).
-instituicao( universitario_coimbra ).
-instituicao( hospital_lisboa_norte ).
-instituicao( hospital_beatriz_angelo ).
-instituicao( hospital_trofa ).
+utente(1,gil,12,rua_Braga).
+
+utente(20,gil,12,rua_Braga).
+
+utente(2,carlos,20,rua_Guimaraes).
+utente(3,sandro,30,rua_Lisboa).
+utente(4,ana,10,rua_Varzim).
+utente(5,filipa,15,rua_Coimbra).
+utente(6,antonio,13,rua_Pacos).
+utente(7,filipe,13,rua_Guimaraes).
+
+-utente(ID,N,I,M):- nao(utente(ID,N,I,M)),
+nao(excecao(utente(ID,N,I,M))).
+
+-utente(13,joaquim,60,rua_Fafe).
+
+% Nao sabemos a morada nem nunca vamos deixar saber que se saiba
+
+utente(8,johnny,10,morada_desconhecido).
+
+excecao(utente(ID,NO,I,R)):- utente(ID,NO,I,morada_desconhecido).
+
+nulo(morada_desconhecido).
+
+
++utente(ID,NO,I,R) :: 
+(solucoes( (ID,NO,I,R),(utente(ID,johnny,I,R),nao(nulo(R))),S ),
+comprimento( S,N ), N == 0 
+).
+
+% Nao sabemos se mora em guimaraes ou em fafe							  
+
+excecao(utente(9,carlos,60,guimaraes)).
+excecao(utente(9,carlos,60,fafe)).								  
+
+
+% Nao sabemos a idade ao certo do utente 
+
+excecao(utente(10,lourenco,I,fafe)):- (I>=30,I=<40).
+
+utente(11,filipe,30,morada_desconhecido).
+utente(12,celia,22,morada_desconhecido).									 
+
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado servico(nome).
+% Extensao do predicado servico(ID,Descricao,Instituicao,Cidade) ->{V,F,D}
 
-servico( cardiologia ). 
-servico( cirugiageral ).
-servico(  neurologia ).
-servico(  ortopedia ).
-servico(  psiquiatria ).
-servico(  oftamologia ).
-servico(  ginecologia/obstetricia ).
-servico(  oncologia ).
-servico(  endocrinologia ).
-servico(  urologia ).  
+
+servico(1,cardiologia,hospital_Braga,braga).
+servico(2,urologia,hospital_Braga,braga).
+servico(3,neurologia,hospital_Guimaraes,guimaraes). 
+servico(4,cirugia_Geral,hospital_Guimaraes,guimaraes).
+servico(5,ortopedia,hospital_Coimbra,coimbra).
+servico(6,psiquiatria,hospital_Fafe,fafe).
+servico(7,ginecologia,hospital_Fafe,fafe).
+servico(10,cardiologia,hospital_Lisboa,lisboa).
+
+
+-servico(ID,D,I,C):- nao(servico(ID,D,I,C)),
+nao(excecao(servico(ID,D,I,C))).
+
+
+% Nao sabemos se endocrinologia é prestado no hospital_Fafe ou no de hospital_Fafe_Novo				
+
+excecao(servico(8,endocrinologia,hospital_Fafe,fafe)).
+excecao(servico(8,endocrinologia,hospital_Fafe_Novo	,fafe)).
+
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado utente(codigo,nome).
+% Extensao do predicado consulta(Data,IDUtente,IDServico,Custo) ->{V,F,D}
+% data (ano,mes,dia)
 
-utente(1,jose).  
-utente(2,carlos). 
-utente(3,maria). 
-utente(4,jose).   
-utente(5,antonio). 
-utente(6,manuel).  
-utente(7,joana).
-utente(8,joana).  
+
+consulta(data(2010,1,10),1,1,200).
+consulta(data(2011,2,11),2,2,20).
+consulta(data(2012,3,12),3,3,210).
+consulta(data(2013,4,13),4,4,220).
+consulta(data(2014,5,14),5,5,24).
+consulta(data(2015,6,15),6,6,26).
+
+
+-consulta(D,IDU,IDS,C):- nao(consulta(D,IDU,IDS,C)),
+nao(excecao(consulta(D,IDU,IDS,C))).
+
+
+% Nunca podemos saber a data em que o utente realizou uma consulta de um determinado servico
+
+consulta(data_desconhecida,7,1,200). 
+nulo(data_desconhecida).
+
+excecao(consulta(D,IDU,IDS,C)):-consulta(data_desconhecida,IDU,IDS,C).
+
++consulta(D,IDU,IDS,C) :: 
+(solucoes( (D,IDU,IDS,C),(consulta(D,7,1,C),nao(nulo(D))),S ),
+comprimento( S,N ), N == 0 
+).
+
+
+% Nao sabemos quanto ele pagou por um determinado servico
+
+excecao(consulta(D,IDU,IDS,C)):- 
+consulta(D,IDU,IDS,custo_desconhecido).
+
+consulta(data(2014,6,15),1,2,custo_desconhecido).
+
+% Nao sabemos ao certo quanto ele pegou por um determinado servico
+excecao(consulta(data(2015,6,15),1,3,C)):- (C>=10,C=<100).
+
+
+% Nunca podemos vir a saber que tipo de servico o utente teve naquela data 
+
+consulta(data(2015,6,15),1,servico_desconhecido,20).
+nulo(servico_desconhecido).
+excecao(consulta(D,ID,IDS,C)):- consulta(D,ID,servico_desconhecido,C).
+
++consulta(D,ID,IDS,C) :: 
+(solucoes((D,ID,IDS,C),(consulta(data(2015,6,15),1,IDS,C),
+nao(nulo(IDS))),S),
+comprimento(S,N),
+N==0).
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-% Extensao do predicado profissional(codigo,nome).
+% Extensão do predicado que permite a insercao de conhecimento: Termo -> {v, F}
 
-profissional(1,marcus).
-profissional(2,maria).
-profissional(3,jorge).
-profissional(4,celia).
-profissional(5,carlos).
-profissional(6,antonio).
-profissional(7,vitoria ).
+inserirUtente(ID,NO,I,M):-evolucao(utente(ID,NO,I,M)).
+inserirServico(ID,D,I,C):-evolucao(servico(ID,D,I,C)).
+inserirConsulta(D,IDU,IDS,C):-evolucao(consulta(D,IDU,IDS,C)).
 
 
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensão do predicado que permite a remocao de conhecimento: Termo -> {v, F}
+
+removerUtente(ID,NO,I,M):-remover(utente(ID,NO,I,M)).
+removerServico(ID,NO,I,C):-remover(servico(ID,NO,I,C)).
+removerConsulta(D,IDU,IDS,C):-remover(consulta(D,IDU,IDS,C)).
+
+
+% Contar o numero de utentes
+
+conta_Utente(Numero):-
+(findall((ID,N,I,M),(utente(ID,N,I,M)),S),comprimento(S,Tamanho), 
+Numero is Tamanho).
+
+
+% Contar o numero de Servicos
+
+conta_Servico(Numero):-
+(findall((ID,N,I,M),servico(ID,N,I,M),S),comprimento(S,Tamanho), 
+Numero is Tamanho).
+
+% Contar o numero de Consultas
+
+conta_Consulta(Numero):-
+(findall((ID,N,I,M),consulta(ID,N,I,M),S),comprimento(S,Tamanho),
+Numero is Tamanho).
 
 
 
-\end{Verbatim}
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensão do predicado que permite a remoção de conhecimento: Termo -> {v, F}
+
+remover(Termo):-
+solucoes(Inv,-Termo::Inv,LInv),
+remocao(Termo),
+teste(LInv).
+
+remocao(Termo):-
+retract(Termo).
+remocao(Termo):-
+assert(Termo),!,fail.
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+
+
+evolucao( Termo ) :-
+solucoes( Invariante,+Termo::Invariante,Lista ),
+insercao( Termo ),
+teste( Lista ).
+
+insercao( Termo ) :-
+assert( Termo ).
+insercao( Termo ) :-
+retract( Termo ),!,fail.
+
+teste( [] ).
+teste( [R|LR] ) :-
+R,
+teste( LR ).
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do meta-predicado demo: Questao,Resposta -> {V,F}
+
+demo( Questao,verdadeiro ) :-
+Questao.
+demo( Questao, falso ) :-
+-Questao.
+demo( Questao,desconhecido ) :-
+nao( Questao ),
+nao( -Questao ).
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+% Extensao do meta-predicado nao: Questao -> {V,F}
+
+nao( Questao ) :-
+Questao, !, fail.
+nao( Questao ).
+
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
+
+solucoes( X,Y,Z ) :-
+findall( X,Y,Z ).
+
+comprimento( S,N ) :-
+length( S,N ).
+
+
+/* ==================Invariante========================*/
+
+
+% Nao deixa inserir o mesmo conhecimento em relacao aos utentes
+
++utente(ID,NO,I,M) :: 
+(solucoes((ID,NO,I,M),utente(ID,NO,I,M),S),comprimento(S,N), N==1).
+
+% Nao deixa inserir o mesmo id em relacao aos utentes
+
++utente(ID,_,_,_) :: 
+(solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N), N==1).
+
+
+/*=======Servicos ==============*/ 
+
+% Nao deixa inserir o mesmo conhecimento em relacao aos servicos
+
++servico(ID,D,I,C) :: 
+(solucoes((ID,D,I,C),servico(ID,D,I,C),S),comprimento(S,N),N==1).
+
+
+% Nao deixa inserir servicos com o mesmo ID
+
++servico(ID,_,_,_) :: 
+(solucoes(D,servico(ID,D,_,_),S),comprimento(S,N),N==1).
+
+/*=======Consultas ==============*/ 
+
+% Nao deixa inserir o mesmo conhecimento em relacao as consultas
+
++consulta(D,IDU,IDS,C) ::
+(solucoes((D,IDU,IDS,C),consulta(D,IDU,IDS,C),S),comprimento(S,N),N==1).
+
+% So podemos adicionar consultar se o id do utente existir 
+
++consulta(_,ID,_,_) ::
+(solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N),N==1).
+
+% So podemos adicionar consultar se o id do servico existir
+
+
++consulta(_,_,IDS,_) :: 
+(solucoes(NO,servico(IDS,NO,_,_),S),comprimento(S,N),N==1).
+
+
+/*===========Remover===================*/
+
+% Nao deixar remover utentes que estejam nas consultas
+
+-utente(ID,_,_,_) :: (nao(consulta(_,ID,S,_)),nao(utente(ID,_,_,_))).
+
+/*=========Servicos =============*/
+% Nao deixar remover um servico que esta nas consultas 
+
+-servico(ID,X,Y,Z) :: (nao(consulta(P,L,ID,K)),nao(servico(ID,X,Y,Z))).
+
+\end{verbatim}
+
+\section{Java}
+\subsection{menu}
+\begin{verbatim}
+public class Menu {
+
+public Menu(){
+int i=0;
+System.out.println("*****************************************************************");
+System.out.println("***************************SRCR**********************************");
+System.out.println("************************Exercício 2******************************");
+System.out.println("*****************************************************************");
+System.out.println("\n\n");
+String args[]={ ". Número de utentes resgistados.",
+". Número de Servicos Registados.",
+". Número de consultas.",
+". Encontrar informações sobre um utente com um dado nome.",
+". Informações sobre um determinado Serviço.",
+". Pesquisar consultas por data.",
+". Para um data e um id ver os servicos que ele foi e o custo.",
+". Dado um id do utente saber quem é esse utente.",
+". Dado um id do serviço saber qual é esse servico.",
+". Ver as consultas que nao se sabe a data.",
+". Ver as consultas que nao se sabe o custo.",
+". Ver os utentes em que a morada seja desconhecida.",
+". Adicionar utente",
+". Adicionar servico",
+". Adicionar consulta",
+". Remover utente",
+". Remover servico",
+". Remover consulta",
+". Demonstração do utente",
+". Demonstração do servico",
+". Demonstração da consulta",
+". Sair."
+};
+
+while(i<args.length-1) {
+
+System.out.println(i+1+args[i]);
+
+i++;
+}
+
+System.out.println(0+args[i]);
+System.out.print("\n");
+
+	}
+}
+\end{verbatim}
+
+
+
 
 \end{appendices}
 

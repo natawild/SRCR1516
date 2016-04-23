@@ -19,6 +19,10 @@
 \contentsline {subsection}{\numberline {3.2.4}Lidar com a problem\IeC {\'a}tica da evolu\IeC {\c c}\IeC {\~a}o do conhecimento, criando procedimentos adequados}{9}
 \contentsline {subsection}{\numberline {3.2.5}Desenvolver um sistema de infer\IeC {\^e}ncia capaz de implementar os mecanismos de racioc\IeC {\'\i }nio inerentes a estes sistemas}{10}
 \contentsline {subsection}{\numberline {3.2.6}Funcionalidades extra}{10}
-\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{13}
-\contentsline {chapter}{Anexos}{14}
-\contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{14}
+\contentsline {subsection}{\numberline {3.2.7}Intera\IeC {\c c}\IeC {\~a}o com o Sistema em Java}{13}
+\contentsline {chapter}{\numberline {4}Conclus\IeC {\~a}o}{17}
+\contentsline {chapter}{Anexos}{18}
+\contentsline {chapter}{Ap\^endice \numberline {A}C\IeC {\'o}digo implementado}{18}
+\contentsline {section}{\numberline {A.1}PROLOG}{18}
+\contentsline {section}{\numberline {A.2}Java}{24}
+\contentsline {subsection}{\numberline {A.2.1}menu}{24}
