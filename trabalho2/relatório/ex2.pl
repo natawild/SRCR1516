@@ -2,7 +2,7 @@
 % SIST. REPR. CONHECIMENTO E RACIOCINIO - MiEI/3
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-\% Base de Conhecimento do registo de eventos numa instituição de saúde
+% Base de Conhecimento do registo de eventos numa instituição de saúde
 
 %--------------------------------- - - - - - - - - - - - - - - -
 % SICStus PROLOG: Declaracoes iniciais
@@ -181,7 +181,7 @@ conta_Consulta(Numero):-(findall((ID,N,I,M),consulta(ID,N,I,M),S),comprimento(S,
 
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
-\% Extensão do predicado que permite a remoção de conhecimento: Termo -> {v, F}
+% Extensão do predicado que permite a remoção de conhecimento: Termo -> {v, F}
 
 remover(Termo):-
 	solucoes(Inv,-Termo::Inv,LInv),

@@ -24,7 +24,7 @@ public class Menu {
                      ". Encontrar informações sobre um utente com um dado nome.",
                      ". Informações sobre um determinado Serviço.",
                      ". Pesquisar consultas por data.",
-                     ". Para um data e um id ver os servicos que ele foi e o custo.",
+                     ". Para uma data e um id do utente ver os servicos que ele frequentou e o custo.",
                      ". Dado um id do utente saber quem é esse utente.",
                      ". Dado um id do serviço saber qual é esse servico.",
                      ". Ver as consultas que nao se sabe a data.",

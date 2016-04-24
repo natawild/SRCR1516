@@ -1,7 +1,7 @@
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % SIST. REPR. CONHECIMENTO E RACIOCINIO - MiEI/3
 
-%--------------------Exercício 2 ------------- - - - - - - - - - -  -  -  -  -   -
+%--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Base de Conhecimento do registo de eventos numa instituição de saúde
 
 %--------------------------------- - - - - - - - - - - - - - - -
@@ -12,7 +12,9 @@
 :- set_prolog_flag( single_var_warnings,off ).
 :- set_prolog_flag( unknown,fail ).
 
+
 /* permitir adicionar a base de conhecimento	*/
+
 
 :-dynamic utente/4.
 :-dynamic servico/4.
@@ -34,7 +36,11 @@ utente(7,filipe,13,rua_Guimaraes).
 -utente(ID,N,I,M):- nao(utente(ID,N,I,M)),
                     nao(excecao(utente(ID,N,I,M))).
 
+
+
+
 -utente(13,joaquim,60,rua_Fafe).
+
 
 % Nao sabemos a morada nem nunca vamos deixar saber que se saiba
 
@@ -45,8 +51,8 @@ excecao(utente(ID,NO,I,R)):- utente(ID,NO,I,morada_desconhecido).
 nulo(morada_desconhecido).
 
 
-+utente(ID,NO,I,R) :: 
-(solucoes( (ID,NO,I,R),(utente(ID,johnny,I,R),nao(nulo(R))),S ),
+
++utente(ID,NO,I,R) :: (solucoes( (ID,NO,I,R),(utente(ID,johnny,I,R),nao(nulo(R))),S ),
                                comprimento( S,N ), N == 0 
                                   ).
 								  
@@ -82,11 +88,15 @@ servico(10,cardiologia,hospital_Lisboa,lisboa).
                     nao(excecao(servico(ID,D,I,C))).
 
 
+
 % Nao sabemos se endocrinologia é prestado no hospital_Fafe ou no de hospital_Fafe_Novo				
 					
 excecao(servico(8,endocrinologia,hospital_Fafe,fafe)).
 excecao(servico(8,endocrinologia,hospital_Fafe_Novo	,fafe)).
-	
+
+
+
+					
 					
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensao do predicado consulta(Data,IDUtente,IDServico,Custo) ->{V,F,D}
@@ -105,6 +115,7 @@ consulta(data(2015,6,15),6,6,26).
                            nao(excecao(consulta(D,IDU,IDS,C))).
 						   
 
+
 % Nunca podemos saber a data em que o utente realizou uma consulta de um determinado servico
 
 consulta(data_desconhecida,7,1,200). 
@@ -112,21 +123,21 @@ nulo(data_desconhecida).
 
 excecao(consulta(D,IDU,IDS,C)):-consulta(data_desconhecida,IDU,IDS,C).
 
-+consulta(D,IDU,IDS,C) :: 
-(solucoes( (D,IDU,IDS,C),(consulta(D,7,1,C),nao(nulo(D))),S ),
++consulta(D,IDU,IDS,C) :: (solucoes( (D,IDU,IDS,C),(consulta(D,7,1,C),nao(nulo(D))),S ),
                                comprimento( S,N ), N == 0 
                                   ).
 
 
 % Nao sabemos quanto ele pagou por um determinado servico
 
-excecao(consulta(D,IDU,IDS,C)):- 
-consulta(D,IDU,IDS,custo_desconhecido).
+excecao(consulta(D,IDU,IDS,C)):- consulta(D,IDU,IDS,custo_desconhecido).
 
 consulta(data(2014,6,15),1,2,custo_desconhecido).
 
-% Nao sabemos ao certo quanto ele pegou por um determinado servico
+% Nao sabemos ao serto quanto ele pegou por um determinado servico
+
 excecao(consulta(data(2015,6,15),1,3,C)):- (C>=10,C=<100).
+
 
 
 % Nunca podemos vir a saber que tipo de servico o utente teve naquela data 
@@ -135,11 +146,7 @@ consulta(data(2015,6,15),1,servico_desconhecido,20).
 nulo(servico_desconhecido).
 excecao(consulta(D,ID,IDS,C)):- consulta(D,ID,servico_desconhecido,C).
 
-+consulta(D,ID,IDS,C) :: 
-(solucoes((D,ID,IDS,C),(consulta(data(2015,6,15),1,IDS,C),
-nao(nulo(IDS))),S),
-comprimento(S,N),
-N==0).
++consulta(D,ID,IDS,C) :: (solucoes((D,ID,IDS,C),(consulta(data(2015,6,15),1,IDS,C),nao(nulo(IDS))),S),comprimento(S,N),N==0).
 
 %--------------------------------- - - - - - - - - - -  -  -  -  -   -
 % Extensão do predicado que permite a insercao de conhecimento: Termo -> {v, F}
@@ -159,22 +166,17 @@ removerConsulta(D,IDU,IDS,C):-remover(consulta(D,IDU,IDS,C)).
 
 % Contar o numero de utentes
 
-conta_Utente(Numero):-
-(findall((ID,N,I,M),(utente(ID,N,I,M)),S),comprimento(S,Tamanho), 
-Numero is Tamanho).
+conta_Utente(Numero):-(findall((ID,N,I,M),(utente(ID,N,I,M)),S),comprimento(S,Tamanho), Numero is Tamanho).
+
 
 
 % Contar o numero de Servicos
 
-conta_Servico(Numero):-
-(findall((ID,N,I,M),servico(ID,N,I,M),S),comprimento(S,Tamanho), 
-            Numero is Tamanho).
+conta_Servico(Numero):-(findall((ID,N,I,M),servico(ID,N,I,M),S),comprimento(S,Tamanho), Numero is Tamanho).
 
 % Contar o numero de Consultas
 
-conta_Consulta(Numero):-
-(findall((ID,N,I,M),consulta(ID,N,I,M),S),comprimento(S,Tamanho),
- Numero is Tamanho).
+conta_Consulta(Numero):-(findall((ID,N,I,M),consulta(ID,N,I,M),S),comprimento(S,Tamanho), Numero is Tamanho).
 
 
 
@@ -235,50 +237,45 @@ comprimento( S,N ) :-
     length( S,N ).
 	
 	
+	
+	
 /* ==================Invariante========================*/
 
 
 % Nao deixa inserir o mesmo conhecimento em relacao aos utentes
 
-+utente(ID,NO,I,M) :: 
-(solucoes((ID,NO,I,M),utente(ID,NO,I,M),S),comprimento(S,N), N==1).
++utente(ID,NO,I,M) :: (solucoes((ID,NO,I,M),utente(ID,NO,I,M),S),comprimento(S,N), N==1).
 
 % Nao deixa inserir o mesmo id em relacao aos utentes
 
-+utente(ID,_,_,_) :: 
-(solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N), N==1).
++utente(ID,_,_,_) :: (solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N), N==1).
 
 
 /*=======Servicos ==============*/ 
 					 
 % Nao deixa inserir o mesmo conhecimento em relacao aos servicos
 
-+servico(ID,D,I,C) :: 
-(solucoes((ID,D,I,C),servico(ID,D,I,C),S),comprimento(S,N),N==1).
++servico(ID,D,I,C) :: (solucoes((ID,D,I,C),servico(ID,D,I,C),S),comprimento(S,N),N==1).
 
 
 % Nao deixa inserir servicos com o mesmo ID
 
-+servico(ID,_,_,_) :: 
-(solucoes(D,servico(ID,D,_,_),S),comprimento(S,N),N==1).
++servico(ID,_,_,_) :: (solucoes(D,servico(ID,D,_,_),S),comprimento(S,N),N==1).
 
 /*=======Consultas ==============*/ 
 
 % Nao deixa inserir o mesmo conhecimento em relacao as consultas
 
-+consulta(D,IDU,IDS,C) ::
- (solucoes((D,IDU,IDS,C),consulta(D,IDU,IDS,C),S),comprimento(S,N),N==1).
++consulta(D,IDU,IDS,C) :: (solucoes((D,IDU,IDS,C),consulta(D,IDU,IDS,C),S),comprimento(S,N),N==1).
 
 % So podemos adicionar consultar se o id do utente existir 
 
-+consulta(_,ID,_,_) ::
- (solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N),N==1).
++consulta(_,ID,_,_) :: (solucoes(NO,utente(ID,NO,_,_),S),comprimento(S,N),N==1).
 
 % So podemos adicionar consultar se o id do servico existir
 
  
-+consulta(_,_,IDS,_) :: 
-(solucoes(NO,servico(IDS,NO,_,_),S),comprimento(S,N),N==1).
++consulta(_,_,IDS,_) :: (solucoes(NO,servico(IDS,NO,_,_),S),comprimento(S,N),N==1).
 
 					   
 /*===========Remover===================*/
