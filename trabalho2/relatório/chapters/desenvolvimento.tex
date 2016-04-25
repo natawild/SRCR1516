@@ -36,7 +36,7 @@ Para a realização deste trabalho foram necessários alguns conhecimentos anter
 Este conhecimento foi adquirido ao longo das aulas teóricas ( programação em lógica) e aulas teórico-práticas (PROLOG) de Sistemas de Representação de Conhecimento e Raciocínio.
 Sobre estes conhecimentos, devemos destacar todos os conceitos que foram aprendidos tais como o que são predicados, o que são cláusulas, conhecimento imperfeito, o que é a base de conhecimento, entre outros conceitos de programação em lógica que serão explicados ao longo deste documento.
 Após termos alguns conhecimentos de programação em lógica falta colocá-los em prática, e, é aqui, que entram os conhecimentos de PROLOG e da ferramenta \textit{SICSTus} usada para
-compilar e interpretar o código desenvolvido nesta linguagem.
+compilar e interpretar o código desenvolvido nesta linguagem.Será também feita uma interface em JAVA com recurso à biblioteca JASPER. 
 
 
 \section{Base de dados vs Representação de Conhecimento}
@@ -200,7 +200,7 @@ excecao(utente(9,carlos,60,fafe)).
 excecao(utente(10,lourenco,I,fafe)):- (I>=30,I=<40).	
 \end{Verbatim}
 
-Para o tipo não permitido, usámos o exemplo em que a morada de um utente não pode ser conhecida: 
+Para o tipo não permitido, usámos o exemplo em que a morada de um utente é desconhecida: 
 
 \begin{verbatim}
 utente(8,johnny,10,morada_desconhecido).
@@ -329,7 +329,7 @@ O pretendido neste ponto é que se implemente um mecanismo interpretador de ques
 
 O conceito utilizado foi o do \textbf{Princípio do Mundo Fechado}, ou seja, toda a informação que não exista mencionada na base de conhecimento é considerada falsa. 
 
-O interpretador dada uma questão, caso se possa concluir a veracidade da questão na base de dados a resposta será \textit{'verdadeiro'}, caso esteja presente como uma negação forte na base de dados a resposta será \textit{'falso'}; e para o cao em que não está presente na base de dados como verdadeira, nem negada fortemente terá como resposta \textit{'desconhecido'}. Desta forma conseguimos um programa em lógica estendido. 
+O interpretador dada uma questão, caso se possa concluir a veracidade da questão na base de dados a resposta será \textit{'verdadeiro'}, caso esteja presente como uma negação forte na base de dados a resposta será \textit{'falso'}; e para o caso em que não está presente na base de dados como verdadeira, nem negada fortemente terá como resposta \textit{'desconhecido'}. Desta forma conseguimos um programa em lógica estendido. 
 
 Mostramos de seguida o predicado demo: 
 \begin{verbatim}
@@ -431,7 +431,7 @@ Mostrámos de seguida o menu na figura abaixo com as diversas operações possiv
 
 \begin{figure}[<+h+>]
 	\centering
-	\includegraphics[scale=0.7]{menu.jpg}
+	\includegraphics[scale=0.8]{menu.jpg}
 	\caption{Menu da aplicação}
 \end{figure}
 

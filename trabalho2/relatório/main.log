@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  24 APR 2016 00:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.3.4)  25 APR 2016 15:15
 entering extended mode
 **main.tex
 (main.tex
@@ -1406,7 +1406,7 @@ pg> <./questao10.jpg> <./questao11.jpg> <./questao12.jpg>]
 File: menu.jpg Graphic file (type jpg)
  <use menu.jpg>
 Package pdftex.def Info: menu.jpg used on input line 434.
-(pdftex.def)             Requested size: 305.63979pt x 258.21292pt.
+(pdftex.def)             Requested size: 349.30548pt x 295.10289pt.
 
 <questao13.jpg, id=77, 168.63pt x 139.27031pt>
 File: questao13.jpg Graphic file (type jpg)
@@ -1573,31 +1573,31 @@ Cap\'{\i }tulo 4.
 ]
 Ap\^endice A.
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (135.15564pt too wide) in paragraph at lines 360--360
+Overfull \hbox (135.15564pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------Exercício 2 ------------- - - - - - - - -
  - -  -  -  -  -   -[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Base de Conhecimento do registo de eventos numa instituição 
 de saúde[] 
  []
 
 
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 360--360
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - - - - - -
  -[] 
  []
 
 
-Overfull \hbox (19.95569pt too wide) in paragraph at lines 360--360
+Overfull \hbox (19.95569pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Extensao do predicado utente(IdUten,Nome,Idade,Morada) ->{V,
 F,D}[] 
  []
@@ -1606,229 +1606,229 @@ F,D}[]
 
 
 ]
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 360--360
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Nao sabemos a morada nem nunca vamos deixar saber que se sai
 ba[] 
  []
 
 
-Overfull \hbox (12.75569pt too wide) in paragraph at lines 360--360
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 excecao(utente(ID,NO,I,R)):- utente(ID,NO,I,morada_desconhecid
 o).[] 
  []
 
 
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 360--360
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 (solucoes( (ID,NO,I,R),(utente(ID,johnny,I,R),nao(nulo(R))),S 
 ),[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (77.55566pt too wide) in paragraph at lines 360--360
+Overfull \hbox (77.55566pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Extensao do predicado servico(ID,Descricao,Instituicao,Cidad
 e) ->{V,F,D}[] 
  []
 
 [19]
-Overfull \hbox (171.15562pt too wide) in paragraph at lines 360--360
+Overfull \hbox (171.15562pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Nao sabemos se endocrinologia é prestado no hospital_Fafe ou
  no de hospital_Fafe_Novo[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (70.35567pt too wide) in paragraph at lines 360--360
+Overfull \hbox (70.35567pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Extensao do predicado consulta(Data,IDUtente,IDServico,Custo
 ) ->{V,F,D}[] 
  []
 
 
-Overfull \hbox (207.15561pt too wide) in paragraph at lines 360--360
+Overfull \hbox (207.15561pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Nunca podemos saber a data em que o utente realizou uma cons
 ulta de um determinado servico[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 excecao(consulta(D,IDU,IDS,C)):-consulta(data_desconhecida,IDU
 ,IDS,C).[] 
  []
 
 
-Overfull \hbox (19.95569pt too wide) in paragraph at lines 360--360
+Overfull \hbox (19.95569pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Nao sabemos ao certo quanto ele pegou por um determinado ser
 vico[] 
  []
 
 [20]
-Overfull \hbox (77.55566pt too wide) in paragraph at lines 360--360
+Overfull \hbox (77.55566pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Nunca podemos vir a saber que tipo de servico o utente teve 
 naquela data[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 excecao(consulta(D,ID,IDS,C)):- consulta(D,ID,servico_desconhe
 cido,C).[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (113.55565pt too wide) in paragraph at lines 360--360
+Overfull \hbox (113.55565pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Extensão do predicado que permite a insercao de conhecimento
 : Termo -> {v, F}[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (106.35565pt too wide) in paragraph at lines 360--360
+Overfull \hbox (106.35565pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Extensão do predicado que permite a remocao de conhecimento:
  Termo -> {v, F}[] 
  []
 
 
-Overfull \hbox (12.75569pt too wide) in paragraph at lines 360--360
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 (findall((ID,N,I,M),(utente(ID,N,I,M)),S),comprimento(S,Tamanh
 o),[] 
  []
 
 
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 360--360
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 (findall((ID,N,I,M),servico(ID,N,I,M),S),comprimento(S,Tamanho
 ),[] 
  []
 
 
-Overfull \hbox (12.75569pt too wide) in paragraph at lines 360--360
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 (findall((ID,N,I,M),consulta(ID,N,I,M),S),comprimento(S,Tamanh
 o),[] 
  []
 
 [21]
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (106.35565pt too wide) in paragraph at lines 360--360
+Overfull \hbox (106.35565pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Extensão do predicado que permite a remoção de conhecimento:
  Termo -> {v, F}[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 [22]
-Overfull \hbox (48.75568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (48.75568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 %--------------------------------- - - - - - - - - - -  -  -  
 -  -   -[] 
  []
 
 
-Overfull \hbox (27.15569pt too wide) in paragraph at lines 360--360
+Overfull \hbox (27.15569pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 (solucoes((ID,NO,I,M),utente(ID,NO,I,M),S),comprimento(S,N), N
 ==1).[] 
  []
 
 
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 360--360
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Nao deixa inserir o mesmo conhecimento em relacao aos servic
 os[] 
  []
 
 
-Overfull \hbox (12.75569pt too wide) in paragraph at lines 360--360
+Overfull \hbox (12.75569pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 (solucoes((ID,D,I,C),servico(ID,D,I,C),S),comprimento(S,N),N==
 1).[] 
  []
 
 
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 360--360
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 % Nao deixa inserir o mesmo conhecimento em relacao as consult
 as[] 
  []
 
 
-Overfull \hbox (63.15567pt too wide) in paragraph at lines 360--360
+Overfull \hbox (63.15567pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 (solucoes((D,IDU,IDS,C),consulta(D,IDU,IDS,C),S),comprimento(S
 ,N),N==1).[] 
  []
 
 [23]
-Overfull \hbox (41.55568pt too wide) in paragraph at lines 360--360
+Overfull \hbox (41.55568pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 -utente(ID,_,_,_) :: (nao(consulta(_,ID,S,_)),nao(utente(ID,_,
 _,_))).[] 
  []
 
 
-Overfull \hbox (55.95567pt too wide) in paragraph at lines 360--360
+Overfull \hbox (55.95567pt too wide) in paragraph at lines 361--361
 []\T1/pcr/m/n/12 -servico(ID,X,Y,Z) :: (nao(consulta(P,L,ID,K)),nao(servico(ID,
 X,Y,Z))).[] 
  []
 
 
-Overfull \hbox (178.35562pt too wide) in paragraph at lines 410--410
+Overfull \hbox (178.35562pt too wide) in paragraph at lines 411--411
 []\T1/pcr/m/n/12 System.out.println("******************************************
 ***********************");[] 
  []
 
 
-Overfull \hbox (178.35562pt too wide) in paragraph at lines 410--410
+Overfull \hbox (178.35562pt too wide) in paragraph at lines 411--411
 []\T1/pcr/m/n/12 System.out.println("***************************SRCR***********
 ***********************");[] 
  []
 
 
-Overfull \hbox (178.35562pt too wide) in paragraph at lines 410--410
+Overfull \hbox (178.35562pt too wide) in paragraph at lines 411--411
 []\T1/pcr/m/n/12 System.out.println("************************Exercício 2*******
 ***********************");[] 
  []
 
 
-Overfull \hbox (178.35562pt too wide) in paragraph at lines 410--410
+Overfull \hbox (178.35562pt too wide) in paragraph at lines 411--411
 []\T1/pcr/m/n/12 System.out.println("******************************************
 ***********************");[] 
  []
 
 
-Overfull \hbox (5.5557pt too wide) in paragraph at lines 410--410
+Overfull \hbox (5.5557pt too wide) in paragraph at lines 411--411
 []\T1/pcr/m/n/12 ". Para um data e um id ver os servicos que ele foi e o custo.
 ",[] 
  []
@@ -1837,7 +1837,7 @@ Overfull \hbox (5.5557pt too wide) in paragraph at lines 410--410
 Here is how much of TeX's memory you used:
  32984 strings out of 493698
  760401 string characters out of 3144375
- 887725 words of memory out of 3000000
+ 886727 words of memory out of 3000000
  35743 multiletter control sequences out of 15000+200000
  47949 words of font info for 59 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1848,7 +1848,7 @@ Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (29 pages, 763952 bytes).
+Output written on main.pdf (29 pages, 764195 bytes).
 PDF statistics:
  157 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
